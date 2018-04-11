@@ -15,7 +15,7 @@ public class ProyectFinal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-<<<<<<< HEAD
+//perro eso aparece con estas cositas <<<<>>>>
     }
     
 }
