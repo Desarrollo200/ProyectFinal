@@ -16,10 +16,6 @@ public class ProyectFinal {
      */
     public static void main(String[] args) {
 <<<<<<< HEAD
-       
-=======
-        holasdasdfsfdkjcjxfd
->>>>>>> c7145c76c8a78e3d8937102b047d55e4cad5b05f
     }
     
 }
