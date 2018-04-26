@@ -31,7 +31,6 @@ public class FrmAdmin extends javax.swing.JFrame {
 
     //DAOS
     daoAseguradora daoAse;
-
     genericDAO genDAO;
 
     public FrmAdmin() {
@@ -41,6 +40,7 @@ public class FrmAdmin extends javax.swing.JFrame {
         ctlAse = new ctlAseguradora();
         ctlLogin = new ctlLogin();
         ctlCDA = new ctlCDA();
+        
         //daos
         daoAse = new daoAseguradora();
         genDAO = new genericDAO();
@@ -87,15 +87,16 @@ public class FrmAdmin extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         txtCorreoAse = new javax.swing.JTextField();
         btnGuardarAse = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        btnBuscarAse = new javax.swing.JButton();
+        btnModificarAse = new javax.swing.JButton();
+        btnEliminarAse = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tableAseguradora = new javax.swing.JTable();
         jLabel15 = new javax.swing.JLabel();
         cbMuniAse = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
         txtUsuarioAse = new javax.swing.JTextField();
+        btnLimpiarAse = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -109,10 +110,10 @@ public class FrmAdmin extends javax.swing.JFrame {
         txtNombreCda = new javax.swing.JTextField();
         txtDireccionCda = new javax.swing.JTextField();
         txtCeluCda = new javax.swing.JTextField();
-        btnGuardar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnGuardarCDA = new javax.swing.JButton();
+        btnEliminarCDA = new javax.swing.JButton();
+        btnBuscarCDA = new javax.swing.JButton();
+        btnModificarCDA = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         txtCorreoCda = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -121,6 +122,7 @@ public class FrmAdmin extends javax.swing.JFrame {
         cbMunicipioCda = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
         txtUsuarioCda = new javax.swing.JTextField();
+        btnLimpiarCDA = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
 
         jTextField6.setText("jTextField6");
@@ -167,24 +169,24 @@ public class FrmAdmin extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setText("Buscar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarAse.setText("Buscar");
+        btnBuscarAse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnBuscarAseActionPerformed(evt);
             }
         });
 
-        jButton7.setText("Modificar");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btnModificarAse.setText("Modificar");
+        btnModificarAse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btnModificarAseActionPerformed(evt);
             }
         });
 
-        jButton8.setText("Eliminar");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarAse.setText("Eliminar");
+        btnEliminarAse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btnEliminarAseActionPerformed(evt);
             }
         });
 
@@ -206,6 +208,13 @@ public class FrmAdmin extends javax.swing.JFrame {
         cbMuniAse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel17.setText("Usuario:");
+
+        btnLimpiarAse.setText("Limpiar");
+        btnLimpiarAse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarAseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -256,17 +265,19 @@ public class FrmAdmin extends javax.swing.JFrame {
                         .addGap(94, 94, 94))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 739, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(139, 139, 139)
                                 .addComponent(btnGuardarAse)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton6)
+                                .addComponent(btnBuscarAse)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton7)
+                                .addComponent(btnModificarAse)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnEliminarAse)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnLimpiarAse)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -305,9 +316,10 @@ public class FrmAdmin extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardarAse)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8))
+                    .addComponent(btnBuscarAse)
+                    .addComponent(btnModificarAse)
+                    .addComponent(btnEliminarAse)
+                    .addComponent(btnLimpiarAse))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(32, Short.MAX_VALUE))
@@ -339,31 +351,31 @@ public class FrmAdmin extends javax.swing.JFrame {
             }
         });
 
-        btnGuardar.setText("Guardar");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardarCDA.setText("Guardar");
+        btnGuardarCDA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
+                btnGuardarCDAActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Eliminar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarCDA.setText("Eliminar");
+        btnEliminarCDA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnEliminarCDAActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Buscar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarCDA.setText("Buscar");
+        btnBuscarCDA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnBuscarCDAActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Modificar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnModificarCDA.setText("Modificar");
+        btnModificarCDA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnModificarCDAActionPerformed(evt);
             }
         });
 
@@ -388,6 +400,13 @@ public class FrmAdmin extends javax.swing.JFrame {
 
         jLabel18.setText("Usuario:");
 
+        btnLimpiarCDA.setText("Limpiar");
+        btnLimpiarCDA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarCDAActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -408,7 +427,7 @@ public class FrmAdmin extends javax.swing.JFrame {
                             .addComponent(txtNitCda, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtRepreCda, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNombreCda, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -440,13 +459,15 @@ public class FrmAdmin extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(145, 145, 145)
-                .addComponent(btnGuardar)
+                .addComponent(btnGuardarCDA)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
+                .addComponent(btnBuscarCDA)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
+                .addComponent(btnModificarCDA)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(btnEliminarCDA)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnLimpiarCDA)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -482,10 +503,11 @@ public class FrmAdmin extends javax.swing.JFrame {
                     .addComponent(jLabel18))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGuardar)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton2))
+                    .addComponent(btnGuardarCDA)
+                    .addComponent(btnBuscarCDA)
+                    .addComponent(btnModificarCDA)
+                    .addComponent(btnEliminarCDA)
+                    .addComponent(btnLimpiarCDA))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
@@ -521,7 +543,7 @@ public class FrmAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    private void btnGuardarCDAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCDAActionPerformed
         try {
             //variables 
             //genera numero aleatorio para añadir al usuario
@@ -556,9 +578,9 @@ public class FrmAdmin extends javax.swing.JFrame {
 
         }
 
-    }//GEN-LAST:event_btnGuardarActionPerformed
+    }//GEN-LAST:event_btnGuardarCDAActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnBuscarCDAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCDAActionPerformed
         try {
             int nit = Integer.parseInt(txtNitCda.getText());
             String[] datos = ctlCDA.SolicitudBuscar(nit);
@@ -573,9 +595,9 @@ public class FrmAdmin extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error en la busqueda de la aseguradora: " + e);
         }        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnBuscarCDAActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnEliminarCDAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCDAActionPerformed
         try {
             int nit = Integer.parseInt(txtNitCda.getText());
 
@@ -589,7 +611,7 @@ public class FrmAdmin extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error al eliminar la aseguradora: " + e);
         }        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnEliminarCDAActionPerformed
 
     private void btnGuardarAseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarAseActionPerformed
         try {
@@ -627,7 +649,7 @@ public class FrmAdmin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnGuardarAseActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnBuscarAseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAseActionPerformed
         try {
             int nit = Integer.parseInt(txtNitAse.getText());
             String[] datos = ctlAse.SolicitudBuscar(nit);
@@ -643,9 +665,9 @@ public class FrmAdmin extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error en la busqueda de la aseguradora: " + e);
         }
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnBuscarAseActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void btnEliminarAseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarAseActionPerformed
         try {
             int nit = Integer.parseInt(txtNitAse.getText());
 
@@ -660,7 +682,7 @@ public class FrmAdmin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error al eliminar la aseguradora: " + e);
         }
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_btnEliminarAseActionPerformed
 
     private void txtNitCdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNitCdaActionPerformed
         // TODO add your handling code here:
@@ -670,7 +692,7 @@ public class FrmAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFijoAseActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void btnModificarAseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarAseActionPerformed
         try {
             //variables 
 
@@ -700,13 +722,13 @@ public class FrmAdmin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error al modificar CDA: " + e);
 
         }
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_btnModificarAseActionPerformed
 
     private void txtFijoCdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFijoCdaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFijoCdaActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnModificarCDAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarCDAActionPerformed
         try {
             String usuario = txtUsuarioCda.getText();
 
@@ -734,7 +756,15 @@ public class FrmAdmin extends javax.swing.JFrame {
         }
 
 
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnModificarCDAActionPerformed
+
+    private void btnLimpiarAseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarAseActionPerformed
+       limpiarAseguradora();
+    }//GEN-LAST:event_btnLimpiarAseActionPerformed
+
+    private void btnLimpiarCDAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarCDAActionPerformed
+      
+    }//GEN-LAST:event_btnLimpiarCDAActionPerformed
 
     /**
      * @param args the command line arguments
@@ -772,16 +802,18 @@ public class FrmAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnBuscarAse;
+    private javax.swing.JButton btnBuscarCDA;
+    private javax.swing.JButton btnEliminarAse;
+    private javax.swing.JButton btnEliminarCDA;
     private javax.swing.JButton btnGuardarAse;
+    private javax.swing.JButton btnGuardarCDA;
+    private javax.swing.JButton btnLimpiarAse;
+    private javax.swing.JButton btnLimpiarCDA;
+    private javax.swing.JButton btnModificarAse;
+    private javax.swing.JButton btnModificarCDA;
     private javax.swing.JComboBox<String> cbMuniAse;
     private javax.swing.JComboBox<String> cbMunicipioCda;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
