@@ -6,7 +6,6 @@
 package DAO;
 
 import java.sql.SQLException;
-import modelo.Aseguradora;
 import modelo.Conexion;
 import modelo.Departamento;
 import modelo.Municipio;
@@ -17,38 +16,24 @@ import vista.FrmAdmin;
  *
  * @author nicolasgarcia
  */
-public class daoAseguradora extends Conexion {
-
-   Municipio municipio = new Municipio();
+public class daoCDA extends Conexion{
+   
+     Municipio municipio = new Municipio();
    Pais pais = new Pais();
    Departamento depar = new Departamento();
     //    
-    public Municipio consulta(String nombre) {
-        String consulta = "select id from poryectofinaldesarrollo.municipio where nombre ='" + nombre + "'";
-        System.out.println(consulta);
-        super.ejecutarRetorno(consulta);
-        try {
-            if (resultadoDB.next()) {
-
-                municipio.setId(resultadoDB.getInt("id"));
-
-            }
-        } catch (SQLException ex) {
-            System.out.println("Esto se tosto buscar");
-        }
-        return municipio;
-    }
+   
     
       public void listarEnComboDepartamentos(int pais_id) {
         
-          FrmAdmin.cbDeparAse.removeAllItems();
-       FrmAdmin.cbDeparAse.addItem("Seleccione un departamento");
+          FrmAdmin.cbDeparCda.removeAllItems();
+       FrmAdmin.cbDeparCda.addItem("Seleccione un departamento");
         String consulta = "Select nombre from poryectofinaldesarrollo.departamento where pais_id ='"+pais_id+"'";
         super.ejecutarRetorno(consulta);
 
         try {
             while (resultadoDB.next()) {
-             FrmAdmin.cbDeparAse.addItem(resultadoDB.getString("nombre"));
+             FrmAdmin.cbDeparCda.addItem(resultadoDB.getString("nombre"));
                 
             }
         }catch(SQLException e){
@@ -75,14 +60,14 @@ public class daoAseguradora extends Conexion {
        
        public void listarEnComboMunicipios(int departamento_id) {
         
-          FrmAdmin.cbMuniAse.removeAllItems();
-       FrmAdmin.cbMuniAse.addItem("Seleccione un municipio");
+          FrmAdmin.cbMunicipioCda.removeAllItems();
+       FrmAdmin.cbMunicipioCda.addItem("Seleccione un municipio");
         String consulta = "Select nombre from poryectofinaldesarrollo.municipio where departamento_id ='"+departamento_id+"'";
         super.ejecutarRetorno(consulta);
 
         try {
             while (resultadoDB.next()) {
-             FrmAdmin.cbMuniAse.addItem(resultadoDB.getString("nombre"));
+             FrmAdmin.cbMunicipioCda.addItem(resultadoDB.getString("nombre"));
                 
             }
         }catch(SQLException e){
@@ -106,5 +91,4 @@ public class daoAseguradora extends Conexion {
         }
         return depar;
     }
-
 }
