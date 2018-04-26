@@ -1,20 +1,14 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="las mas hp">
-            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFinal/src/proyectfinal/ProyectFinal.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/vista/FrmAdmin.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlCDA.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/CDA.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/Conexion.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/Aseguradora.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlAseguradora.java</file>
         </group>
-        <group/>
     </open-files>
 </project-private>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="las mas hp"/>
-    </open-files>
-</project-private>
->>>>>>> 6bb39cf63b786a166724f1f966d7abc836757175
