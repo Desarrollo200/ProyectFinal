@@ -177,6 +177,7 @@ public class genericDAO extends Conexion{
 
     public void cargarcb(JComboBox<String> cb, String tabla, String nombreCampo) {
         cb.removeAllItems();
+        cb.addItem("Seleccione un "+tabla);
         String consulta = "select "+nombreCampo+" from " + tabla;
         System.out.println(consulta);
         String campo = nombreCampo;
@@ -192,6 +193,8 @@ public class genericDAO extends Conexion{
 
         }
     }
+    
+    
 //    
 //    public ClsCategoria consulta(String nombreCategoria){
 //        String consulta = "select idCategoria from  ingeSoftwareMVC.categoria where nombreCategoria ='" + nombreCategoria + "'";
