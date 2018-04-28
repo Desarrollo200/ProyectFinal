@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
@@ -7,23 +6,13 @@
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFinal/src/proyectfinal/ProyectFinal.java</file>
         </group>
         <group>
+            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/controlador/ctlAseguradora.java</file>
+            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/modelo/Ciudadano.java</file>
+            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/DAO/daoAseguradora.java</file>
             <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/vista/FrmAdmin.java</file>
+            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/controlador/ctlCiudadano.java</file>
+            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/vista/FrmRegistroCiudadanos.java</file>
+            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/DAO/daoCiudadano.java</file>
         </group>
     </open-files>
 </project-private>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="las mas hp">
-            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/vista/FrmAdmin.java</file>
-            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlCDA.java</file>
-            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/CDA.java</file>
-            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/Conexion.java</file>
-            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/Aseguradora.java</file>
-            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlAseguradora.java</file>
-        </group>
-    </open-files>
-</project-private>
->>>>>>> 1a096a8071fd9357ebf250137f46b7b232899c53
