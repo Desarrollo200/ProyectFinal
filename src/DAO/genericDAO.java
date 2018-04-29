@@ -14,12 +14,21 @@ import java.util.Set;
 import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
 import modelo.Conexion;
+import modelo.Departamento;
+import modelo.Municipio;
+import modelo.Pais;
+import vista.FrmAdmin;
 
 /**
  *
  * @author nicolasgarcia
  */
 public class genericDAO extends Conexion{
+    
+     Municipio municipio = new Municipio();
+   Pais pais = new Pais();
+   Departamento depar = new Departamento();
+   
      public boolean guardar(String json, String nombreTabla) {
         System.out.println(json);
 
@@ -194,26 +203,90 @@ public class genericDAO extends Conexion{
         }
     }
     
-    
-//    
-//    public ClsCategoria consulta(String nombreCategoria){
-//        String consulta = "select idCategoria from  ingeSoftwareMVC.categoria where nombreCategoria ='" + nombreCategoria + "'";
-//        System.out.println(consulta);
-//        super.ejecutarRetorno(consulta);
-//        try {
-//            if (resultadoDB.next()) {
-//                System.out.println("entro buscar");
-//                cat.setIdCategoria(resultadoDB.getInt("idCategoria"));
-//               
-//                
-//                
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println("Esto se tosto buscar");
-//        }
-//        return cat;
-//    }
+     public Municipio consulta(String nombre) {
+        String consulta = "select id from poryectofinaldesarrollo.municipio where nombre ='" + nombre + "'";
+        System.out.println(consulta);
+        super.ejecutarRetorno(consulta);
+        try {
+            if (resultadoDB.next()) {
 
+                municipio.setId(resultadoDB.getInt("id"));
+
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto buscar");
+        }
+        return municipio;
+    }
+    
+      public void listarEnComboDepartamentos(JComboBox<String> cb, int pais_id) {
+        
+         cb.removeAllItems();
+      cb.addItem("Seleccione un departamento");
+        String consulta = "Select nombre from poryectofinaldesarrollo.departamento where pais_id ='"+pais_id+"'";
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+             FrmAdmin.cbDeparAse.addItem(resultadoDB.getString("nombre"));
+                
+            }
+        }catch(SQLException e){
+            System.out.println(e);
+            
+        }
+        
+     }
+       public Pais consultaPais(String nombre) {
+        String consulta = "select id from poryectofinaldesarrollo.pais where nombre ='" + nombre + "'";
+        System.out.println(consulta);
+        super.ejecutarRetorno(consulta);
+        try {
+            if (resultadoDB.next()) {
+
+                pais.setId(resultadoDB.getInt("id"));
+
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto buscar");
+        }
+        return pais;
+    }
+       
+       public void listarEnComboMunicipios(JComboBox<String> cb, int departamento_id) {
+        
+          cb.removeAllItems();
+       cb.addItem("Seleccione un municipio");
+        String consulta = "Select nombre from poryectofinaldesarrollo.municipio where departamento_id ='"+departamento_id+"'";
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+            cb.addItem(resultadoDB.getString("nombre"));
+                
+            }
+        }catch(SQLException e){
+            System.out.println(e);
+            
+        }
+        
+     }
+         public Departamento consultaDepar(String nombre) {
+        String consulta = "select id from poryectofinaldesarrollo.departamento where nombre ='" + nombre + "'";
+        System.out.println(consulta);
+        super.ejecutarRetorno(consulta);
+        try {
+            if (resultadoDB.next()) {
+
+                depar.setId(resultadoDB.getInt("id"));
+
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto buscar");
+        }
+        return depar;
+    }
+    
 }
 
     

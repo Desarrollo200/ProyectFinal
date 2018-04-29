@@ -5,6 +5,17 @@
  */
 package vista;
 
+import DAO.daoCiudadano;
+import DAO.genericDAO;
+import controlador.ctlCiudadano;
+import controlador.ctlLogin;
+import javax.swing.JOptionPane;
+import modelo.Departamento;
+import modelo.Genero;
+import modelo.Municipio;
+import modelo.Pais;
+import modelo.TipoSangre;
+
 /**
  *
  * @author nicolasgarcia
@@ -14,8 +25,33 @@ public class FrmRegistroCiudadanos extends javax.swing.JFrame {
     /**
      * Creates new form FrmRegistroCiudadanos
      */
+    //se instancia el objeto DAOS
+    genericDAO genDAO;
+    daoCiudadano ciuDAO;
+
+    //controladores
+    ctlCiudadano ctlCiu;
+    ctlLogin ctlLogin;
+
     public FrmRegistroCiudadanos() {
         initComponents();
+        //DAOS
+        genDAO = new genericDAO();
+        ciuDAO = new daoCiudadano();
+
+        //controladores
+        ctlCiu = new ctlCiudadano();
+        ctlLogin = new ctlLogin();
+
+        //cargas en combobox
+        genDAO.cargarcb(cbPaisNac, "pais", "nombre");
+        genDAO.cargarcb(cbPaisResi, "pais", "nombre");
+        genDAO.cargarcb(cbTipoSangre, "tipo_sangre", "nombre");
+        genDAO.cargarcb(cbGenero, "genero", "nombre");
+
+        //centra el frm a la mitad de la pantalla
+        setLocationRelativeTo(null);
+
     }
 
     /**
@@ -122,16 +158,36 @@ public class FrmRegistroCiudadanos extends javax.swing.JFrame {
         jLabel20.setText("Municipio Nacimiento:");
 
         cbPaisResi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbPaisResi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPaisResiActionPerformed(evt);
+            }
+        });
 
         cbDeparResi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbDeparResi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbDeparResiActionPerformed(evt);
+            }
+        });
 
         cbMuniResi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         cbPaisNac.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbPaisNac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPaisNacActionPerformed(evt);
+            }
+        });
 
         cbMuniNac.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         cbDeparNac.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbDeparNac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbDeparNacActionPerformed(evt);
+            }
+        });
 
         btnRegistrarse.setText("Registrarte");
         btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
@@ -196,33 +252,35 @@ public class FrmRegistroCiudadanos extends javax.swing.JFrame {
                         .addGap(116, 116, 116)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel12))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(15, 15, 15)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(13, 13, 13)
-                                .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel21)
                                     .addComponent(jLabel22))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtContraseña)
-                                    .addComponent(txtContra2))
-                                .addGap(1, 1, 1))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                                    .addComponent(txtContra2)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(62, 62, 62)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addGap(13, 13, 13)
+                                        .addComponent(txtDireccion))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel11)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jLabel12))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(18, 18, 18)
+                                                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(15, 15, 15)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(102, 102, 102)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -234,9 +292,7 @@ public class FrmRegistroCiudadanos extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel17)
                                     .addComponent(jLabel19)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(64, 64, 64)
-                                        .addComponent(jLabel14)))
+                                    .addComponent(jLabel14))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cbMuniResi, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -245,8 +301,8 @@ public class FrmRegistroCiudadanos extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtEstatura, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(66, 66, 66))
+                                .addComponent(txtEstatura, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(66, 66, 66))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,7 +380,7 @@ public class FrmRegistroCiudadanos extends javax.swing.JFrame {
                             .addComponent(jLabel9)
                             .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -361,23 +417,33 @@ public class FrmRegistroCiudadanos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
-  //variables 
-            //genera numero aleatorio para añadir al usuario
-            int numero = (int) (Math.random() * 1000) + 1;
-            //metodo que genera letras aleatorias para contraseña
-            String letras = generarLetrasAleatorias();
-        
-        
+     
+        try{
+        //variables 
+        //genera numero aleatorio para añadir al usuario
+        int numero = (int) (Math.random() * 1000) + 1;
+        //metodo que genera letras aleatorias para contraseña
+        String letras = generarLetrasAleatorias();
+
+        String municipio_nacimient = (String) cbMuniNac.getSelectedItem();
+        Municipio muni = ciuDAO.consultaMuni(municipio_nacimient);
+        String tipo_sangre = (String) cbTipoSangre.getSelectedItem();
+        TipoSangre tp = ciuDAO.consultaTipoSangre(tipo_sangre);
+        String genero = (String) cbGenero.getSelectedItem();
+        Genero gn = ciuDAO.consultaGenero(genero);
+        String municipio_residenci = (String) cbMuniResi.getSelectedItem();
+        Municipio muni2 = ciuDAO.consultaMuni(municipio_residenci);
+
         String numero_identidad = txtNumeroDoc.getText();
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
         String fecha_nacimiento = txtFechaNacimiento.getText();
-        String municipio_nacimiento = (String) cbMuniNac.getSelectedItem();
+        int municipio_nacimiento = muni.getId();
         String fecha_exp_identidad = txtFechaExpe.getText();
-        String tipo_sangre_id = (String) cbTipoSangre.getSelectedItem();
-        String genero_id = (String) cbGenero.getSelectedItem();
+        int tipo_sangre_id = tp.getId();
+        int genero_id = gn.getId();
         String estatura = txtEstatura.getText();
-        String municipio_residencia = (String) cbMuniResi.getSelectedItem();
+        int municipio_residencia = muni.getId();
         String direccion = txtDireccion.getText();
         String correo = txtCorreo.getText();
         String telefono = txtTelefono.getText();
@@ -385,12 +451,57 @@ public class FrmRegistroCiudadanos extends javax.swing.JFrame {
         String usuario = numero_identidad;
         String contra1 = txtContraseña.getText();
         String contra2 = txtContra2.getText();
-        if(contra1.equals(contra2)){
-            
+        
+        if (contra1.equals(contra2)) {
+            if (ctlLogin.SolicitudGuardar(usuario, contra2, 3)) {
+                if (ctlCiu.SolicitudGuardar(numero_identidad, nombre, apellido, fecha_nacimiento, municipio_nacimiento, fecha_exp_identidad,
+                        tipo_sangre_id, genero_id, estatura, municipio_residencia, direccion, correo, telefono, celular, usuario)) {
+                    JOptionPane.showMessageDialog(null, "Ciudadano guardado con exito.\nSu usuario es: " + usuario + " y su contraseña es: " + contra2);
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "El usuario con la identificacion: "+usuario+" ya se encuentra registrado");
+            }
+
+        
+        }else{
+             JOptionPane.showMessageDialog(null, " rectifique todos los campos e intente nuevamente");
+        }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error: "+e+" rectifique todos los campos e intente nuevamente");
         }
 
 
     }//GEN-LAST:event_btnRegistrarseActionPerformed
+
+    private void cbPaisNacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPaisNacActionPerformed
+        String nombre = (String) cbPaisNac.getSelectedItem();
+        Pais pais = ciuDAO.consultaPais(nombre);
+        int idPais = pais.getId();
+
+        ciuDAO.listarEnComboDepartamentos(cbDeparNac, idPais);
+    }//GEN-LAST:event_cbPaisNacActionPerformed
+
+    private void cbDeparNacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDeparNacActionPerformed
+        String nombre = (String) cbDeparNac.getSelectedItem();
+        Departamento depar = ciuDAO.consultaDepar(nombre);
+        int idDepar = depar.getId();
+        ciuDAO.listarEnComboMunicipios(cbMuniNac, idDepar);
+    }//GEN-LAST:event_cbDeparNacActionPerformed
+
+    private void cbPaisResiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPaisResiActionPerformed
+        String nombre = (String) cbPaisResi.getSelectedItem();
+        Pais pais = ciuDAO.consultaPais(nombre);
+        int idPais = pais.getId();
+
+        ciuDAO.listarEnComboDepartamentos(cbDeparResi, idPais);        // TODO add your handling code here:
+    }//GEN-LAST:event_cbPaisResiActionPerformed
+
+    private void cbDeparResiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDeparResiActionPerformed
+        String nombre = (String) cbDeparResi.getSelectedItem();
+        Departamento depar = ciuDAO.consultaDepar(nombre);
+        int idDepar = depar.getId();
+        ciuDAO.listarEnComboMunicipios(cbMuniResi, idDepar);        // TODO add your handling code here:
+    }//GEN-LAST:event_cbDeparResiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -435,7 +546,7 @@ public class FrmRegistroCiudadanos extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbGenero;
     private javax.swing.JComboBox<String> cbMuniNac;
     private javax.swing.JComboBox<String> cbMuniResi;
-    private javax.swing.JComboBox<String> cbPaisNac;
+    public static javax.swing.JComboBox<String> cbPaisNac;
     private javax.swing.JComboBox<String> cbPaisResi;
     private javax.swing.JComboBox<String> cbTipoSangre;
     private javax.swing.JComboBox<String> jComboBox9;
