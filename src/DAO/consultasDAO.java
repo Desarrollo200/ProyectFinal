@@ -13,6 +13,7 @@ import modelo.Conexion;
 import modelo.EstadoV;
 import modelo.Marca;
 import modelo.ModeloVehiculo;
+import modelo.Propieatario;
 import modelo.TipoCombustible;
 import modelo.TipoServicio;
 
@@ -29,6 +30,7 @@ public class consultasDAO extends Conexion{
      Color co = new Color();
      TipoCombustible  tc = new TipoCombustible();
      Marca marca = new Marca();
+     Propieatario pro = new Propieatario();
     
     
      public TipoServicio consultaTS(String nombre, String tabla) {
@@ -175,7 +177,24 @@ public class consultasDAO extends Conexion{
             System.out.println(e);
             
         }
+          }
+        
+        public Propieatario consultaPropietario(String ciudadano) {
+        String consulta = "select id from poryectofinaldesarrollo.propietario where ciudadano ='" + ciudadano + "'";
+        System.out.println(consulta);
+        super.ejecutarRetorno(consulta);
+        try {
+            if (resultadoDB.next()) {
+
+                pro.setId(resultadoDB.getInt("id"));
+
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto buscar");
+        }
+        return pro;
+    }
        
      
-}
+
 }

@@ -14,6 +14,7 @@ import modelo.Color;
 import modelo.EstadoV;
 import modelo.Marca;
 import modelo.ModeloVehiculo;
+import modelo.Propieatario;
 import modelo.TipoCombustible;
 import modelo.TipoServicio;
 
@@ -312,6 +313,8 @@ public class FrmVehiculos extends javax.swing.JFrame {
         Color co = conDAO.consultaCO(color_i, "color");
         String tipo_combustible_i = (String) cbTipoCombustible.getSelectedItem();
         TipoCombustible tc = conDAO.consultaTC(tipo_combustible_i, "tipo_combustible");
+        String propietario_i = txtPropietario.getText();
+        Propieatario pro = conDAO.consultaPropietario(propietario_i);
 
         int placa = Integer.parseInt(txtPlaca.getText());
         String licencia_transito = txtLicenciaT.getText();
@@ -325,8 +328,8 @@ public class FrmVehiculos extends javax.swing.JFrame {
         int tipo_combustible_id = tc.getId();
         String fecha_matricula = txtFechaMatricula.getText();
         String num_pasajeros = txtNumeroPasajeros.getText();
-        int numero_poliza = (int) cbNumeroPoliza.getSelectedItem();
-        int propietario_id = Integer.parseInt(txtPropietario.getText());
+       int numero_poliza = Integer.parseInt(cbNumeroPoliza.getSelectedItem()+"");
+         int propietario_id = pro.getId();
         
         if(ctlVehiculo.SolicitudGuardar(placa, licencia_transito, tipo_servicio, clase_vehiculo, estado_vehiculo, modelo_id, color_id, numero_chasis, cilindrage, tipo_combustible_id, fecha_matricula, num_pasajeros, numero_poliza, propietario_id)){
             JOptionPane.showMessageDialog(null, "Vehiculo registrado exitosamente");
