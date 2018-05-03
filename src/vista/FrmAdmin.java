@@ -59,6 +59,10 @@ public class FrmAdmin extends javax.swing.JFrame {
         //cajas de textos, combobox y demas bloqueados
         txtUsuarioAse.setEnabled(false);
         txtUsuarioCda.setEnabled(false);
+        btnModificarAse.setEnabled(false);
+        btnEliminarCDA.setEnabled(false);
+        btnModificarCDA.setEnabled(false);
+        btnEliminarAse.setEnabled(false);
 
         //listar
         listarAseguradora();

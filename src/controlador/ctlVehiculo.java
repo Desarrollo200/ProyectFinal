@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import DAO.daoVehiculo;
 import DAO.genericDAO;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -52,4 +53,8 @@ public class ctlVehiculo {
         return genDAO.listar(json, nombreTabla);
     }
     
+     public DefaultTableModel solicitudListarAll() {
+       daoVehiculo vehiculoDAO = new daoVehiculo();
+        return vehiculoDAO.listarVehiculo();  
+    }
 }
