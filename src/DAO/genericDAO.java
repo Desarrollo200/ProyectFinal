@@ -28,7 +28,6 @@ public class genericDAO extends Conexion{
      Municipio municipio = new Municipio();
    Pais pais = new Pais();
    Departamento depar = new Departamento();
-   
      public boolean guardar(String json, String nombreTabla) {
         System.out.println(json);
 
@@ -286,8 +285,8 @@ public class genericDAO extends Conexion{
         }
         return depar;
     }
-    
 }
+        
 
     
 
