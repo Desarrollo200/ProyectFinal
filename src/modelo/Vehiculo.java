@@ -44,6 +44,10 @@ public class Vehiculo {
         this.numero_poliza = numero_poliza;
         this.propietario_id = propietario_id;
     }
+    public Vehiculo( int placa, int propietario_id){
+        this.placa = placa;
+        this.propietario_id = propietario_id;
+    }
 
     public int getPlaca() {
         return placa;

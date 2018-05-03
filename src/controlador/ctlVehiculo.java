@@ -6,6 +6,7 @@
 package controlador;
 
 import DAO.genericDAO;
+import DAO.vehiculoDAO;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -50,6 +51,12 @@ public class ctlVehiculo {
         String json = convertirGson(vehiculo);
         genericDAO genDAO = new genericDAO();
         return genDAO.listar(json, nombreTabla);
+    
+    }
+    public boolean SolicitudModificar(int placa, int propietario_id) {
+     Vehiculo vehiculo = new Vehiculo(placa, propietario_id);
+        vehiculoDAO vehDAO = new vehiculoDAO();
+        return vehDAO.modificarVeh(vehiculo);
     }
     
 }

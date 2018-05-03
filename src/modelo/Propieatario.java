@@ -14,11 +14,17 @@ public class Propieatario {
     String ciudadano;
 
     public Propieatario() {
+         this.id = 0;
+        this.ciudadano = "";
     }
 
     public Propieatario(int id, String ciudadano) {
         this.id = id;
         this.ciudadano = ciudadano;
+    }
+    
+    public Propieatario(int id) {
+        this.id = id;
     }
 
     public int getId() {
