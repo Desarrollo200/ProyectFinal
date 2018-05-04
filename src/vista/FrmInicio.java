@@ -159,16 +159,16 @@ public class FrmInicio extends javax.swing.JFrame {
                 new FrmAdmin(admin).setVisible(true);
                 this.dispose();
             } 
-//            else if (cda != null) {
-//                JOptionPane.showMessageDialog(this, "Bienvenido " + concensionario.getUsuario()+ "!");
-//                new FrmCDA(cda).setVisible(true);
-//                this.dispose();
-//            } 
-//            else if (aseguradora != null) {
-//                JOptionPane.showMessageDialog(this, "Bienvenido " + aseguradora.getUsuario()+ "!");
-//                new FrmAseguradora(aseguradora).setVisible(true);
-//                this.dispose();
-//            } 
+            else if (cda != null) {
+                JOptionPane.showMessageDialog(this, "Bienvenido " + cda.getUsuario()+ "!");
+                new FrmCDA().setVisible(true);
+                this.dispose();
+            } 
+            else if (aseguradora != null) {
+                JOptionPane.showMessageDialog(this, "Bienvenido " + aseguradora.getUsuario()+ "!");
+                new FrmAseguradora().setVisible(true);
+                this.dispose();
+            } 
             else {
                 JOptionPane.showMessageDialog(this, "NickName o clave incorrecta");
             }

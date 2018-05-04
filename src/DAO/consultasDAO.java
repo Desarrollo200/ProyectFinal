@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import javax.swing.JComboBox;
 import modelo.Ciudadano;
 import modelo.Aseguradora;
+
+
 import modelo.CDA;
 
 import modelo.ClaseVehiculo;
