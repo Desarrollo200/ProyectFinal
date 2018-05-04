@@ -7,11 +7,8 @@ package DAO;
 
 import java.sql.SQLException;
 import javax.swing.JComboBox;
-<<<<<<< HEAD
 import modelo.Ciudadano;
-=======
 import modelo.Aseguradora;
->>>>>>> c66b90b4e9e840c427bcb5f4204b222f3c42ec5f
 import modelo.ClaseVehiculo;
 import modelo.Color;
 import modelo.Conexion;
@@ -29,11 +26,9 @@ import modelo.TipoServicio;
  * @author nicolasgarcia
  */
 public class consultasDAO extends Conexion{
-<<<<<<< HEAD
+
     Ciudadano ciu = new Ciudadano();
-=======
     Aseguradora ase = new Aseguradora();
->>>>>>> c66b90b4e9e840c427bcb5f4204b222f3c42ec5f
     TipoServicio ts = new TipoServicio();
      ClaseVehiculo cv = new ClaseVehiculo();
      ModeloVehiculo mv = new ModeloVehiculo();

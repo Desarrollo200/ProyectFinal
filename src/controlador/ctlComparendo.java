@@ -37,8 +37,8 @@ public class ctlComparendo {
         return objeto;
     }
 
-    public boolean SolicitudGuardar(int id, int tipo_infraccion, int municipio, String fecha_hora, int licencia_conduccion) {
-       Comparendo comparendo = new Comparendo(id, tipo_infraccion, municipio, fecha_hora, licencia_conduccion);
+    public boolean SolicitudGuardar(int id, int tipo_infraccion, int municipio, String fecha_hora, int licencia_cond_num_lic_cond) {
+       Comparendo comparendo = new Comparendo(id, tipo_infraccion, municipio, fecha_hora, licencia_cond_num_lic_cond);
         genericDAO genDAO = new genericDAO();
         String json = convertirGson(comparendo);
 

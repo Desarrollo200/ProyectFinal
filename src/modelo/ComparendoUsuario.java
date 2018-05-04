@@ -11,13 +11,13 @@ package modelo;
  */
 public class ComparendoUsuario {
     int id;
-    int usuario_numero_iden;
+    String usuario_numero_iden;
     int comparendo_id;
     
     public ComparendoUsuario() {
     }
 
-    public ComparendoUsuario(int id, int usuario_numero_iden, int comparendo_id) {
+    public ComparendoUsuario(int id, String usuario_numero_iden, int comparendo_id) {
         this.id = id;
         this.usuario_numero_iden = usuario_numero_iden;
         this.comparendo_id = comparendo_id;
@@ -31,11 +31,11 @@ public class ComparendoUsuario {
         this.id = id;
     }
 
-    public int getUsuario_numero_iden() {
+    public String getUsuario_numero_iden() {
         return usuario_numero_iden;
     }
 
-    public void setUsuario_numero_iden(int usuario_numero_iden) {
+    public void setUsuario_numero_iden(String usuario_numero_iden) {
         this.usuario_numero_iden = usuario_numero_iden;
     }
 
@@ -46,6 +46,8 @@ public class ComparendoUsuario {
     public void setComparendo_id(int comparendo_id) {
         this.comparendo_id = comparendo_id;
     }
+
+    
     
     
 }

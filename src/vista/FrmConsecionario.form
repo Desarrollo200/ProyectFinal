@@ -861,7 +861,7 @@
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="183" max="32767" attributes="0"/>
+                              <EmptySpace pref="171" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
@@ -1115,12 +1115,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel36">
               <Properties>
-                <Property name="text" type="java.lang.String" value="(a&#xf1;o-mes-dia)"/>
+                <Property name="text" type="java.lang.String" value="(a&#xf1;o - mes - dia)"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel37">
               <Properties>
-                <Property name="text" type="java.lang.String" value="(Hora-minutos)"/>
+                <Property name="text" type="java.lang.String" value="(hora : minutos)"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtLicenciaConComparendo">

@@ -32,7 +32,7 @@ public class ctlComparendoUsuario {
         return objeto;
     }
 
-    public boolean SolicitudGuardar(int id, int usuario_numero_iden, int comparendo_id) {
+    public boolean SolicitudGuardar(int id, String usuario_numero_iden, int comparendo_id) {
        ComparendoUsuario comparendoUs = new ComparendoUsuario(id, usuario_numero_iden, comparendo_id);
         genericDAO genDAO = new genericDAO();
         String json = convertirGson(comparendoUs);

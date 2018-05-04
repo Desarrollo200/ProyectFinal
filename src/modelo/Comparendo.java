@@ -14,29 +14,28 @@ public class Comparendo {
     int tipo_infraccion;
     int municipio;
     String fecha_hora;
-    int licencia_conduccion;
+    int licencia_cond_num_lic_cond;
 
-    public Comparendo(int id, int tipo_infraccion, int municipio, String fecha_hora, int licencia_conduccion) {
+    public Comparendo(int id, int tipo_infraccion, int municipio, String fecha_hora, int licencia_cond_num_lic_cond) {
         this.id = id;
         this.tipo_infraccion = tipo_infraccion;
         this.municipio = municipio;
         this.fecha_hora = fecha_hora;
-        this.licencia_conduccion = licencia_conduccion;
+        this.licencia_cond_num_lic_cond = licencia_cond_num_lic_cond;
     }
+
+
 public Comparendo() {
         this.id = 0;
         this.tipo_infraccion = 0;
         this.municipio = 0;
         this.fecha_hora = "";
-        this.licencia_conduccion = 0;
+        this.licencia_cond_num_lic_cond = 0;
 
-    }
-    public Comparendo(int id){
-         this.id = id;
-    }
+   
     
-    
-    
+}
+
     public int getId() {
         return id;
     }
@@ -69,13 +68,11 @@ public Comparendo() {
         this.fecha_hora = fecha_hora;
     }
 
-    public int getLicencia_conduccion() {
-        return licencia_conduccion;
+    public int getLicencia_cond_num_lic_cond() {
+        return licencia_cond_num_lic_cond;
     }
 
-    public void setLicencia_conduccion(int licencia_conduccion) {
-        this.licencia_conduccion = licencia_conduccion;
+    public void setLicencia_cond_num_lic_cond(int licencia_cond_num_lic_cond) {
+        this.licencia_cond_num_lic_cond = licencia_cond_num_lic_cond;
     }
-    
-    
 }

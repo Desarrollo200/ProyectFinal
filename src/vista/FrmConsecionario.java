@@ -638,9 +638,9 @@ public class FrmConsecionario extends javax.swing.JFrame {
 
         jLabel35.setText("Hora:");
 
-        jLabel36.setText("(año-mes-dia)");
+        jLabel36.setText("(año - mes - dia)");
 
-        jLabel37.setText("(Hora-minutos)");
+        jLabel37.setText("(hora : minutos)");
 
         txtLicenciaConComparendo.setToolTipText("");
 
@@ -714,7 +714,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
                             .addComponent(cbTipoInfraccion, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel34)
@@ -1001,7 +1001,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
         int licenciaConduccion = Integer.parseInt(txtLicenciaConComparendo.getText());
         
         if (ctlComp.SolicitudGuardar(numComparendo, tipoInfraccion, municipio, fechaHora, licenciaConduccion)) {
-                JOptionPane.showMessageDialog(null, "El comparendo Numero: " + numComparendo + " Fue guardada con exito");
+                JOptionPane.showMessageDialog(null, "El comparendo Numero:  " + numComparendo + "    fue guardada con exito");
                 limpiarComparendo();
                 listarComparendo();
         }else{
@@ -1013,9 +1013,9 @@ public class FrmConsecionario extends javax.swing.JFrame {
 
     private void btnAsignarCuiComparendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarCuiComparendoActionPerformed
       int numComparendo = Integer.parseInt(txtNumComparendo.getText());
-      int cedulaCiud = Integer.parseInt(txtCedulaCiuComp.getText());
+      String cedulaCiud = txtCedulaCiuComp.getText();
       
-      if (ctlCompUs.SolicitudGuardar(0, numComparendo, cedulaCiud)) {
+      if (ctlCompUs.SolicitudGuardar(0, cedulaCiud, numComparendo)) {
                 JOptionPane.showMessageDialog(null, "El comparendo Numero: " + numComparendo + " Fue asignado a el usuario con cedula: "+cedulaCiud);
                 limpiarComparendo();
         }else{
