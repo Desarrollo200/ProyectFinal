@@ -8,6 +8,9 @@ package vista;
 import DAO.consultasDAO;
 import DAO.daoCDA;
 import DAO.genericDAO;
+import controlador.ctlAseguradora;
+import controlador.ctlComparendo;
+import controlador.ctlComparendoUsuario;
 import controlador.ctlLicenciaCategoria;
 import controlador.ctlLicenciaConduccion;
 import controlador.ctlPropietario;
@@ -20,9 +23,11 @@ import modelo.EstadoV;
 import modelo.Login;
 import modelo.Marca;
 import modelo.ModeloVehiculo;
+import modelo.Municipio;
 import modelo.Pais;
 import modelo.Propieatario;
 import modelo.TipoCombustible;
+import modelo.TipoInfraccion;
 import modelo.TipoServicio;
 
 /**
@@ -42,6 +47,9 @@ public class FrmConsecionario extends javax.swing.JFrame {
     ctlLicenciaConduccion ctlConduccion;
     ctlLicenciaCategoria ctlCategoria;
     ctlPropietario ctlPro;
+    ctlComparendo ctlComp;
+    ctlComparendoUsuario ctlCompUs;
+    ctlAseguradora ctlAse;
 
     public FrmConsecionario(Login conceLog) {
         initComponents();
@@ -53,8 +61,13 @@ public class FrmConsecionario extends javax.swing.JFrame {
         ctlConduccion = new ctlLicenciaConduccion();
         ctlCategoria = new ctlLicenciaCategoria();
         ctlPro = new ctlPropietario();
+        ctlComp = new ctlComparendo();
+        ctlCompUs = new ctlComparendoUsuario();
+        ctlAse = new ctlAseguradora();
 
         //Cargas en combobox
+        genDAO.cargarcb(cbTipoInfraccion, "tipo_infraccion", "nombre");
+        genDAO.cargarcb(cbPaisComparendo, "pais", "nombre");
         genDAO.cargarcb(cbTipoServicio, "tipo_servicio", "nombre");
         genDAO.cargarcb(cbClase, "clase_vehiculo", "nombre");
         genDAO.cargarcb(cbEstado, "estado_vehiculo", "nombre");
@@ -148,7 +161,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
         txtNumComparendo = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        cbPaisTipoInfraccion = new javax.swing.JComboBox<>();
+        cbTipoInfraccion = new javax.swing.JComboBox<>();
         txtFechaComparendo = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         txtHoraComparendo = new javax.swing.JTextField();
@@ -157,6 +170,13 @@ public class FrmConsecionario extends javax.swing.JFrame {
         jLabel37 = new javax.swing.JLabel();
         txtLicenciaConComparendo = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
+        btnRegistrarComparendo = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblComparendoConse = new javax.swing.JTable();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        txtCedulaCiuComp = new javax.swing.JTextField();
+        btnAsignarCuiComparendo = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         btnCerrarSession = new javax.swing.JButton();
 
@@ -482,12 +502,13 @@ public class FrmConsecionario extends javax.swing.JFrame {
                                 .addComponent(jLabel17))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(218, 218, 218)
-                                .addComponent(jButton1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 54, Short.MAX_VALUE)))
+                                .addComponent(jButton1)))
+                        .addGap(0, 401, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -599,10 +620,10 @@ public class FrmConsecionario extends javax.swing.JFrame {
 
         jLabel32.setText("Tipo Infraccion");
 
-        cbPaisTipoInfraccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbPaisTipoInfraccion.addActionListener(new java.awt.event.ActionListener() {
+        cbTipoInfraccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbTipoInfraccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbPaisTipoInfraccionActionPerformed(evt);
+                cbTipoInfraccionActionPerformed(evt);
             }
         });
 
@@ -636,6 +657,38 @@ public class FrmConsecionario extends javax.swing.JFrame {
 
         jLabel39.setText("Licencia De Conduccion:");
 
+        btnRegistrarComparendo.setText("Registrar");
+        btnRegistrarComparendo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarComparendoActionPerformed(evt);
+            }
+        });
+
+        tblComparendoConse.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tblComparendoConse);
+
+        jLabel40.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel40.setText("Asignar Comparendo a  Ciudadano");
+
+        jLabel41.setText("Cedula:");
+
+        btnAsignarCuiComparendo.setText("Asignar");
+        btnAsignarCuiComparendo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAsignarCuiComparendoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -655,7 +708,10 @@ public class FrmConsecionario extends javax.swing.JFrame {
                             .addGap(47, 47, 47)
                             .addComponent(jLabel30)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(cbPaisComparendo, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cbPaisComparendo, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addGap(26, 26, 26)
+                            .addComponent(btnRegistrarComparendo)))
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel4Layout.createSequentialGroup()
                             .addContainerGap()
@@ -666,14 +722,8 @@ public class FrmConsecionario extends javax.swing.JFrame {
                             .addGap(53, 53, 53)
                             .addComponent(jLabel32)
                             .addGap(18, 18, 18)
-                            .addComponent(cbPaisTipoInfraccion, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(cbTipoInfraccion, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(jLabel39)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtLicenciaConComparendo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -689,7 +739,31 @@ public class FrmConsecionario extends javax.swing.JFrame {
                                 .addComponent(txtHoraComparendo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel37)))
-                        .addGap(147, 147, 147))))
+                        .addGap(147, 147, 147))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(97, 97, 97)
+                                .addComponent(jLabel39)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtLicenciaConComparendo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addComponent(jLabel41)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCedulaCiuComp, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
+                                .addComponent(btnAsignarCuiComparendo)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(333, 333, 333)
+                .addComponent(jLabel40)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(108, Short.MAX_VALUE)))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -706,10 +780,17 @@ public class FrmConsecionario extends javax.swing.JFrame {
                             .addComponent(txtFechaComparendo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel36)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel40)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel41)
+                            .addComponent(txtCedulaCiuComp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAsignarCuiComparendo))
+                        .addGap(45, 45, 45)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel32)
-                            .addComponent(cbPaisTipoInfraccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(cbTipoInfraccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -734,7 +815,14 @@ public class FrmConsecionario extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbMunicipioComparendo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28))
-                .addContainerGap(589, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnRegistrarComparendo)
+                .addContainerGap(547, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(268, 268, 268)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(297, Short.MAX_VALUE)))
         );
 
         jTabbedPane2.addTab("Comparendo", jPanel4);
@@ -907,16 +995,16 @@ public class FrmConsecionario extends javax.swing.JFrame {
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al listar municipios");
-        }        // TODO add your handling code here:
+        }        
     }//GEN-LAST:event_cbDeparComparendoActionPerformed
 
     private void txtNumComparendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumComparendoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNumComparendoActionPerformed
 
-    private void cbPaisTipoInfraccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPaisTipoInfraccionActionPerformed
+    private void cbTipoInfraccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoInfraccionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbPaisTipoInfraccionActionPerformed
+    }//GEN-LAST:event_cbTipoInfraccionActionPerformed
 
     private void txtFechaComparendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaComparendoActionPerformed
         // TODO add your handling code here:
@@ -930,9 +1018,38 @@ public class FrmConsecionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLicenciaConComparendoActionPerformed
 
+    private void btnRegistrarComparendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarComparendoActionPerformed
+        int numComparendo = Integer.parseInt(txtNumComparendo.getText());
+        String tipoInfr = (String) cbTipoInfraccion.getSelectedItem();
+        TipoInfraccion tipoInfracci = ctlComp.consultaTipoInfrac(tipoInfr);
+        int tipoInfraccion = tipoInfracci.getId();
+        String muni = (String)cbMunicipioComparendo.getSelectedItem();
+        Municipio municipi = ctlComp.consultaMuni(muni);
+        int municipio = municipi.getId();
+        String fechaHora = txtRestricciones.getText();
+        int licenciaConduccion = Integer.parseInt(txtLicenciaConComparendo.getText());
+        
+        if (ctlComp.SolicitudGuardar(numComparendo, tipoInfraccion, municipio, fechaHora, licenciaConduccion)) {
+                JOptionPane.showMessageDialog(null, "El comparendo Numero: " + numComparendo + " Fue guardada con exito");
+        }
+
+    }//GEN-LAST:event_btnRegistrarComparendoActionPerformed
+
+    private void btnAsignarCuiComparendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarCuiComparendoActionPerformed
+      int numComparendo = Integer.parseInt(txtNumComparendo.getText());
+      int cedulaCiud = Integer.parseInt(txtCedulaCiuComp.getText());
+      
+      if (ctlCompUs.SolicitudGuardar(0, numComparendo, cedulaCiud)) {
+                JOptionPane.showMessageDialog(null, "El comparendo Numero: " + numComparendo + " Fue asignado a el usuario con cedula: "+cedulaCiud);
+        }
+      
+    }//GEN-LAST:event_btnAsignarCuiComparendoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAsignarCuiComparendo;
     private javax.swing.JButton btnCerrarSession;
+    private javax.swing.JButton btnRegistrarComparendo;
     private javax.swing.JComboBox<String> cbCategoria;
     private javax.swing.JComboBox<String> cbClase;
     private javax.swing.JComboBox<String> cbColor;
@@ -943,8 +1060,8 @@ public class FrmConsecionario extends javax.swing.JFrame {
     public static javax.swing.JComboBox<String> cbMunicipioComparendo;
     private javax.swing.JComboBox<String> cbNumeroPoliza;
     public static javax.swing.JComboBox<String> cbPaisComparendo;
-    public static javax.swing.JComboBox<String> cbPaisTipoInfraccion;
     private javax.swing.JComboBox<String> cbTipoCombustible;
+    public static javax.swing.JComboBox<String> cbTipoInfraccion;
     private javax.swing.JComboBox<String> cbTipoServicio;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -983,6 +1100,8 @@ public class FrmConsecionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -994,9 +1113,12 @@ public class FrmConsecionario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable tblComparendoConse;
+    private javax.swing.JTextField txtCedulaCiuComp;
     private javax.swing.JTextField txtCedulaTraspaso;
     private javax.swing.JTextField txtCilindraje;
     private javax.swing.JTextField txtFechaComparendo;
