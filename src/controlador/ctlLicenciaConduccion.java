@@ -13,7 +13,6 @@ import javax.swing.table.DefaultTableModel;
 import modelo.Conexion;
 import modelo.LicenciaConduccion;
 
-
 /**
  *
  * @author nicolasgarcia
@@ -40,7 +39,7 @@ public class ctlLicenciaConduccion {
         return genDAO.guardar(json, nombreTabla);
     }
     
-    public DefaultTableModel SolicitudListar1() {
+    public DefaultTableModel SolicitudListar() {
           LicenciaConduccion licCon = new LicenciaConduccion();
         String json = convertirGson(licCon);
         genericDAO genDAO = new genericDAO();

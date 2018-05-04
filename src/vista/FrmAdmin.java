@@ -903,7 +903,7 @@ public class FrmAdmin extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al listar departamentos");
         }
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_cbPaisCdaActionPerformed
 
     private void cbDeparCdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDeparCdaActionPerformed
