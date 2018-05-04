@@ -982,13 +982,18 @@ public class FrmConsecionario extends javax.swing.JFrame {
         String muni = (String)cbMunicipioComparendo.getSelectedItem();
         Municipio municipi = ctlComp.consultaMuni(muni);
         int municipio = municipi.getId();
-        String fechaHora = txtRestricciones.getText();
+        String fecha = txtFechaComparendo.getText();
+        String Hora=txtHoraComparendo.getText();
+        String fechaHora = fecha+" a las "+Hora;
         int licenciaConduccion = Integer.parseInt(txtLicenciaConComparendo.getText());
         
         if (ctlComp.SolicitudGuardar(numComparendo, tipoInfraccion, municipio, fechaHora, licenciaConduccion)) {
                 JOptionPane.showMessageDialog(null, "El comparendo Numero: " + numComparendo + " Fue guardada con exito");
+                limpiarComparendo();
+                listarComparendo();
         }else{
             JOptionPane.showMessageDialog(null, "Error al intentar guaradar el comparendo");
+            limpiarComparendo();
         }
 
     }//GEN-LAST:event_btnRegistrarComparendoActionPerformed
@@ -999,6 +1004,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
       
       if (ctlCompUs.SolicitudGuardar(0, numComparendo, cedulaCiud)) {
                 JOptionPane.showMessageDialog(null, "El comparendo Numero: " + numComparendo + " Fue asignado a el usuario con cedula: "+cedulaCiud);
+                limpiarComparendo();
         }else{
           JOptionPane.showMessageDialog(null, "Error al asignar el comparendo");
       }
@@ -1099,7 +1105,20 @@ public class FrmConsecionario extends javax.swing.JFrame {
     private javax.swing.JTextField txtVehiculoTraspaso;
     // End of variables declaration//GEN-END:variables
 
+
+    //metodos para listar tabla
+
     private void listarComparendo() {
         tblComparendoConse.setModel(ctlComp.solicitudListar());
          }
+    
+    //metodos para limpiar Campos
+
+    private void limpiarComparendo() {
+        txtCedulaCiuComp.setText("");
+        txtLicenciaConComparendo.setText("");
+        txtCedulaCiuComp.setText("");
+        txtFechaComparendo.setText("");
+        txtHoraComparendo.setText("");;
+    }
 }

@@ -43,7 +43,7 @@ public class daoComparendo extends Conexion {
     
     
     public Municipio consultaMuni(String nombre) {
-        String consulta = "select id from poryectofinaldesarrollo.municipio where nombre ='" + nombre + "'";
+        String consulta = "select id from municipio where nombre ='" + nombre + "'";
         System.out.println(consulta);
         super.ejecutarRetorno(consulta);
         try {
@@ -62,7 +62,7 @@ public class daoComparendo extends Conexion {
         
           FrmAdmin.cbDeparAse.removeAllItems();
        FrmAdmin.cbDeparAse.addItem("Seleccione un departamento");
-        String consulta = "Select nombre from poryectofinaldesarrollo.departamento where pais_id ='"+pais_id+"'";
+        String consulta = "Select nombre from departamento where pais_id ='"+pais_id+"'";
         super.ejecutarRetorno(consulta);
 
         try {
@@ -77,7 +77,7 @@ public class daoComparendo extends Conexion {
         
      }
        public Pais consultaPais(String nombre) {
-        String consulta = "select id from poryectofinaldesarrollo.pais where nombre ='" + nombre + "'";
+        String consulta = "select id from pais where nombre ='" + nombre + "'";
         System.out.println(consulta);
         super.ejecutarRetorno(consulta);
         try {
@@ -96,7 +96,7 @@ public class daoComparendo extends Conexion {
         
           FrmAdmin.cbMuniAse.removeAllItems();
        FrmAdmin.cbMuniAse.addItem("Seleccione un municipio");
-        String consulta = "Select nombre from poryectofinaldesarrollo.municipio where departamento_id ='"+departamento_id+"'";
+        String consulta = "Select nombre from municipio where departamento_id ='"+departamento_id+"'";
         super.ejecutarRetorno(consulta);
 
         try {
@@ -111,7 +111,7 @@ public class daoComparendo extends Conexion {
         
      }
          public Departamento consultaDepar(String nombre) {
-        String consulta = "select id from poryectofinaldesarrollo.departamento where nombre ='" + nombre + "'";
+        String consulta = "select id from departamento where nombre ='" + nombre + "'";
         System.out.println(consulta);
         super.ejecutarRetorno(consulta);
         try {
