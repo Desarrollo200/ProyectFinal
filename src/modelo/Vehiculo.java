@@ -10,7 +10,7 @@ package modelo;
  * @author nicolasgarcia
  */
 public class Vehiculo {
-    int placa;
+    String placa;
     String licencia_transito;
     int tipo_servicio;
     int clase_vehiculo;
@@ -28,7 +28,7 @@ public class Vehiculo {
     public Vehiculo() {
     }
 
-    public Vehiculo(int placa, String licencia_transito, int tipo_servicio, int clase_vehiculo, int estado_vehiculo, int modelo_id, int color_id, String numero_chasis, String cilindrage, int tipo_combustible_id, String fecha_matricula, String num_pasajeros, int numero_poliza, int propietario_id) {
+    public Vehiculo(String placa, String licencia_transito, int tipo_servicio, int clase_vehiculo, int estado_vehiculo, int modelo_id, int color_id, String numero_chasis, String cilindrage, int tipo_combustible_id, String fecha_matricula, String num_pasajeros, int numero_poliza, int propietario_id) {
         this.placa = placa;
         this.licencia_transito = licencia_transito;
         this.tipo_servicio = tipo_servicio;
@@ -44,16 +44,16 @@ public class Vehiculo {
         this.numero_poliza = numero_poliza;
         this.propietario_id = propietario_id;
     }
-    public Vehiculo( int placa, int propietario_id){
+    public Vehiculo( String placa, int propietario_id){
         this.placa = placa;
         this.propietario_id = propietario_id;
     }
 
-    public int getPlaca() {
+    public String getPlaca() {
         return placa;
     }
 
-    public void setPlaca(int placa) {
+    public void setPlaca(String placa) {
         this.placa = placa;
     }
 
@@ -160,8 +160,8 @@ public class Vehiculo {
     public void setPropietario_id(int propietario_id) {
         this.propietario_id = propietario_id;
     }
-
-   
     
+    
+  
     
 }

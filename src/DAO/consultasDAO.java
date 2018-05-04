@@ -8,6 +8,7 @@ package DAO;
 import java.sql.SQLException;
 import javax.swing.JComboBox;
 import modelo.Aseguradora;
+import modelo.CDA;
 import modelo.ClaseVehiculo;
 import modelo.Color;
 import modelo.Conexion;
@@ -19,6 +20,7 @@ import modelo.Propietario2;
 import modelo.TipoCombustible;
 import modelo.TipoSeguro;
 import modelo.TipoServicio;
+import vista.FrmCDA;
 
 /**
  *
@@ -36,6 +38,7 @@ public class consultasDAO extends Conexion{
      Propieatario pro = new Propieatario();
      Propietario2 pro2 = new Propietario2();
      TipoSeguro tipoSeguro = new TipoSeguro();
+     CDA cda = new CDA();
     
     
      public TipoServicio consultaTS(String nombre, String tabla) {
@@ -243,6 +246,21 @@ public class consultasDAO extends Conexion{
             System.out.println("Esto se tosto buscar");
         }
         return tipoSeguro;
+    }
+        public CDA consultaNitCda(String nombre, String tabla) {
+        String consulta = "select nit from poryectofinaldesarrollo."+tabla+" where usuario ='" + nombre + "'";
+        System.out.println(consulta);
+        super.ejecutarRetorno(consulta);
+        try {
+            if (resultadoDB.next()) {
+
+                cda.setNit(resultadoDB.getInt("id"));
+
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto buscar");
+        }
+        return cda;
     }
        
        

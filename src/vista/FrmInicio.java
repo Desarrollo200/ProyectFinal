@@ -225,6 +225,6 @@ public class FrmInicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField tfClave;
-    private javax.swing.JTextField tfUsuario;
+    public static javax.swing.JTextField tfUsuario;
     // End of variables declaration//GEN-END:variables
 }
