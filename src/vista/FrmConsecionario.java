@@ -6,7 +6,9 @@
 package vista;
 
 import DAO.consultasDAO;
+import DAO.daoAseguradora;
 import DAO.daoCDA;
+import DAO.daoLicencia;
 import DAO.genericDAO;
 import controlador.ctlAseguradora;
 import controlador.ctlComparendo;
@@ -42,9 +44,11 @@ public class FrmConsecionario extends javax.swing.JFrame {
     genericDAO genDAO;
     consultasDAO conDAO;
     daoCDA cdaDAO;
+    daoAseguradora daoAse;
+    
 
     ctlVehiculo ctlVehiculo;
-    ctlLicenciaConduccion ctlConduccion;
+    ctlLicenciaConduccion ctlLicencia;
     ctlLicenciaCategoria ctlCategoria;
     ctlPropietario ctlPro;
     ctlComparendo ctlComp;
@@ -56,14 +60,16 @@ public class FrmConsecionario extends javax.swing.JFrame {
         genDAO = new genericDAO();
         conDAO = new consultasDAO();
         cdaDAO = new daoCDA();
+        daoAse = new daoAseguradora();
 
         ctlVehiculo = new ctlVehiculo();
-        ctlConduccion = new ctlLicenciaConduccion();
+        ctlLicencia = new ctlLicenciaConduccion();
         ctlCategoria = new ctlLicenciaCategoria();
         ctlPro = new ctlPropietario();
         ctlComp = new ctlComparendo();
         ctlCompUs = new ctlComparendoUsuario();
         ctlAse = new ctlAseguradora();
+        
 
         //Cargas en combobox
         genDAO.cargarcb(cbTipoInfraccion, "tipo_infraccion", "nombre");
@@ -80,6 +86,8 @@ public class FrmConsecionario extends javax.swing.JFrame {
         
         //cargar en lista
         listarComparendo();
+        listarVehiculos();
+        listarLicencias();
 
     }
 
@@ -110,7 +118,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         cbCategoria = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblLicenciaConse = new javax.swing.JTable();
         jLabel38 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
@@ -152,7 +160,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
         txtFechaMatricula = new javax.swing.JTextField();
         txtNumeroPasajeros = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblVehiculoConse = new javax.swing.JTable();
         jLabel33 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         cbPaisComparendo = new javax.swing.JComboBox<>();
@@ -216,7 +224,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
 
         cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblLicenciaConse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -227,7 +235,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tblLicenciaConse);
 
         jLabel38.setText("(año-mes-dia)");
 
@@ -427,7 +435,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
 
         jLabel8.setText("Numero-chasis:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblVehiculoConse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -438,7 +446,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblVehiculoConse);
 
         jLabel33.setText("(año-mes-dia)");
 
@@ -606,6 +614,11 @@ public class FrmConsecionario extends javax.swing.JFrame {
         });
 
         cbMunicipioComparendo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbMunicipioComparendo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbMunicipioComparendoActionPerformed(evt);
+            }
+        });
 
         jLabel28.setText("Municipio:");
 
@@ -903,7 +916,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
         String numero_identidad_ciudadano = txtNumeroCiudadano.getText();
         String categoria = (String) cbCategoria.getSelectedItem();
 
-        if (ctlConduccion.SolicitudGuardar(num_licencia_cond, fecha_expedicion, restriccion_conductor, organismo_expedidor, numero_identidad_ciudadano)) {
+        if (ctlLicencia.SolicitudGuardar(num_licencia_cond, fecha_expedicion, restriccion_conductor, organismo_expedidor, numero_identidad_ciudadano)) {
             if (ctlCategoria.SolicitudGuardar(0, num_licencia_cond, categoria)) {
                 JOptionPane.showMessageDialog(null, "La licencia de conduccion del ciudadano con identificacion: " + numero_identidad_ciudadano + " Fue guardada con exito");
             }
@@ -948,12 +961,12 @@ public class FrmConsecionario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCerrarSessionActionPerformed
 
     private void cbPaisComparendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPaisComparendoActionPerformed
-        try {
+          try {
             String nombre_pais = (String) cbPaisComparendo.getSelectedItem();
-            Pais pais = cdaDAO.consultaPais(nombre_pais);
+            Pais pais = daoAse.consultaPais(nombre_pais);
             int idPais = pais.getId();
 
-            cdaDAO.listarEnComboDepartamentos(idPais);
+            daoAse.listarEnComboDepartamentosCon(idPais);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al listar departamentos");
@@ -964,10 +977,10 @@ public class FrmConsecionario extends javax.swing.JFrame {
     private void cbDeparComparendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDeparComparendoActionPerformed
         try {
             String nombre_depar = (String) cbDeparComparendo.getSelectedItem();
-            Departamento depar = cdaDAO.consultaDepar(nombre_depar);
+            Departamento depar = daoAse.consultaDepar(nombre_depar);
             int idDepar = depar.getId();
 
-            cdaDAO.listarEnComboMunicipios(idDepar);
+            daoAse.listarEnComboMunicipiosCon(idDepar);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al listar municipios");
@@ -1010,6 +1023,10 @@ public class FrmConsecionario extends javax.swing.JFrame {
       }
       
     }//GEN-LAST:event_btnAsignarCuiComparendoActionPerformed
+
+    private void cbMunicipioComparendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMunicipioComparendoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbMunicipioComparendoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1081,9 +1098,9 @@ public class FrmConsecionario extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable tblComparendoConse;
+    private javax.swing.JTable tblLicenciaConse;
+    private javax.swing.JTable tblVehiculoConse;
     private javax.swing.JTextField txtCedulaCiuComp;
     private javax.swing.JTextField txtCedulaTraspaso;
     private javax.swing.JTextField txtCilindraje;
@@ -1110,6 +1127,12 @@ public class FrmConsecionario extends javax.swing.JFrame {
 
     private void listarComparendo() {
         tblComparendoConse.setModel(ctlComp.solicitudListar());
+         }
+    private void listarVehiculos() {
+        tblVehiculoConse.setModel(ctlVehiculo.solicitudListarAll());
+         }
+    private void listarLicencias() {
+        tblLicenciaConse.setModel(ctlLicencia.SolicitudListar());
          }
     
     //metodos para limpiar Campos

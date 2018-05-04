@@ -63,4 +63,9 @@ public class ctlVehiculo {
        daoVehiculo vehiculoDAO = new daoVehiculo();
         return vehiculoDAO.listarVehiculo();  
     }
+     
+     public DefaultTableModel solicitudListarDeCiudadano(String cedula) {
+       daoVehiculo vehiculoDAO = new daoVehiculo();
+        return vehiculoDAO.listarVehiculoCiudadano(cedula);  
+    }
 }

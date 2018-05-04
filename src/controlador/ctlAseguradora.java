@@ -57,7 +57,6 @@ public class ctlAseguradora {
         return genDAO.buscar(json, nombreTabla);
     }
       public boolean solicitudEliminar(int nit) {
-
          Aseguradora aseguradora = new Aseguradora(nit);
         String json = convertirGson(aseguradora);
         genericDAO genDAO = new genericDAO();
@@ -69,13 +68,12 @@ public class ctlAseguradora {
        Aseguradora aseguradora = new Aseguradora(nit, representante_legal, nombre, direccion, telefono, celular, correo, usuario, municipio);
         genericDAO genDAO = new genericDAO();
         String json = convertirGson(aseguradora);
-
         return genDAO.modificar(json, nombreTabla, comparacion);
     }
+    
     public Municipio consulta (String nombre){
         daoAseguradora daoAse = new daoAseguradora();
           return daoAse.consulta(nombre);
-        
     }
 }
     

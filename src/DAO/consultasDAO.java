@@ -7,8 +7,15 @@ package DAO;
 
 import java.sql.SQLException;
 import javax.swing.JComboBox;
+<<<<<<< HEAD
+import modelo.Ciudadano;
+=======
 import modelo.Aseguradora;
+<<<<<<< HEAD
 import modelo.CDA;
+=======
+>>>>>>> c66b90b4e9e840c427bcb5f4204b222f3c42ec5f
+>>>>>>> 945b4d29dedba73c5bc7af6872e37c3d6fef34f1
 import modelo.ClaseVehiculo;
 import modelo.Color;
 import modelo.Conexion;
@@ -27,7 +34,11 @@ import vista.FrmCDA;
  * @author nicolasgarcia
  */
 public class consultasDAO extends Conexion{
+<<<<<<< HEAD
+    Ciudadano ciu = new Ciudadano();
+=======
     Aseguradora ase = new Aseguradora();
+>>>>>>> c66b90b4e9e840c427bcb5f4204b222f3c42ec5f
     TipoServicio ts = new TipoServicio();
      ClaseVehiculo cv = new ClaseVehiculo();
      ModeloVehiculo mv = new ModeloVehiculo();
@@ -264,6 +275,18 @@ public class consultasDAO extends Conexion{
     }
        
        
-     
+     public Ciudadano consultaCeduCiuPorUs(String usuario) {
+        String consulta = "select c.numero_identidad from ciudadano c join login l on c.usuario='" + usuario + "'";
+        System.out.println(consulta);
+        super.ejecutarRetorno(consulta);
+        try {
+            if (resultadoDB.next()) {
+                ciu.setNumero_identidad(resultadoDB.getString("c.numero_identidad"));
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto buscar");
+        }
+        return ciu;
+    }
 
 }

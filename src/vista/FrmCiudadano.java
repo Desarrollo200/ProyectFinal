@@ -5,9 +5,12 @@
  */
 package vista;
 
+import DAO.consultasDAO;
 import controlador.ctlComparendo;
 import controlador.ctlLicenciaConduccion;
 import controlador.ctlVehiculo;
+import javax.swing.JOptionPane;
+import modelo.Ciudadano;
 import modelo.Login;
 
 /**
@@ -19,21 +22,28 @@ public class FrmCiudadano extends javax.swing.JFrame {
     /**
      * Creates new form FrmCiudadano
      */
-    
+    consultasDAO conDAO;
     
     ctlComparendo ctlComp;
     ctlVehiculo ctlVehi;
     ctlLicenciaConduccion ctlLice;
     
-    public FrmCiudadano(Login ciudadanoLog) {
+    public FrmCiudadano(String user) {
         initComponents();
+        txtC.setText(FrmInicio.tfUsuario.getText());
+        txtC.setEnabled(false);
+        
+        conDAO =new consultasDAO();
         ctlVehi = new ctlVehiculo();
         ctlComp = new ctlComparendo();
         ctlLice = new ctlLicenciaConduccion();
         listarVehiculo();
         listarComparendo();
         listarLicencia();
+   
     }
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -56,6 +66,7 @@ public class FrmCiudadano extends javax.swing.JFrame {
         tblLicenciaCiudadano = new javax.swing.JTable();
         jLabel19 = new javax.swing.JLabel();
         btnCerrarSession = new javax.swing.JButton();
+        txtC = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -194,7 +205,9 @@ public class FrmCiudadano extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(220, 220, 220)
+                .addContainerGap()
+                .addComponent(txtC, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91)
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCerrarSession, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -209,7 +222,8 @@ public class FrmCiudadano extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCerrarSession))
+                    .addComponent(btnCerrarSession)
+                    .addComponent(txtC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(34, Short.MAX_VALUE))
@@ -223,16 +237,23 @@ public class FrmCiudadano extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCerrarSessionActionPerformed
 
+    
     private void listarVehiculo() {
-        tblVehiculoCiudadano.setModel(ctlVehi.solicitudListarAll());
+        String ciudadano = txtC.getText();
+        Ciudadano user= conDAO.consultaCeduCiuPorUs(ciudadano);
+        tblVehiculoCiudadano.setModel(ctlVehi.solicitudListarDeCiudadano(user.getNumero_identidad()));
     }
     
     private void listarComparendo() {
-        tblComparendoCiudadano.setModel(ctlComp.solicitudListar());
+        String ciudadano = txtC.getText();
+        Ciudadano user= conDAO.consultaCeduCiuPorUs(ciudadano);
+        tblComparendoCiudadano.setModel(ctlComp.solicitudListarDeCiudadano(user.getNumero_identidad()));
     }
     
      private void listarLicencia() {
-        tblLicenciaCiudadano.setModel(ctlLice.SolicitudListar());
+        String ciudadano = txtC.getText();
+        Ciudadano user= conDAO.consultaCeduCiuPorUs(ciudadano);
+        tblLicenciaCiudadano.setModel(ctlLice.SolicitudListarDeCiudadano(user.getNumero_identidad()));
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -248,6 +269,7 @@ public class FrmCiudadano extends javax.swing.JFrame {
     private javax.swing.JTable tblComparendoCiudadano;
     private javax.swing.JTable tblLicenciaCiudadano;
     private javax.swing.JTable tblVehiculoCiudadano;
+    private javax.swing.JTextField txtC;
     // End of variables declaration//GEN-END:variables
 
     

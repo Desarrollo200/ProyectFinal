@@ -5,6 +5,8 @@
  */
 package controlador;
 
+import DAO.daoComparendo;
+import DAO.daoLicencia;
 import DAO.genericDAO;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -40,10 +42,13 @@ public class ctlLicenciaConduccion {
     }
     
     public DefaultTableModel SolicitudListar() {
-          LicenciaConduccion licCon = new LicenciaConduccion();
-        String json = convertirGson(licCon);
-        genericDAO genDAO = new genericDAO();
-        return genDAO.listar(json, nombreTabla);
+         daoLicencia licDAO = new daoLicencia();
+        return licDAO.listarLicencias();  
+    }
+    
+    public DefaultTableModel SolicitudListarDeCiudadano(String cedula) {
+          daoLicencia licDAO = new daoLicencia();
+        return licDAO.listarLicenciasDeCiudadano(cedula);  
     }
     
 }
