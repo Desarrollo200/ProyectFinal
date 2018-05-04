@@ -5,17 +5,24 @@
  */
 package vista;
 
+import controlador.ctlLogin;
+import javax.swing.JOptionPane;
+import modelo.Login;
+
 /**
  *
  * @author XgioserX
  */
 public class FrmInicio extends javax.swing.JFrame {
 
+    
+    ctlLogin ctlLog;
     /**
      * Creates new form FrmInicio
      */
     public FrmInicio() {
         initComponents();
+        ctlLog = new ctlLogin();
     }
 
     /**
@@ -39,11 +46,6 @@ public class FrmInicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         tfUsuario.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
-        tfUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfUsuarioActionPerformed(evt);
-            }
-        });
 
         tfClave.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
 
@@ -58,9 +60,19 @@ public class FrmInicio extends javax.swing.JFrame {
 
         bIniciar.setFont(new java.awt.Font("Microsoft JhengHei Light", 1, 14)); // NOI18N
         bIniciar.setText("Iniciar Session");
+        bIniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bIniciarActionPerformed(evt);
+            }
+        });
 
         bCrearUsuario.setFont(new java.awt.Font("Microsoft JhengHei Light", 1, 14)); // NOI18N
         bCrearUsuario.setText("Crear Usuario");
+        bCrearUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCrearUsuarioActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 24)); // NOI18N
         jLabel4.setText("Departamental");
@@ -120,9 +132,55 @@ public class FrmInicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfUsuarioActionPerformed
+    private void bIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIniciarActionPerformed
+         try {
+            String nickname = tfUsuario.getText();
+            String clave = tfClave.getText();
+
+            Login ciudadano = ctlLog.SolicitudIniciarSesionCiudadano(nickname, clave);
+            Login cda = ctlLog.SolicitudIniciarSesionCDA(nickname, clave);
+            Login admin = ctlLog.SolicitudIniciarSesionAdmin(nickname, clave);
+            Login aseguradora = ctlLog.SolicitudIniciarSesionAseguradora(nickname, clave);
+            Login concensionario = ctlLog.SolicitudIniciarSesionConsencionario(nickname, clave);
+
+            if (ciudadano != null) {
+                JOptionPane.showMessageDialog(this, "Bienvenido " + ciudadano.getUsuario() + "!");
+                new FrmCiudadano(ciudadano).setVisible(true);
+                this.dispose();
+            }
+            else if (concensionario != null) {
+                JOptionPane.showMessageDialog(this, "Bienvenido " + concensionario.getUsuario()+ "!");
+                new FrmConsecionario(concensionario).setVisible(true);
+                this.dispose();
+            } 
+            else if (admin != null) {
+                JOptionPane.showMessageDialog(this, "Bienvenido " + admin.getUsuario()+ "!");
+                new FrmAdmin(admin).setVisible(true);
+                this.dispose();
+            } 
+//            else if (cda != null) {
+//                JOptionPane.showMessageDialog(this, "Bienvenido " + concensionario.getUsuario()+ "!");
+//                new FrmCDA(cda).setVisible(true);
+//                this.dispose();
+//            } 
+//            else if (aseguradora != null) {
+//                JOptionPane.showMessageDialog(this, "Bienvenido " + aseguradora.getUsuario()+ "!");
+//                new FrmAseguradora(aseguradora).setVisible(true);
+//                this.dispose();
+//            } 
+            else {
+                JOptionPane.showMessageDialog(this, "NickName o clave incorrecta");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ha ocurrido un fallo");
+        }
+
+    }//GEN-LAST:event_bIniciarActionPerformed
+
+    private void bCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearUsuarioActionPerformed
+        new FrmRegistroCiudadanos().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_bCrearUsuarioActionPerformed
 
     /**
      * @param args the command line arguments

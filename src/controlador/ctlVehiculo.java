@@ -12,7 +12,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import javax.swing.table.DefaultTableModel;
-import modelo.Aseguradora;
 import modelo.Conexion;
 import modelo.Vehiculo;
 

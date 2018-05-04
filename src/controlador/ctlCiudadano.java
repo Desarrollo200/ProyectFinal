@@ -41,6 +41,6 @@ public class ctlCiudadano {
         return genDAO.guardar(json, nombreTabla);
     }
     
-    
-    
+  
+
 }

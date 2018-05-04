@@ -285,6 +285,28 @@ public class genericDAO extends Conexion{
         }
         return depar;
     }
+         
+         
+         public ArrayList<String> iniciarSesion(String objeto, String tabla, String variable1, String variable2, String nickname, String clave) {
+        JsonParser parser = new JsonParser();
+        JsonObject jobject = parser.parse(objeto).getAsJsonObject();
+        Set<String> keys = jobject.keySet();
+
+        ArrayList<String> listCampos = new ArrayList(keys);
+        String consulta = "select * from " + tabla + " where " + variable1 + "='" + nickname + "' and " + variable2 + "='" + clave + "';";
+        super.ejecutarRetorno(consulta);
+        ArrayList<String> dao = new ArrayList<>();
+        try {
+            if (resultadoDB.next()) {
+                for (int i = 0; i < listCampos.size(); i++) {
+                    dao.add(resultadoDB.getString(listCampos.get(i)));
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println("Se prendio esta mier**");
+        }
+        return dao;
+    }
 }
         
 

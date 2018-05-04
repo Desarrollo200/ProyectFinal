@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import modelo.ClaseVehiculo;
 import modelo.Color;
 import modelo.EstadoV;
+import modelo.Login;
 import modelo.Marca;
 import modelo.ModeloVehiculo;
 import modelo.Propieatario;
@@ -38,7 +39,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
     ctlLicenciaCategoria ctlCategoria;
     ctlPropietario ctlPro;
 
-    public FrmConsecionario() {
+    public FrmConsecionario(Login conceLog) {
         initComponents();
         genDAO = new genericDAO();
         conDAO = new consultasDAO();
@@ -132,6 +133,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
+        btnCerrarSession = new javax.swing.JButton();
 
         jLabel9.setText("Numero-chasis:");
 
@@ -543,6 +545,13 @@ public class FrmConsecionario extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel24.setText("CONSECIONARIO");
 
+        btnCerrarSession.setText("Cerrar Session");
+        btnCerrarSession.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSessionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -550,14 +559,18 @@ public class FrmConsecionario extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel24)
-                .addGap(326, 326, 326))
+                .addGap(229, 229, 229)
+                .addComponent(btnCerrarSession, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addComponent(jTabbedPane2)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel24)
+                    .addComponent(btnCerrarSession))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 834, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -668,43 +681,14 @@ public class FrmConsecionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmConsecionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmConsecionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmConsecionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmConsecionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void btnCerrarSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSessionActionPerformed
+        new FrmInicio().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnCerrarSessionActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmConsecionario().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrarSession;
     private javax.swing.JComboBox<String> cbCategoria;
     private javax.swing.JComboBox<String> cbClase;
     private javax.swing.JComboBox<String> cbColor;

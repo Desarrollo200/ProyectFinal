@@ -11,12 +11,12 @@ package modelo;
  */
 public class Login {
     String usuario;
-    String contraseña;
+    String contrasena;
     int tipo_usuario;
 
-    public Login(String usuario, String contraseña, int tipo_usuario) {
+    public Login(String usuario, String contrasena, int tipo_usuario) {
         this.usuario = usuario;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
         this.tipo_usuario = tipo_usuario;
     }
 
@@ -29,11 +29,11 @@ public class Login {
     }
 
     public String getContraseña() {
-        return contraseña;
+        return contrasena;
     }
 
     public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+        this.contrasena = contraseña;
     }
 
     public int getTipo_usuario() {

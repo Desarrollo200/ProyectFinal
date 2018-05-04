@@ -8,6 +8,7 @@ package vista;
 import controlador.ctlComparendo;
 import controlador.ctlLicencia;
 import controlador.ctlVehiculo;
+import modelo.Login;
 
 /**
  *
@@ -24,7 +25,7 @@ public class FrmCiudadano extends javax.swing.JFrame {
     ctlVehiculo ctlVehi;
     ctlLicencia ctlLice;
     
-    public FrmCiudadano() {
+    public FrmCiudadano(Login ciudadanoLog) {
         initComponents();
         ctlVehi = new ctlVehiculo();
         ctlComp = new ctlComparendo();
@@ -54,6 +55,7 @@ public class FrmCiudadano extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tblLicenciaCiudadano = new javax.swing.JTable();
         jLabel19 = new javax.swing.JLabel();
+        btnCerrarSession = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -180,6 +182,13 @@ public class FrmCiudadano extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Myriad Pro Light", 1, 36)); // NOI18N
         jLabel19.setText("Ciudadano");
 
+        btnCerrarSession.setText("Cerrar Session");
+        btnCerrarSession.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSessionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -187,7 +196,9 @@ public class FrmCiudadano extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(220, 220, 220)
                 .addComponent(jLabel19)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCerrarSession, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 27, Short.MAX_VALUE))
@@ -196,14 +207,21 @@ public class FrmCiudadano extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCerrarSession))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCerrarSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSessionActionPerformed
+       new FrmInicio().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnCerrarSessionActionPerformed
 
     private void listarVehiculo() {
         tblVehiculoCiudadano.setModel(ctlVehi.solicitudListarAll());
@@ -217,44 +235,8 @@ public class FrmCiudadano extends javax.swing.JFrame {
         tblLicenciaCiudadano.setModel(ctlLice.SolicitudListar());
     }
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmCiudadano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmCiudadano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmCiudadano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmCiudadano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmCiudadano().setVisible(true);
-            }
-        });
-    }
-
-    
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrarSession;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
