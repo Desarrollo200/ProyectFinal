@@ -52,6 +52,10 @@ public class ctlPropietario {
           vehiculoDAO vehDAO = new vehiculoDAO();
         return vehDAO.buscarDoc(id);
     }
+      public boolean SolicitudBuscar3(int id) {
+          vehiculoDAO vehDAO = new vehiculoDAO();
+        return vehDAO.buscarCiu(id);
+    }
 
     
     

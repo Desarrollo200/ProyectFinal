@@ -934,23 +934,27 @@ public class FrmConsecionario extends javax.swing.JFrame {
         String cedula = txtCedulaTraspaso.getText();
         Propieatario pro = conDAO.consultaPropietario(cedula);
         int ced = pro.getId();
-
-        String[] datos = ctlPro.SolicitudBuscar(ced);
-        if (!datos[0].equals("")) {
+        
+        
+        boolean datos1 = ctlPro.SolicitudBuscar3(ced);
+        
+        if (datos1 == true) {
             if (ctlVehiculo.SolicitudModificar(placa, ced)) {
                 JOptionPane.showMessageDialog(null, "El traspaso del vehiculo con placa: " + placa + " al ciudadano con identificacion: " + cedula);
             }
             //Propieatario pro = conDAO.consultaPropietario(cedula);
             // int ced = pro.getId();
 
-        } else if (!datos[0].equals("")) {
-            ctlPro.SolicitudGuardar(0, cedula);
+        } else {
+           if( ctlPro.SolicitudGuardar(0, cedula)){
+               System.out.println("entro");
             Propieatario pro1 = conDAO.consultaPropietario(cedula);
             int ced2 = pro1.getId();
             if (ctlVehiculo.SolicitudModificar(placa, ced2)) {
                 JOptionPane.showMessageDialog(null, "El traspaso del vehiculo con placa: " + placa + " al ciudadano con identificacion: " + cedula);
 
             }
+           }
 
         }
     }//GEN-LAST:event_jButton3ActionPerformed

@@ -20,20 +20,20 @@ public class FrmCDA extends javax.swing.JFrame {
     /**
      * Creates new form CDA
      */
-    
-     DateFormat variableFecha = DateFormat.getDateInstance();
+    DateFormat variableFecha = DateFormat.getDateInstance();
     DateFormat variableFecha2 = DateFormat.getDateInstance();
     DateFormat variableFecha3 = DateFormat.getDateInstance();
-    
+
     consultasDAO conDAO;
-    
+
     ctlRevision ctlRe;
+
     public FrmCDA() {
         initComponents();
         ctlRe = new ctlRevision();
-       txtCDA.setText(FrmInicio.tfUsuario.getText());
-       
-       conDAO = new consultasDAO();
+        txtCDA.setText(FrmInicio.tfUsuario.getText());
+
+        conDAO = new consultasDAO();
     }
 
     /**
@@ -166,8 +166,8 @@ public class FrmCDA extends javax.swing.JFrame {
                                     .addComponent(jLabel5))))))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6)
                         .addComponent(jLabel4)
                         .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(ChooserDocFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -182,31 +182,28 @@ public class FrmCDA extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
- String fech = variableFecha.format(ChooserDocExp.getDate());
+        String fech = variableFecha.format(ChooserDocExp.getDate());
         String fech3 = variableFecha3.format(ChooserDocFinal.getDate());
         String fech2 = variableFecha2.format(ChooserDocVigencia.getDate());
 
         String[] fecha_ex = fech.split("/");
-        String[] fecha_fin= fech3.split("/");   
-        String[] fecha_vig= fech2.split("/"); 
-        
+        String[] fecha_fin = fech3.split("/");
+        String[] fecha_vig = fech2.split("/");
+
         String usuario = txtCDA.getText();
         CDA cda = conDAO.consultaNitCda(usuario, "CDA");
-        
-        
+
         String fecha_expedicion = fecha_ex[2] + "-" + fecha_ex[1] + "-" + fecha_ex[0];
         String fecha_final = fecha_fin[2] + "-" + fecha_fin[1] + "-" + fecha_fin[0];
-         String fecha_vigencia = fecha_vig[2] + "-" + fecha_vig[1] + "-" + fecha_vig[0];
-         String placa =txtPlaca.getText();
-         int nit = cda.getNit();
-         
-         
-         if(ctlRe.SolicitudGuardar(0, nit, fecha_expedicion, fecha_final, fecha_vigencia, placa)){
-         JOptionPane.showMessageDialog(null, "Revision Asignada correctamente");
-         
-         
-             } 
-        
+        String fecha_vigencia = fecha_vig[2] + "-" + fecha_vig[1] + "-" + fecha_vig[0];
+        String placa = txtPlaca.getText();
+        int nit = cda.getNit();
+
+        if (ctlRe.SolicitudGuardar(0, nit, fecha_expedicion, fecha_final, fecha_vigencia, placa)) {
+            JOptionPane.showMessageDialog(null, "Revision Asignada correctamente");
+
+        }
+
     }//GEN-LAST:event_btnAsignarActionPerformed
 
     /**

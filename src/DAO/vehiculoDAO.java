@@ -41,6 +41,26 @@ public class vehiculoDAO extends Conexion{
         }
         return pro;
     }
+        public boolean buscarCiu(int id) {
+        String consulta = "select ciudadano from poryectofinaldesarrollo.propietario where id='" + id + "'";
+        super.ejecutarRetorno(consulta);
+        boolean encontrado= false;
+        try {
+            
+            if (resultadoDB.next()) {
+                encontrado = true;
+                System.out.println("entro buscar");
+                pro.setId(resultadoDB.getInt("id"));
+                pro.setCiudadano(resultadoDB.getString("ciudadano"));
+               
+                
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto buscar");
+        }
+        return encontrado;
+    }
      
      
     
