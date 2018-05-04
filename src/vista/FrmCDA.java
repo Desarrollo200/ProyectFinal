@@ -31,7 +31,7 @@ public class FrmCDA extends javax.swing.JFrame {
     public FrmCDA() {
         initComponents();
         ctlRe = new ctlRevision();
-      // txtCDA.setText(FrmInicio.tfUsuario.getText());
+       txtCDA.setText(FrmInicio.tfUsuario.getText());
        
        conDAO = new consultasDAO();
     }
@@ -201,7 +201,7 @@ public class FrmCDA extends javax.swing.JFrame {
          int nit = cda.getNit();
          
          
-         if(ctlRe.SolicitudGuardar(0, 1245, fecha_expedicion, fecha_final, fecha_vigencia, placa)){
+         if(ctlRe.SolicitudGuardar(0, nit, fecha_expedicion, fecha_final, fecha_vigencia, placa)){
          JOptionPane.showMessageDialog(null, "Revision Asignada correctamente");
          
          
