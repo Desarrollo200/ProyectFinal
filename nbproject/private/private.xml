@@ -1,30 +1,31 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="las mas hp">
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/consultasDAO.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/LicenciaConduccion.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/daoComparendo.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlLogin.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlPropietario.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlCiudadano.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlLicenciaConduccion.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/Aseguradora.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlLicencia.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/vista/FrmConsecionario.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlLicenciaCategoria.java</file>
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/vista/FrmAdmin.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlComparendo.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/vista/FrmRegistroCiudadanos.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/daoCDA.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlCDA.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlVehiculo.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/daoVehiculo.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/Conexion.java</file>
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/vista/FrmCiudadano.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/daoAseguradora.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/daoCiudadano.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlAseguradora.java</file>
         </group>
     </open-files>
 </project-private>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/modelo/Vehiculo.java</file>
-            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/Recursos/Transito.sql</file>
-            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/controlador/ctlVehiculo.java</file>
-            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/Recursos/Modelo.png</file>
-            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/DAO/genericDAO.java</file>
-            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/vista/FrmVehiculos.java</file>
-            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/DAO/consultasDAO.java</file>
-            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/modelo/Propieatario.java</file>
-            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/DAO/daoCiudadano.java</file>
-        </group>
-    </open-files>
-</project-private>
->>>>>>> 551a3ddcf9303f9ed65e2b601f037894b7ed9590

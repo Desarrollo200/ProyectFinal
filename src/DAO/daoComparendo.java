@@ -17,31 +17,22 @@ public class daoComparendo extends Conexion {
 
     public DefaultTableModel listarComparendos() {
          DefaultTableModel modelTabla;
-        String nombreColumnas[] = {"Placa", "Licencia Transito", "Tipo Servicio", "Clase", "Estado", "Modelo", "Color", "Chasis", "Cilindrage", "Conbustible", "Fecha Matricula","Num Pasajeros", "Poliza", "Seguro", "Propietario"};
+        String nombreColumnas[] = {"Id Comparendo", "Tipo Comparendo", "Municipio", "Departamento", "Fecha y Hora", "Licencia de Conduccion"};
         modelTabla = new DefaultTableModel(new Object[][]{}, nombreColumnas);
 
-        String consulta = "select v.placa,v.licencia_transito,ts.nombre,cv.nombre,ev.nombre,m.nombre,c.nombre,v.numero_chasis,v.cilindrage,tc.nombre,v.fecha_matricula,v.num_pasajeros,v.numero_poliza,tse.nombre,v.propietario_id from vehiculo v join tipo_servicio ts on ts.id=v.tipo_servicio join clase_vehiculo cv on v.clase_vehiculo=cv.id join estado_vehiculo ev on v.estado_vehiculo=ev.id join modelo m on v.modelo_id=m.id join color c on v.color_id=c.id join tipo_combustible tc on tc.id=v.tipo_combustible_id join seguro s on s.numero_poliza=v.numero_poliza join tipo_seguro tse on s.tipo_seguro=tse.id";
+        String consulta = "select c.id,ti.nombre, m.nombre,d.nombre,c.fecha_hora,c.licencia_cond_num_lic_cond from comparendo c join tipo_infraccion ti on ti.id=c.id join municipio m on m.id=c.municipio join departamento d on d.id=m.id;";
     
         super.ejecutarRetorno(consulta);
 
         try {
             while (resultadoDB.next()) {
                 modelTabla.addRow(new Object[]{
-                    resultadoDB.getString("v.placa"),
-                    resultadoDB.getString("v.licencia_transito"),
-                    resultadoDB.getString("ts.nombre"),
-                    resultadoDB.getString("cv.nombre"),
-                    resultadoDB.getString("ev.nombre"),
+                    resultadoDB.getString("c.id"),
+                    resultadoDB.getString("ti.nombre"),
                     resultadoDB.getString("m.nombre"),
-                    resultadoDB.getString("c.nombre"),
-                    resultadoDB.getString("v.numero_chasis"),
-                    resultadoDB.getString("v.cilindrage"),
-                    resultadoDB.getString("tc.nombre"),
-                    resultadoDB.getString("v.fecha_matricula"),
-                    resultadoDB.getString("v.num_pasajeros"),
-                    resultadoDB.getString("v.numero_poliza"),
-                    resultadoDB.getString("tse.nombre"),
-                    resultadoDB.getString("v.propietario_id")
+                    resultadoDB.getString("d.nombre"),
+                    resultadoDB.getString("c.fecha_hora"),
+                    resultadoDB.getString("c.licencia_cond_num_lic_cond")
                     });
             }
         } catch (SQLException ex) {

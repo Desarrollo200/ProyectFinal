@@ -214,7 +214,7 @@ public class FrmCiudadano extends javax.swing.JFrame {
     }
     
      private void listarLicencia() {
-        tblLicenciaCiudadano.setModel(ctlLice.solicitudListar());
+        tblLicenciaCiudadano.setModel(ctlLice.SolicitudListar());
     }
     
     /**

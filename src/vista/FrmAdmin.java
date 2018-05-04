@@ -669,7 +669,8 @@ public class FrmAdmin extends javax.swing.JFrame {
 
             if (!datos[0].equals("")) {
                 cargarInformacionCDA(datos);
-
+           btnModificarCDA.setEnabled(true);
+            btnEliminarCDA.setEnabled(true);
             } else {
 
                 JOptionPane.showMessageDialog(this, "No se encuentra la aseguradora buscada");
@@ -739,7 +740,8 @@ public class FrmAdmin extends javax.swing.JFrame {
 
             if (!datos[0].equals("")) {
                 cargarInformacionAseguradora(datos);
-
+            btnModificarAse.setEnabled(true);
+            btnEliminarAse.setEnabled(true);
             } else {
 
                 JOptionPane.showMessageDialog(this, "No se encuentra la aseguradora buscada");
