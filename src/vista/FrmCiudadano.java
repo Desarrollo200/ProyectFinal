@@ -6,7 +6,7 @@
 package vista;
 
 import controlador.ctlComparendo;
-import controlador.ctlLicencia;
+import controlador.ctlLicenciaCategoria;
 import controlador.ctlVehiculo;
 import modelo.Login;
 
@@ -23,13 +23,13 @@ public class FrmCiudadano extends javax.swing.JFrame {
     
     ctlComparendo ctlComp;
     ctlVehiculo ctlVehi;
-    ctlLicencia ctlLice;
+    ctlLicenciaCategoria ctlLice;
     
     public FrmCiudadano(Login ciudadanoLog) {
         initComponents();
         ctlVehi = new ctlVehiculo();
         ctlComp = new ctlComparendo();
-        ctlLice = new ctlLicencia();
+        ctlLice = new ctlLicenciaCategoria();
         listarVehiculo();
         listarComparendo();
         listarLicencia();
@@ -232,7 +232,7 @@ public class FrmCiudadano extends javax.swing.JFrame {
     }
     
      private void listarLicencia() {
-        tblLicenciaCiudadano.setModel(ctlLice.SolicitudListar());
+        tblLicenciaCiudadano.setModel(ctlLice.);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

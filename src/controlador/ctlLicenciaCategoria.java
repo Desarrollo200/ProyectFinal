@@ -11,14 +11,14 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import modelo.Conexion;
 import modelo.LicenciaCategorias;
-import modelo.Vehiculo;
+
 
 /**
  *
  * @author nicolasgarcia
  */
 public class ctlLicenciaCategoria {
-          String comparacion = "id";
+    String comparacion = "id";
     String nombreTabla = "licencia_categorias";
     Conexion conexion = new Conexion();
     JsonObject objeto;

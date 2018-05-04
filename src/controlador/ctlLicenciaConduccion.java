@@ -9,9 +9,10 @@ import DAO.genericDAO;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import javax.swing.table.DefaultTableModel;
 import modelo.Conexion;
 import modelo.LicenciaConduccion;
-import modelo.Vehiculo;
+
 
 /**
  *
@@ -37,6 +38,13 @@ public class ctlLicenciaConduccion {
         String json = convertirGson(licencia);
 
         return genDAO.guardar(json, nombreTabla);
+    }
+    
+    public DefaultTableModel SolicitudListar1() {
+          LicenciaConduccion licCon = new LicenciaConduccion();
+        String json = convertirGson(licCon);
+        genericDAO genDAO = new genericDAO();
+        return genDAO.listar(json, nombreTabla);
     }
     
 }
