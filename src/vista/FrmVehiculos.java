@@ -18,6 +18,7 @@ import modelo.EstadoV;
 import modelo.Marca;
 import modelo.ModeloVehiculo;
 import modelo.Propieatario;
+import modelo.Propietario2;
 import modelo.TipoCombustible;
 import modelo.TipoServicio;
 
@@ -634,23 +635,23 @@ public class FrmVehiculos extends javax.swing.JFrame {
         Propieatario pro = conDAO.consultaPropietario(cedula);
         int ced = pro.getId();
 
-        String[] datos = ctlPro.SolicitudBuscar(ced);
-        if (!datos[0].equals("")) {
+        Propieatario datos = ctlPro.SolicitudBuscar2(ced);
+
+        if (!datos.getCiudadano().equals("")) {
+
             if (ctlVehiculo.SolicitudModificar(placa, ced)) {
                 JOptionPane.showMessageDialog(null, "El traspaso del vehiculo con placa: " + placa + " al ciudadano con identificacion: " + cedula);
             }
-            //Propieatario pro = conDAO.consultaPropietario(cedula);
-            // int ced = pro.getId();
 
-        } else if (!datos[0].equals("")) {
-            ctlPro.SolicitudGuardar(0, cedula);
-            Propieatario pro1 = conDAO.consultaPropietario(cedula);
-            int ced2 = pro1.getId();
-            if (ctlVehiculo.SolicitudModificar(placa, ced2)) {
-                JOptionPane.showMessageDialog(null, "El traspaso del vehiculo con placa: " + placa + " al ciudadano con identificacion: " + cedula);
+        } else if (datos.getCiudadano().equals("")) {
+            if (ctlPro.SolicitudGuardar(0, cedula)) {
+                Propietario2 pro2 = conDAO.consultaPropietario2(cedula);
+                int ced2 = pro2.getId();
+                if (ctlVehiculo.SolicitudModificar(placa, ced2)) {
+                    JOptionPane.showMessageDialog(null, "El traspaso del vehiculo con placa: " + placa + " al ciudadano con identificacion: " + cedula);
 
+                }
             }
-
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
