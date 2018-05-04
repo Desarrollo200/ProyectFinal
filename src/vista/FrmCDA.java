@@ -32,7 +32,7 @@ public class FrmCDA extends javax.swing.JFrame {
         initComponents();
         ctlRe = new ctlRevision();
        txtCDA.setText(FrmInicio.tfUsuario.getText());
-       
+       txtCDA.setEnabled(false);
        conDAO = new consultasDAO();
     }
 

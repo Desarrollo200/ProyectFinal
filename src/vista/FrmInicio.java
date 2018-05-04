@@ -160,7 +160,7 @@ public class FrmInicio extends javax.swing.JFrame {
                 this.dispose();
             } 
             else if (cda != null) {
-                JOptionPane.showMessageDialog(this, "Bienvenido " + concensionario.getUsuario()+ "!");
+                JOptionPane.showMessageDialog(this, "Bienvenido " + cda.getUsuario()+ "!");
                 new FrmCDA().setVisible(true);
                 this.dispose();
             } 
