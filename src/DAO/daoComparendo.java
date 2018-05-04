@@ -153,4 +153,30 @@ public class daoComparendo extends Conexion {
         return modelTabla;
     }
     
+    public DefaultTableModel listarComparendosDeCiudadanos(String cedula) {
+         DefaultTableModel modelTabla;
+        String nombreColumnas[] = {"Id Comparendo", "Tipo Comparendo", "Municipio", "Departamento", "Fecha y Hora", "Licencia de Conduccion"};
+        modelTabla = new DefaultTableModel(new Object[][]{}, nombreColumnas);
+
+        String consulta = "select c.id,ti.nombre, m.nombre,d.nombre,c.fecha_hora,c.licencia_cond_num_lic_cond from comparendo c join tipo_infraccion ti on ti.id=c.id join municipio m on m.id=c.municipio join departamento d on d.id=m.id join comparendo_usuario cu on cu.comparendo_id=c.id join ciudadano ciu on ciu.numero_identidad=cu.usuario_numero_iden where ciu.numero_identidad="+cedula+";";
+    
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+                modelTabla.addRow(new Object[]{
+                    resultadoDB.getString("c.id"),
+                    resultadoDB.getString("ti.nombre"),
+                    resultadoDB.getString("m.nombre"),
+                    resultadoDB.getString("d.nombre"),
+                    resultadoDB.getString("c.fecha_hora"),
+                    resultadoDB.getString("c.licencia_cond_num_lic_cond")
+                    });
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto");
+            ex.printStackTrace();
+        }
+        return modelTabla;
+    }
 }

@@ -45,10 +45,8 @@ public class ctlComparendo {
         return genDAO.guardar(json, nombreTabla);
     }
     
-     public DefaultTableModel solicitudListar() {
-       daoComparendo comparendoDAO = new daoComparendo();
-        return comparendoDAO.listarComparendos();  
-    }
+    
+     
      public Municipio consultaMuni (String nombre){
         daoComparendo daoComp = new daoComparendo();
           return daoComp.consultaMuni(nombre);
@@ -58,6 +56,14 @@ public class ctlComparendo {
         daoComparendo daoComp = new daoComparendo();
           return daoComp.consultaTipoInfrac(nombre);
         
+    }
+       public DefaultTableModel solicitudListar() {
+       daoComparendo comparendoDAO = new daoComparendo();
+        return comparendoDAO.listarComparendos();  
+    }
+     public DefaultTableModel solicitudListarDeCiudadano(String cedula) {
+       daoComparendo comparendoDAO = new daoComparendo();
+        return comparendoDAO.listarComparendosDeCiudadanos(cedula);  
     }
      
 }

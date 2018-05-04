@@ -7,6 +7,7 @@ package DAO;
 
 import java.sql.SQLException;
 import javax.swing.JComboBox;
+import modelo.Ciudadano;
 import modelo.ClaseVehiculo;
 import modelo.Color;
 import modelo.Conexion;
@@ -23,7 +24,7 @@ import modelo.TipoServicio;
  * @author nicolasgarcia
  */
 public class consultasDAO extends Conexion{
-    
+    Ciudadano ciu = new Ciudadano();
     TipoServicio ts = new TipoServicio();
      ClaseVehiculo cv = new ClaseVehiculo();
      ModeloVehiculo mv = new ModeloVehiculo();
@@ -213,6 +214,18 @@ public class consultasDAO extends Conexion{
         return pro2;
     }
        
-     
+     public Ciudadano consultaCeduCiuPorUs(String usuario) {
+        String consulta = "select c.numero_identidad from ciudadano c join login l on c.usuario='" + usuario + "'";
+        System.out.println(consulta);
+        super.ejecutarRetorno(consulta);
+        try {
+            if (resultadoDB.next()) {
+                ciu.setNumero_identidad(resultadoDB.getString("c.numero_identidad"));
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto buscar");
+        }
+        return ciu;
+    }
 
 }

@@ -145,7 +145,8 @@ public class FrmInicio extends javax.swing.JFrame {
 
             if (ciudadano != null) {
                 JOptionPane.showMessageDialog(this, "Bienvenido " + ciudadano.getUsuario() + "!");
-                new FrmCiudadano(ciudadano).setVisible(true);
+                String user = ciudadano.getUsuario();
+                new FrmCiudadano(user).setVisible(true);
                 this.dispose();
             }
             else if (concensionario != null) {
@@ -225,6 +226,6 @@ public class FrmInicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField tfClave;
-    private javax.swing.JTextField tfUsuario;
+    public static javax.swing.JTextField tfUsuario;
     // End of variables declaration//GEN-END:variables
 }
