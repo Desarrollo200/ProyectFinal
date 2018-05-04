@@ -7,6 +7,7 @@ package vista;
 
 import DAO.consultasDAO;
 import DAO.genericDAO;
+import controlador.ctlPoliza;
 import controlador.ctlSeguro;
 import java.text.DateFormat;
 import javax.swing.JOptionPane;
@@ -26,6 +27,7 @@ public class FrmAseguradora extends javax.swing.JFrame {
     consultasDAO conDAO;
     
     ctlSeguro ctlSeg;
+    ctlPoliza ctlPoli;
 
     DateFormat variableFecha = DateFormat.getDateInstance();
     DateFormat variableFecha2 = DateFormat.getDateInstance();
@@ -37,6 +39,7 @@ public class FrmAseguradora extends javax.swing.JFrame {
         conDAO = new consultasDAO();
         
         ctlSeg = new ctlSeguro();
+        ctlPoli = new ctlPoliza();
 
         genDAO.cargarcb(cbAseguradora, "aseguradora", "nombre");
         genDAO.cargarcb(cbTipoSeguro, "tipo_seguro", "nombre");
@@ -70,6 +73,8 @@ public class FrmAseguradora extends javax.swing.JFrame {
         ChooserDocExp = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
+        txtPlaca = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,6 +120,8 @@ public class FrmAseguradora extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jLabel9.setText("Placa-vehiculo:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -156,11 +163,13 @@ public class FrmAseguradora extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel6)
-                                    .addComponent(jLabel5))
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel9))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cbAseguradora, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cbTipoSeguro, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(cbTipoSeguro, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(339, 339, 339)
                         .addComponent(jLabel7))
@@ -190,7 +199,11 @@ public class FrmAseguradora extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel5)
                                 .addComponent(cbAseguradora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(44, 44, 44))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(11, 11, 11))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -238,9 +251,18 @@ public class FrmAseguradora extends javax.swing.JFrame {
         String estado = (String) cbEstadoSeguro.getSelectedItem();
         int aseguradora = asegurador.getNit();
         int tipo_seguro = ts.getId();
+        String placa = txtPlaca.getText();
         
         if(ctlSeg.SolicitudGuardar(numero_poliza, fecha_expedicion, fecha_inicio, fecha_final, estado, aseguradora, tipo_seguro)){
-            JOptionPane.showMessageDialog(null, "Seguro guardado con exito");
+            
+            if(ctlPoli.SolicitudGuardar(0, numero_poliza, placa)){
+                JOptionPane.showMessageDialog(null, "Seguro guardado con exito");
+            }else{
+                                JOptionPane.showMessageDialog(null, "No se pudo guardar la poliza");
+
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "No se pudo guardar el seguro");
         }
         
         
@@ -299,8 +321,10 @@ public class FrmAseguradora extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtNumeroPoliza;
+    private javax.swing.JTextField txtPlaca;
     // End of variables declaration//GEN-END:variables
 }

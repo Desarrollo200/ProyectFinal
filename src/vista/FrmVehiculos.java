@@ -571,7 +571,7 @@ public class FrmVehiculos extends javax.swing.JFrame {
 
             Propieatario pro = conDAO.consultaPropietario(propietario_i);
 
-            int placa = Integer.parseInt(txtPlaca.getText());
+            String placa = txtPlaca.getText();
             String licencia_transito = txtLicenciaT.getText();
             int tipo_servicio = ts.getId();
             int clase_vehiculo = cv.getId();
@@ -630,7 +630,7 @@ public class FrmVehiculos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCedulaTraspasoActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        int placa = Integer.parseInt(txtVehiculoTraspaso.getText());
+       String placa =  txtVehiculoTraspaso.getText();
         String cedula = txtCedulaTraspaso.getText();
         Propieatario pro = conDAO.consultaPropietario(cedula);
         int ced = pro.getId();

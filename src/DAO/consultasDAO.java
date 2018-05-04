@@ -9,6 +9,14 @@ import java.sql.SQLException;
 import javax.swing.JComboBox;
 import modelo.Ciudadano;
 import modelo.Aseguradora;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import modelo.CDA;
+=======
+>>>>>>> c66b90b4e9e840c427bcb5f4204b222f3c42ec5f
+>>>>>>> 945b4d29dedba73c5bc7af6872e37c3d6fef34f1
+>>>>>>> e25fa3d5db9d4090e0be87c92a68e63e793479b1
 import modelo.ClaseVehiculo;
 import modelo.Color;
 import modelo.Conexion;
@@ -20,6 +28,7 @@ import modelo.Propietario2;
 import modelo.TipoCombustible;
 import modelo.TipoSeguro;
 import modelo.TipoServicio;
+import vista.FrmCDA;
 
 /**
  *
@@ -39,6 +48,7 @@ public class consultasDAO extends Conexion{
      Propieatario pro = new Propieatario();
      Propietario2 pro2 = new Propietario2();
      TipoSeguro tipoSeguro = new TipoSeguro();
+     CDA cda = new CDA();
     
     
      public TipoServicio consultaTS(String nombre, String tabla) {
@@ -246,6 +256,21 @@ public class consultasDAO extends Conexion{
             System.out.println("Esto se tosto buscar");
         }
         return tipoSeguro;
+    }
+        public CDA consultaNitCda(String nombre, String tabla) {
+        String consulta = "select nit from poryectofinaldesarrollo."+tabla+" where usuario ='" + nombre + "'";
+        System.out.println(consulta);
+        super.ejecutarRetorno(consulta);
+        try {
+            if (resultadoDB.next()) {
+
+                cda.setNit(resultadoDB.getInt("id"));
+
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto buscar");
+        }
+        return cda;
     }
        
        
