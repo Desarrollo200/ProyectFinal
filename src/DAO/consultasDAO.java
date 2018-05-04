@@ -7,7 +7,11 @@ package DAO;
 
 import java.sql.SQLException;
 import javax.swing.JComboBox;
+<<<<<<< HEAD
 import modelo.Ciudadano;
+=======
+import modelo.Aseguradora;
+>>>>>>> c66b90b4e9e840c427bcb5f4204b222f3c42ec5f
 import modelo.ClaseVehiculo;
 import modelo.Color;
 import modelo.Conexion;
@@ -17,6 +21,7 @@ import modelo.ModeloVehiculo;
 import modelo.Propieatario;
 import modelo.Propietario2;
 import modelo.TipoCombustible;
+import modelo.TipoSeguro;
 import modelo.TipoServicio;
 
 /**
@@ -24,7 +29,11 @@ import modelo.TipoServicio;
  * @author nicolasgarcia
  */
 public class consultasDAO extends Conexion{
+<<<<<<< HEAD
     Ciudadano ciu = new Ciudadano();
+=======
+    Aseguradora ase = new Aseguradora();
+>>>>>>> c66b90b4e9e840c427bcb5f4204b222f3c42ec5f
     TipoServicio ts = new TipoServicio();
      ClaseVehiculo cv = new ClaseVehiculo();
      ModeloVehiculo mv = new ModeloVehiculo();
@@ -33,8 +42,8 @@ public class consultasDAO extends Conexion{
      TipoCombustible  tc = new TipoCombustible();
      Marca marca = new Marca();
      Propieatario pro = new Propieatario();
-     
      Propietario2 pro2 = new Propietario2();
+     TipoSeguro tipoSeguro = new TipoSeguro();
     
     
      public TipoServicio consultaTS(String nombre, String tabla) {
@@ -213,6 +222,37 @@ public class consultasDAO extends Conexion{
         }
         return pro2;
     }
+         public Aseguradora consultaAseguradora(String nombre, String tabla) {
+        String consulta = "select nit from poryectofinaldesarrollo."+tabla+" where nombre ='" + nombre + "'";
+        System.out.println(consulta);
+        super.ejecutarRetorno(consulta);
+        try {
+            if (resultadoDB.next()) {
+
+                ase.setNit(resultadoDB.getInt("nit"));
+
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto buscar");
+        }
+        return ase;
+    }
+         public TipoSeguro consultaTipoSeguro(String nombre, String tabla) {
+        String consulta = "select id from poryectofinaldesarrollo."+tabla+" where nombre ='" + nombre + "'";
+        System.out.println(consulta);
+        super.ejecutarRetorno(consulta);
+        try {
+            if (resultadoDB.next()) {
+
+                tipoSeguro.setId(resultadoDB.getInt("id"));
+
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto buscar");
+        }
+        return tipoSeguro;
+    }
+       
        
      public Ciudadano consultaCeduCiuPorUs(String usuario) {
         String consulta = "select c.numero_identidad from ciudadano c join login l on c.usuario='" + usuario + "'";
