@@ -77,6 +77,9 @@ public class FrmConsecionario extends javax.swing.JFrame {
         genDAO.cargarcb(cbTipoCombustible, "tipo_combustible", "nombre");
         conDAO.listarEnComboNumeroPoliza(cbNumeroPoliza, "seguro", "estado");
         genDAO.cargarcb(cbCategoria, "categorias_licencia", "categoria");
+        
+        //cargar en lista
+        listarComparendo();
 
     }
 
@@ -610,37 +613,15 @@ public class FrmConsecionario extends javax.swing.JFrame {
 
         jLabel30.setText("Pais:");
 
-        txtNumComparendo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNumComparendoActionPerformed(evt);
-            }
-        });
-
         jLabel31.setText("Numero del Comparendo:");
 
         jLabel32.setText("Tipo Infraccion");
 
         cbTipoInfraccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbTipoInfraccion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbTipoInfraccionActionPerformed(evt);
-            }
-        });
-
-        txtFechaComparendo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaComparendoActionPerformed(evt);
-            }
-        });
 
         jLabel34.setText("Fecha:");
 
         txtHoraComparendo.setToolTipText("");
-        txtHoraComparendo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtHoraComparendoActionPerformed(evt);
-            }
-        });
 
         jLabel35.setText("Hora:");
 
@@ -649,11 +630,6 @@ public class FrmConsecionario extends javax.swing.JFrame {
         jLabel37.setText("(Hora-minutos)");
 
         txtLicenciaConComparendo.setToolTipText("");
-        txtLicenciaConComparendo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLicenciaConComparendoActionPerformed(evt);
-            }
-        });
 
         jLabel39.setText("Licencia De Conduccion:");
 
@@ -820,8 +796,8 @@ public class FrmConsecionario extends javax.swing.JFrame {
                 .addContainerGap(547, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addGap(268, 268, 268)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(309, 309, 309)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(297, Short.MAX_VALUE)))
         );
 
@@ -998,26 +974,6 @@ public class FrmConsecionario extends javax.swing.JFrame {
         }        
     }//GEN-LAST:event_cbDeparComparendoActionPerformed
 
-    private void txtNumComparendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumComparendoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumComparendoActionPerformed
-
-    private void cbTipoInfraccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoInfraccionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbTipoInfraccionActionPerformed
-
-    private void txtFechaComparendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaComparendoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaComparendoActionPerformed
-
-    private void txtHoraComparendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraComparendoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtHoraComparendoActionPerformed
-
-    private void txtLicenciaConComparendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLicenciaConComparendoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLicenciaConComparendoActionPerformed
-
     private void btnRegistrarComparendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarComparendoActionPerformed
         int numComparendo = Integer.parseInt(txtNumComparendo.getText());
         String tipoInfr = (String) cbTipoInfraccion.getSelectedItem();
@@ -1031,6 +987,8 @@ public class FrmConsecionario extends javax.swing.JFrame {
         
         if (ctlComp.SolicitudGuardar(numComparendo, tipoInfraccion, municipio, fechaHora, licenciaConduccion)) {
                 JOptionPane.showMessageDialog(null, "El comparendo Numero: " + numComparendo + " Fue guardada con exito");
+        }else{
+            JOptionPane.showMessageDialog(null, "Error al intentar guaradar el comparendo");
         }
 
     }//GEN-LAST:event_btnRegistrarComparendoActionPerformed
@@ -1041,7 +999,9 @@ public class FrmConsecionario extends javax.swing.JFrame {
       
       if (ctlCompUs.SolicitudGuardar(0, numComparendo, cedulaCiud)) {
                 JOptionPane.showMessageDialog(null, "El comparendo Numero: " + numComparendo + " Fue asignado a el usuario con cedula: "+cedulaCiud);
-        }
+        }else{
+          JOptionPane.showMessageDialog(null, "Error al asignar el comparendo");
+      }
       
     }//GEN-LAST:event_btnAsignarCuiComparendoActionPerformed
 
@@ -1138,4 +1098,8 @@ public class FrmConsecionario extends javax.swing.JFrame {
     private javax.swing.JTextField txtRestricciones;
     private javax.swing.JTextField txtVehiculoTraspaso;
     // End of variables declaration//GEN-END:variables
+
+    private void listarComparendo() {
+        tblComparendoConse.setModel(ctlComp.solicitudListar());
+         }
 }
