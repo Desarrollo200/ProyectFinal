@@ -24,6 +24,7 @@ import modelo.Propietario2;
 import modelo.TipoCombustible;
 import modelo.TipoSeguro;
 import modelo.TipoServicio;
+import modelo.Vehiculo;
 import vista.FrmCDA;
 
 /**
@@ -45,6 +46,7 @@ public class consultasDAO extends Conexion{
      Propietario2 pro2 = new Propietario2();
      TipoSeguro tipoSeguro = new TipoSeguro();
      CDA cda = new CDA();
+     Vehiculo veh = new Vehiculo();
     
     
      public TipoServicio consultaTS(String nombre, String tabla) {
@@ -253,14 +255,14 @@ public class consultasDAO extends Conexion{
         }
         return tipoSeguro;
     }
-        public CDA consultaNitCda(String nombre, String tabla) {
-        String consulta = "select nit from poryectofinaldesarrollo."+tabla+" where usuario ='" + nombre + "'";
+        public CDA consultaNitCda(String nombre) {
+        String consulta = "select nit from poryectofinaldesarrollo.cda where usuario ='" + nombre + "'";
         System.out.println(consulta);
         super.ejecutarRetorno(consulta);
         try {
             if (resultadoDB.next()) {
 
-                cda.setNit(resultadoDB.getInt("id"));
+                cda.setNit(resultadoDB.getInt("nit"));
 
             }
         } catch (SQLException ex) {
@@ -283,5 +285,21 @@ public class consultasDAO extends Conexion{
         }
         return ciu;
     }
+     public Vehiculo consultaFechaMatriculaVehiculo(String placa) {
+        String consulta = "select fecha_matricula from poryectofinaldesarrollo.vehiculo where placa ='" + placa + "'";
+        System.out.println(consulta);
+        super.ejecutarRetorno(consulta);
+        try {
+            if (resultadoDB.next()) {
+
+                veh.setFecha_matricula(resultadoDB.getString("fecha_matricula"));
+
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto buscar");
+        }
+        return veh;
+    }
+     
 
 }
