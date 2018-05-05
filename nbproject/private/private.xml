@@ -15,7 +15,6 @@
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlLicenciaCategoria.java</file>
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/vista/FrmAdmin.java</file>
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlComparendo.java</file>
-            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/vista/FrmVehiculos.java</file>
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/daoVehiculo.java</file>
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/Conexion.java</file>
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/CDA.java</file>
@@ -35,9 +34,11 @@
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/vista/FrmConsecionario.java</file>
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/vista/FrmRegistroCiudadanos.java</file>
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/daoCDA.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/vista/FrmCDA.java</file>
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlCDA.java</file>
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/vehiculoDAO.java</file>
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlVehiculo.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/vista/FrmAseguradora.java</file>
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/genericDAO.java</file>
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/daoAseguradora.java</file>
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/daoCiudadano.java</file>
