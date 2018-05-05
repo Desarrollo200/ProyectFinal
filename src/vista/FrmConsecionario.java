@@ -46,7 +46,6 @@ public class FrmConsecionario extends javax.swing.JFrame {
     consultasDAO conDAO;
     daoCDA cdaDAO;
     daoAseguradora daoAse;
-    
 
     ctlVehiculo ctlVehiculo;
     ctlLicenciaConduccion ctlLicencia;
@@ -55,11 +54,10 @@ public class FrmConsecionario extends javax.swing.JFrame {
     ctlComparendo ctlComp;
     ctlComparendoUsuario ctlCompUs;
     ctlAseguradora ctlAse;
-    
-    
-DateFormat variableFecha = DateFormat.getDateInstance();
-DateFormat variableFecha2 = DateFormat.getDateInstance();
 
+    DateFormat variableFecha = DateFormat.getDateInstance();
+    DateFormat variableFecha2 = DateFormat.getDateInstance();
+    DateFormat variableFecha3 = DateFormat.getDateInstance();
 
     public FrmConsecionario(Login conceLog) {
         initComponents();
@@ -75,7 +73,6 @@ DateFormat variableFecha2 = DateFormat.getDateInstance();
         ctlComp = new ctlComparendo();
         ctlCompUs = new ctlComparendoUsuario();
         ctlAse = new ctlAseguradora();
-        
 
         //Cargas en combobox
         genDAO.cargarcb(cbTipoInfraccion, "tipo_infraccion", "nombre");
@@ -89,13 +86,11 @@ DateFormat variableFecha2 = DateFormat.getDateInstance();
         genDAO.cargarcb(cbTipoCombustible, "tipo_combustible", "nombre");
         conDAO.listarEnComboNumeroPoliza(cbNumeroPoliza, "seguro", "estado");
         genDAO.cargarcb(cbCategoria, "categorias_licencia", "categoria");
-        
+
         //cargar en lista
         listarComparendo();
         listarVehiculos();
         listarLicencias();
-        
-         
 
     }
 
@@ -179,11 +174,9 @@ DateFormat variableFecha2 = DateFormat.getDateInstance();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         cbTipoInfraccion = new javax.swing.JComboBox<>();
-        txtFechaComparendo = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         txtHoraComparendo = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         txtLicenciaConComparendo = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
@@ -194,6 +187,7 @@ DateFormat variableFecha2 = DateFormat.getDateInstance();
         jLabel41 = new javax.swing.JLabel();
         txtCedulaCiuComp = new javax.swing.JTextField();
         btnAsignarCuiComparendo = new javax.swing.JButton();
+        ChooserDocFechaComparendo = new com.toedter.calendar.JDateChooser();
         jLabel24 = new javax.swing.JLabel();
         btnCerrarSession = new javax.swing.JButton();
 
@@ -632,8 +626,6 @@ DateFormat variableFecha2 = DateFormat.getDateInstance();
 
         jLabel35.setText("Hora:");
 
-        jLabel36.setText("(año - mes - dia)");
-
         jLabel37.setText("(hora : minutos)");
 
         txtLicenciaConComparendo.setToolTipText("");
@@ -708,14 +700,13 @@ DateFormat variableFecha2 = DateFormat.getDateInstance();
                             .addComponent(cbTipoInfraccion, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 218, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel34)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtFechaComparendo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel36))
+                                .addGap(18, 18, 18)
+                                .addComponent(ChooserDocFechaComparendo, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(91, 91, 91))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel35)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -751,17 +742,7 @@ DateFormat variableFecha2 = DateFormat.getDateInstance();
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel31)
-                            .addComponent(txtNumComparendo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel34)
-                            .addComponent(txtFechaComparendo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel36)))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jLabel40)
@@ -770,11 +751,24 @@ DateFormat variableFecha2 = DateFormat.getDateInstance();
                             .addComponent(jLabel41)
                             .addComponent(txtCedulaCiuComp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAsignarCuiComparendo))
-                        .addGap(45, 45, 45)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel32)
+                                    .addComponent(cbTipoInfraccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addComponent(ChooserDocFechaComparendo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(8, 8, 8))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel32)
-                            .addComponent(cbTipoInfraccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
+                            .addComponent(jLabel31)
+                            .addComponent(txtNumComparendo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel34)
+                        .addGap(18, 18, 18)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel30)
@@ -800,7 +794,7 @@ DateFormat variableFecha2 = DateFormat.getDateInstance();
                     .addComponent(jLabel28))
                 .addGap(18, 18, 18)
                 .addComponent(btnRegistrarComparendo)
-                .addContainerGap(547, Short.MAX_VALUE))
+                .addContainerGap(480, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(309, 309, 309)
@@ -849,7 +843,7 @@ DateFormat variableFecha2 = DateFormat.getDateInstance();
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String fech = variableFecha.format(ChooserDocMatricula.getDate());
-        
+
         String tipo_servici = (String) cbTipoServicio.getSelectedItem();
         TipoServicio ts = conDAO.consultaTS(tipo_servici, "tipo_servicio");
         String clase_vehicul = (String) cbClase.getSelectedItem();
@@ -878,17 +872,15 @@ DateFormat variableFecha2 = DateFormat.getDateInstance();
             String cilindrage = txtCilindraje.getText();
             int tipo_combustible_id = tc.getId();
             String[] fecha_ma = fech.split("/");
-            String fecha_matricula =   fecha_ma[2] + "-" + fecha_ma[1] + "-" + fecha_ma[0];
+            String fecha_matricula = fecha_ma[2] + "-" + fecha_ma[1] + "-" + fecha_ma[0];
             String num_pasajeros = txtNumeroPasajeros.getText();
             int numero_poliza = Integer.parseInt(cbNumeroPoliza.getSelectedItem() + "");
             int propietario_id = pro.getId();
-            
-            
 
             if (ctlVehiculo.SolicitudGuardar(placa, licencia_transito, tipo_servicio, clase_vehiculo, estado_vehiculo, modelo_id, color_id, numero_chasis, cilindrage, tipo_combustible_id, fecha_matricula, num_pasajeros, numero_poliza, propietario_id)) {
                 JOptionPane.showMessageDialog(null, "Vehiculo registrado exitosamente");
-                 listarVehiculos();
-                
+                listarVehiculos();
+
             }
 
         } else {
@@ -910,8 +902,8 @@ DateFormat variableFecha2 = DateFormat.getDateInstance();
     }//GEN-LAST:event_txtRestriccionesActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-String fech3 = variableFecha2.format(ChooserDocExpLic.getDate());
-String[] fecha_ex = fech3.split("/");
+        String fech3 = variableFecha2.format(ChooserDocExpLic.getDate());
+        String[] fecha_ex = fech3.split("/");
 
         String num_licencia_cond = txtNumeroLicencia.getText();
         String fecha_expedicion = fecha_ex[2] + "-" + fecha_ex[1] + "-" + fecha_ex[0];
@@ -938,10 +930,9 @@ String[] fecha_ex = fech3.split("/");
         String cedula = txtCedulaTraspaso.getText();
         Propieatario pro = conDAO.consultaPropietario(cedula);
         int ced = pro.getId();
-        
-        
+
         boolean datos1 = ctlPro.SolicitudBuscar3(ced);
-        
+
         if (datos1 == true) {
             if (ctlVehiculo.SolicitudModificar(placa, ced)) {
                 JOptionPane.showMessageDialog(null, "El traspaso del vehiculo con placa: " + placa + " al ciudadano con identificacion: " + cedula);
@@ -950,15 +941,15 @@ String[] fecha_ex = fech3.split("/");
             // int ced = pro.getId();
 
         } else {
-           if( ctlPro.SolicitudGuardar(0, cedula)){
-               System.out.println("entro");
-            Propieatario pro1 = conDAO.consultaPropietario(cedula);
-            int ced2 = pro1.getId();
-            if (ctlVehiculo.SolicitudModificar(placa, ced2)) {
-                JOptionPane.showMessageDialog(null, "El traspaso del vehiculo con placa: " + placa + " al ciudadano con identificacion: " + cedula);
+            if (ctlPro.SolicitudGuardar(0, cedula)) {
+                System.out.println("entro");
+                Propieatario pro1 = conDAO.consultaPropietario(cedula);
+                int ced2 = pro1.getId();
+                if (ctlVehiculo.SolicitudModificar(placa, ced2)) {
+                    JOptionPane.showMessageDialog(null, "El traspaso del vehiculo con placa: " + placa + " al ciudadano con identificacion: " + cedula);
 
+                }
             }
-           }
 
         }
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -969,7 +960,7 @@ String[] fecha_ex = fech3.split("/");
     }//GEN-LAST:event_btnCerrarSessionActionPerformed
 
     private void cbPaisComparendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPaisComparendoActionPerformed
-          try {
+        try {
             String nombre_pais = (String) cbPaisComparendo.getSelectedItem();
             Pais pais = daoAse.consultaPais(nombre_pais);
             int idPais = pais.getId();
@@ -992,27 +983,32 @@ String[] fecha_ex = fech3.split("/");
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al listar municipios");
-        }        
+        }
     }//GEN-LAST:event_cbDeparComparendoActionPerformed
 
     private void btnRegistrarComparendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarComparendoActionPerformed
+        String fech = variableFecha.format(ChooserDocMatricula.getDate());
+         String[] fecha_ma = fech.split("/");
+            
+        
+
         int numComparendo = Integer.parseInt(txtNumComparendo.getText());
         String tipoInfr = (String) cbTipoInfraccion.getSelectedItem();
         TipoInfraccion tipoInfracci = ctlComp.consultaTipoInfrac(tipoInfr);
         int tipoInfraccion = tipoInfracci.getId();
-        String muni = (String)cbMunicipioComparendo.getSelectedItem();
+        String muni = (String) cbMunicipioComparendo.getSelectedItem();
         Municipio municipi = ctlComp.consultaMuni(muni);
         int municipio = municipi.getId();
-        String fecha = txtFechaComparendo.getText();
-        String Hora=txtHoraComparendo.getText();
-        String fechaHora = fecha+" a las "+Hora;
+        String fecha = fecha_ma[2] + "-" + fecha_ma[1] + "-" + fecha_ma[0];
+        String Hora = txtHoraComparendo.getText();
+        String fechaHora = fecha + " a las " + Hora;
         int licenciaConduccion = Integer.parseInt(txtLicenciaConComparendo.getText());
-        
+
         if (ctlComp.SolicitudGuardar(numComparendo, tipoInfraccion, municipio, fechaHora, licenciaConduccion)) {
-                JOptionPane.showMessageDialog(null, "El comparendo Numero:  " + numComparendo + "    fue guardada con exito");
-                limpiarComparendo();
-                listarComparendo();
-        }else{
+            JOptionPane.showMessageDialog(null, "El comparendo Numero:  " + numComparendo + "    fue guardada con exito");
+            limpiarComparendo();
+            listarComparendo();
+        } else {
             JOptionPane.showMessageDialog(null, "Error al intentar guaradar el comparendo");
             limpiarComparendo();
         }
@@ -1020,16 +1016,16 @@ String[] fecha_ex = fech3.split("/");
     }//GEN-LAST:event_btnRegistrarComparendoActionPerformed
 
     private void btnAsignarCuiComparendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarCuiComparendoActionPerformed
-      int numComparendo = Integer.parseInt(txtNumComparendo.getText());
-      String cedulaCiud = txtCedulaCiuComp.getText();
-      
-      if (ctlCompUs.SolicitudGuardar(0, cedulaCiud, numComparendo)) {
-                JOptionPane.showMessageDialog(null, "El comparendo Numero: " + numComparendo + " Fue asignado a el usuario con cedula: "+cedulaCiud);
-                limpiarComparendo();
-        }else{
-          JOptionPane.showMessageDialog(null, "Error al asignar el comparendo");
-      }
-      
+        int numComparendo = Integer.parseInt(txtNumComparendo.getText());
+        String cedulaCiud = txtCedulaCiuComp.getText();
+
+        if (ctlCompUs.SolicitudGuardar(0, cedulaCiud, numComparendo)) {
+            JOptionPane.showMessageDialog(null, "El comparendo Numero: " + numComparendo + " Fue asignado a el usuario con cedula: " + cedulaCiud);
+            limpiarComparendo();
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al asignar el comparendo");
+        }
+
     }//GEN-LAST:event_btnAsignarCuiComparendoActionPerformed
 
     private void cbMunicipioComparendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMunicipioComparendoActionPerformed
@@ -1039,6 +1035,7 @@ String[] fecha_ex = fech3.split("/");
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser ChooserDocExpLic;
+    private com.toedter.calendar.JDateChooser ChooserDocFechaComparendo;
     private com.toedter.calendar.JDateChooser ChooserDocMatricula;
     private javax.swing.JButton btnAsignarCuiComparendo;
     private javax.swing.JButton btnCerrarSession;
@@ -1087,7 +1084,6 @@ String[] fecha_ex = fech3.split("/");
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
@@ -1112,7 +1108,6 @@ String[] fecha_ex = fech3.split("/");
     private javax.swing.JTextField txtCedulaCiuComp;
     private javax.swing.JTextField txtCedulaTraspaso;
     private javax.swing.JTextField txtCilindraje;
-    private javax.swing.JTextField txtFechaComparendo;
     private javax.swing.JTextField txtHoraComparendo;
     private javax.swing.JTextField txtLicenciaConComparendo;
     private javax.swing.JTextField txtLicenciaT;
@@ -1128,26 +1123,25 @@ String[] fecha_ex = fech3.split("/");
     private javax.swing.JTextField txtVehiculoTraspaso;
     // End of variables declaration//GEN-END:variables
 
-
     //metodos para listar tabla
-
     private void listarComparendo() {
         tblComparendoConse.setModel(ctlComp.solicitudListar());
-         }
+    }
+
     private void listarVehiculos() {
         tblVehiculoConse.setModel(ctlVehiculo.solicitudListarAll());
-         }
+    }
+
     private void listarLicencias() {
         tblLicenciaConse.setModel(ctlLicencia.SolicitudListar());
-         }
-    
-    //metodos para limpiar Campos
+    }
 
+    //metodos para limpiar Campos
     private void limpiarComparendo() {
         txtCedulaCiuComp.setText("");
         txtLicenciaConComparendo.setText("");
         txtCedulaCiuComp.setText("");
-        txtFechaComparendo.setText("");
+        ChooserDocFechaComparendo.setCalendar(null);
         txtHoraComparendo.setText("");;
     }
 }
