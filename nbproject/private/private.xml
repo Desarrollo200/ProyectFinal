@@ -42,5 +42,13 @@
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/daoAseguradora.java</file>
             <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/daoCiudadano.java</file>
         </group>
+        <group>
+            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/vista/FrmConsecionario.java</file>
+            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/vista/FrmCDA.java</file>
+            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/vista/FrmAdmin.java</file>
+            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/controlador/ctlComparendo.java</file>
+            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/DAO/daoComparendo.java</file>
+            <file>file:/Users/nicolasgarcia/Documents/GitHub/ProyectFina/src/DAO/consultasDAO.java</file>
+        </group>
     </open-files>
 </project-private>
