@@ -76,6 +76,7 @@ public class FrmAdmin extends javax.swing.JFrame {
 
     public FrmAdmin(Login admin) {
         initComponents();
+        setLocationRelativeTo(null);
         //Centra la interfaz grafica en la mitad de la pantalla
         setLocationRelativeTo(null);
 

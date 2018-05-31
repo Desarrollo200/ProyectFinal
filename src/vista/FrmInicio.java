@@ -23,6 +23,7 @@ public class FrmInicio extends javax.swing.JFrame {
     public FrmInicio() {
         initComponents();
         ctlLog = new ctlLogin();
+        setLocationRelativeTo(null);
     }
 
     /**

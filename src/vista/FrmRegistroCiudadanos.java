@@ -35,6 +35,7 @@ public class FrmRegistroCiudadanos extends javax.swing.JFrame {
 
     public FrmRegistroCiudadanos() {
         initComponents();
+        setLocationRelativeTo(null);
         //DAOS
         genDAO = new genericDAO();
         ciuDAO = new daoCiudadano();

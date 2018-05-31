@@ -61,6 +61,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
 
     public FrmConsecionario(Login conceLog) {
         initComponents();
+        setLocationRelativeTo(null);
         genDAO = new genericDAO();
         conDAO = new consultasDAO();
         cdaDAO = new daoCDA();
