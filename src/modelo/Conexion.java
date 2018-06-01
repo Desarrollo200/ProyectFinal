@@ -38,6 +38,16 @@ public class Conexion {
             System.out.println(e.getMessage());
         }
     }
+    public Connection conectarReporte() {
+        try {
+            Class.forName(driver); //se carga el driver en memoria
+            conexionDB = DriverManager.getConnection(connectString, user, password);//conexion a la base de datos
+            sentenciaSQL = conexionDB.createStatement();//variable que permite ejecutar las sentencias SQL                                
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return conexionDB;
+    }
 
     /**
      * Desconecta la conexion de la base de datos
