@@ -59,6 +59,24 @@ public class daoAseguradora extends Conexion {
       }
           public void listarEnComboDepartamentosCon(int pais_id) {
         
+         FrmConsecionario.cbDeparComparendo.removeAllItems();
+       FrmConsecionario.cbDeparComparendo.addItem("Seleccione un departamento");
+        String consulta = "Select nombre from poryectofinaldesarrollo.departamento where pais_id ='"+pais_id+"'";
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+             FrmConsecionario.cbDeparComparendo.addItem(resultadoDB.getString("nombre"));
+                
+            }
+        }catch(SQLException e){
+            System.out.println(e);
+            
+        }
+        
+     }
+           public void listarEnComboDepartamentosCon1(int pais_id) {
+        
          FrmAdmin.cbDeparComparendo.removeAllItems();
        FrmAdmin.cbDeparComparendo.addItem("Seleccione un departamento");
         String consulta = "Select nombre from poryectofinaldesarrollo.departamento where pais_id ='"+pais_id+"'";
@@ -111,6 +129,24 @@ public class daoAseguradora extends Conexion {
      }
        
        public void listarEnComboMunicipiosCon(int departamento_id) {
+        
+          FrmConsecionario.cbMunicipioComparendo.removeAllItems();
+       FrmConsecionario.cbMunicipioComparendo.addItem("Seleccione un municipio");
+        String consulta = "Select nombre from poryectofinaldesarrollo.municipio where departamento_id ='"+departamento_id+"'";
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+             FrmConsecionario.cbMunicipioComparendo.addItem(resultadoDB.getString("nombre"));
+                
+            }
+        }catch(SQLException e){
+            System.out.println(e);
+            
+        }
+        
+     }
+       public void listarEnComboMunicipiosCon1(int departamento_id) {
         
           FrmAdmin.cbMunicipioComparendo.removeAllItems();
        FrmAdmin.cbMunicipioComparendo.addItem("Seleccione un municipio");

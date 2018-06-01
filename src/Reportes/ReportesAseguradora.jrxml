@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="712c484b-711f-4fc5-b2ca-dbc093cbe8db">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[Select representante_legal, nombre, direccion, telefono from poryectofinaldesarrollo.aseguradora;]]>
+	</queryString>
+	<field name="representante_legal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="direccion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="88" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="369" height="35" uuid="11c0a738-89d2-4f19-b853-d8b057e11d9d"/>
+				<textElement textAlignment="Justified">
+					<font size="24" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE ASEGURADORA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="35" width="205" height="15" uuid="69f5ce52-ad1a-4517-886d-8c53ce19bbd8"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Av. Bolivar # 3-11]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="65" width="205" height="15" uuid="b3188d9b-474a-4236-b4f4-7fd72889f63b"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[7451101]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="50" width="205" height="15" uuid="f36e9ea3-6fa6-4ad8-bf75-54ded3d31769"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Armenia - Quindío]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="41" width="162" height="20" uuid="ebde2044-452b-4af1-ae35-447077cce415"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Representante legal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="41" width="100" height="20" uuid="dd14cc97-e14c-4f85-8e07-2f3e6e6c55a7"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="181" y="41" width="100" height="20" uuid="7050e0a9-1db7-4e23-9568-09c825c5cece"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="304" y="41" width="100" height="20" uuid="25450556-15fd-4c1a-a3b0-e958f2104906"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Direccion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="440" y="0" width="100" height="20" uuid="a116e32b-c460-4bb2-b755-ead8f5fd9fff"/>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="0" width="100" height="20" uuid="3763658e-f8e0-4dda-b231-ee275dbc2c7c"/>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="0" width="162" height="20" uuid="377c5d78-15d5-4e62-9c13-0cab07012f8c"/>
+				<textFieldExpression><![CDATA[$F{representante_legal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="181" y="0" width="100" height="20" uuid="2f7e135e-a8d0-4833-9c91-77ec64beb17f"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

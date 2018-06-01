@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="16f7ea19-ce8a-4422-bfd9-cde42e5ac34e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[Select tipo_infraccion, municipio, fecha_hora, licencia_cond_num_lic_cond from poryectofinaldesarrollo.comparendo]]>
+	</queryString>
+	<field name="tipo_infraccion" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="municipio" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_hora" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="licencia_cond_num_lic_cond" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="83" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="0" width="369" height="35" uuid="f6af4487-8ca6-4fe4-bf6a-20f1166baa57"/>
+				<textElement textAlignment="Justified">
+					<font size="24" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE COMPARENDO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="35" width="205" height="15" uuid="793a6c79-bc03-4de3-9b8f-93885fa21867"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Av. Bolivar # 3-11]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="65" width="205" height="15" uuid="26de8b7d-f79c-481d-8794-79588b2a2642"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[7451101]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="50" width="205" height="15" uuid="3bfde3c6-40be-4aca-b8b1-712265d93ae4"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Armenia - Quindío]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="41" width="122" height="20" uuid="f2d6d697-cf4b-4fa7-b453-3c06809a18d4"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo-infraccion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="41" width="126" height="20" uuid="bab68e42-db9e-4303-b369-c35560daaaa9"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Numero-licencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="41" width="100" height="20" uuid="c26acdc9-8440-4f7c-944f-f2e51f3139e8"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Municipio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="243" y="41" width="100" height="20" uuid="cc6f1043-3295-4217-8452-aab8c4fe8e1a"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="343" y="11" width="169" height="20" uuid="a9e5430a-5d5e-4ff8-8b9a-d248fed3b4e3"/>
+				<textFieldExpression><![CDATA[$F{licencia_cond_num_lic_cond}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="243" y="11" width="100" height="20" uuid="39ee8cd4-e725-4e6e-b712-3a7d7f0ebc10"/>
+				<textFieldExpression><![CDATA[$F{fecha_hora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="143" y="10" width="100" height="20" uuid="52b9c9fb-cb4d-418e-9b43-abdbdd698319"/>
+				<textFieldExpression><![CDATA[$F{municipio}+""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="10" width="122" height="20" uuid="fff48e8d-3b99-4d91-8bde-739940cb4717"/>
+				<textFieldExpression><![CDATA[$F{tipo_infraccion}+""]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
