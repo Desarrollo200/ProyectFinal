@@ -1452,7 +1452,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbMunicipioComparendoActionPerformed
 
-<<<<<<< HEAD
+
     private void bFiltrarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFiltrarVehiculoActionPerformed
        String filtro = tfFiltroVehiculo.getText();
         int combo= cbConsultasVehiculo.getSelectedIndex();
@@ -1545,11 +1545,10 @@ if(cbConsultasLicencia.getSelectedIndex() == 1){
     private void cbConsultasComparendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbConsultasComparendoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbConsultasComparendoActionPerformed
-=======
+
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 ctlReporte.generarReporte();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
->>>>>>> 51226ec3157511f8a4afe8277e65eadfc66da0c6
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
