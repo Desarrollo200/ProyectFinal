@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import DAO.consultasDAO;
 import DAO.daoComparendo;
 import DAO.daoLicencia;
 import DAO.genericDAO;
@@ -50,5 +51,16 @@ public class ctlLicenciaConduccion {
           daoLicencia licDAO = new daoLicencia();
         return licDAO.listarLicenciasDeCiudadano(cedula);  
     }
+    
+     public DefaultTableModel SolicitudListarLicenciasCed(String numero) {
+          consultasDAO daoCon = new consultasDAO();
+        return daoCon.listarLicenciNumLicencia(numero);  
+    }
+    
+      public DefaultTableModel SolicitudListarLicenciasFecha(String fecha) {
+          consultasDAO daoCon = new consultasDAO();
+        return daoCon.listarLicenciasFechaExp(fecha);  
+    }
+    
     
 }

@@ -5,10 +5,12 @@
  */
 package controlador;
 
+import DAO.consultasDAO;
 import DAO.genericDAO;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import javax.swing.table.DefaultTableModel;
 import modelo.Ciudadano;
 import modelo.Conexion;
 
@@ -41,6 +43,26 @@ public class ctlCiudadano {
         return genDAO.guardar(json, nombreTabla);
     }
     
-  
+    
+    
+    public DefaultTableModel solicitudListarTodosCiu() {
+       consultasDAO daoConsultas = new consultasDAO();
+       return daoConsultas.CiudadanosTodos();  
+    }
+    
+   public DefaultTableModel solicitudListarCiuID(String cedula) {
+       consultasDAO daoConsultas = new consultasDAO();
+       return daoConsultas.CiudadanoPorID(cedula);  
+    }
+   
+    public DefaultTableModel solicitudListarCiuMuni(String ciudad) {
+       consultasDAO daoConsultas = new consultasDAO();
+       return daoConsultas.CiudadanoPorCiudad(ciudad);  
+    }
+    
+     public DefaultTableModel solicitudListarCiuGenero(String genero) {
+       consultasDAO daoConsultas = new consultasDAO();
+       return daoConsultas.CiudadanoPorGenero(genero);  
+    }
 
 }

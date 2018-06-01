@@ -6,6 +6,7 @@
 package controlador;
 
 
+import DAO.consultasDAO;
 import javax.swing.table.DefaultTableModel;
 import DAO.daoComparendo;
 import DAO.genericDAO;
@@ -64,6 +65,19 @@ public class ctlComparendo {
      public DefaultTableModel solicitudListarDeCiudadano(String cedula) {
        daoComparendo comparendoDAO = new daoComparendo();
         return comparendoDAO.listarComparendosDeCiudadanos(cedula);  
+    }
+     
+     public DefaultTableModel solicitudListarCompMun(String municipio) {
+       consultasDAO consDAO = new consultasDAO();
+        return consDAO.listarComparendosMunicipio(municipio);  
+    }
+     public DefaultTableModel solicitudListarComparendoFecha(String fecha) {
+       consultasDAO consDAO = new consultasDAO();
+        return consDAO.listarComparendosFecha(fecha);  
+    }
+     public DefaultTableModel solicitudListarComparendoNumLic(String lic) {
+       consultasDAO consDAO = new consultasDAO();
+        return consDAO.listarComparendosNumLic(lic);  
     }
      
 }

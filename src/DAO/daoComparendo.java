@@ -126,7 +126,7 @@ public class daoComparendo extends Conexion {
         return depar;
     }
 
-    public DefaultTableModel listarComparendos() {
+  public DefaultTableModel listarComparendos() {
          DefaultTableModel modelTabla;
         String nombreColumnas[] = {"Id Comparendo", "Tipo Comparendo", "Municipio", "Departamento", "Fecha y Hora", "Licencia de Conduccion"};
         modelTabla = new DefaultTableModel(new Object[][]{}, nombreColumnas);

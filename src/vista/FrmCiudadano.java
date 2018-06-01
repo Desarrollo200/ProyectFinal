@@ -6,6 +6,7 @@
 package vista;
 
 import DAO.consultasDAO;
+import controlador.ctlCiudadano;
 import controlador.ctlComparendo;
 import controlador.ctlLicenciaConduccion;
 import controlador.ctlVehiculo;
@@ -27,6 +28,7 @@ public class FrmCiudadano extends javax.swing.JFrame {
     ctlComparendo ctlComp;
     ctlVehiculo ctlVehi;
     ctlLicenciaConduccion ctlLice;
+    ctlCiudadano ctlCiu;
     
     public FrmCiudadano(String user) {
         initComponents();
@@ -37,10 +39,12 @@ public class FrmCiudadano extends javax.swing.JFrame {
         ctlVehi = new ctlVehiculo();
         ctlComp = new ctlComparendo();
         ctlLice = new ctlLicenciaConduccion();
+        ctlCiu = new ctlCiudadano();
         listarVehiculo();
         listarComparendo();
         listarLicencia();
-   
+        listarCiudadanos();
+
     }
 
    
@@ -64,6 +68,14 @@ public class FrmCiudadano extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblLicenciaCiudadano = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        bFiltrarCiudadanoTodo = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblFiltrarCiudadano = new javax.swing.JTable();
+        bFiltrarCiudadano = new javax.swing.JButton();
+        tfFiltroCiudadano = new javax.swing.JTextField();
+        cbConsultasCiudadano = new javax.swing.JComboBox<>();
+        jLabel33 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         btnCerrarSession = new javax.swing.JButton();
         txtC = new javax.swing.JTextField();
@@ -97,7 +109,7 @@ public class FrmCiudadano extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 920, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -105,7 +117,7 @@ public class FrmCiudadano extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Vehiculo", jPanel1);
@@ -137,7 +149,7 @@ public class FrmCiudadano extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 920, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -145,7 +157,7 @@ public class FrmCiudadano extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Comparendos", jPanel3);
@@ -177,7 +189,7 @@ public class FrmCiudadano extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 920, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -185,10 +197,102 @@ public class FrmCiudadano extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Licencias", jPanel2);
+
+        bFiltrarCiudadanoTodo.setFont(new java.awt.Font("News706 BT", 0, 18)); // NOI18N
+        bFiltrarCiudadanoTodo.setText("Listar Todo");
+        bFiltrarCiudadanoTodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bFiltrarCiudadanoTodoActionPerformed(evt);
+            }
+        });
+
+        tblFiltrarCiudadano.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(tblFiltrarCiudadano);
+
+        bFiltrarCiudadano.setFont(new java.awt.Font("News706 BT", 0, 18)); // NOI18N
+        bFiltrarCiudadano.setText("Filtrar");
+        bFiltrarCiudadano.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bFiltrarCiudadanoActionPerformed(evt);
+            }
+        });
+
+        tfFiltroCiudadano.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfFiltroCiudadanoActionPerformed(evt);
+            }
+        });
+
+        cbConsultasCiudadano.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione Filtro", "Documento de identidad", "Ciudad de nacimiento", "Genero" }));
+        cbConsultasCiudadano.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbConsultasCiudadanoActionPerformed(evt);
+            }
+        });
+
+        jLabel33.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
+        jLabel33.setText("Filtrar por:");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel33))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tfFiltroCiudadano, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbConsultasCiudadano, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(bFiltrarCiudadano)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(bFiltrarCiudadanoTodo)
+                .addGap(246, 246, 246))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel33)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbConsultasCiudadano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfFiltroCiudadano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bFiltrarCiudadano))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bFiltrarCiudadanoTodo)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Consultas Ciudadano", jPanel4);
 
         jLabel19.setFont(new java.awt.Font("Myriad Pro Light", 1, 36)); // NOI18N
         jLabel19.setText("Ciudadano");
@@ -212,9 +316,7 @@ public class FrmCiudadano extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCerrarSession, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 27, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,8 +327,8 @@ public class FrmCiudadano extends javax.swing.JFrame {
                     .addComponent(btnCerrarSession)
                     .addComponent(txtC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -236,6 +338,33 @@ public class FrmCiudadano extends javax.swing.JFrame {
        new FrmInicio().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCerrarSessionActionPerformed
+
+    private void bFiltrarCiudadanoTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFiltrarCiudadanoTodoActionPerformed
+        tblFiltrarCiudadano.setModel(ctlCiu.solicitudListarTodosCiu());
+    }//GEN-LAST:event_bFiltrarCiudadanoTodoActionPerformed
+
+    private void bFiltrarCiudadanoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFiltrarCiudadanoActionPerformed
+        String filtro = tfFiltroCiudadano.getText();
+        int combo= cbConsultasCiudadano.getSelectedIndex();
+
+        if (combo==1){
+            tblFiltrarCiudadano.setModel(ctlCiu.solicitudListarCiuID(filtro));
+        }else if(combo==2){
+            tblFiltrarCiudadano.setModel(ctlCiu.solicitudListarCiuMuni(filtro));
+        }else if(combo==3){
+            tblFiltrarCiudadano.setModel(ctlCiu.solicitudListarCiuGenero(filtro));
+        }else{
+            JOptionPane.showMessageDialog(null, "Ingrese dato a filtrar");
+        }
+    }//GEN-LAST:event_bFiltrarCiudadanoActionPerformed
+
+    private void tfFiltroCiudadanoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFiltroCiudadanoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfFiltroCiudadanoActionPerformed
+
+    private void cbConsultasCiudadanoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbConsultasCiudadanoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbConsultasCiudadanoActionPerformed
 
     
     private void listarVehiculo() {
@@ -257,20 +386,31 @@ public class FrmCiudadano extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bFiltrarCiudadano;
+    private javax.swing.JButton bFiltrarCiudadanoTodo;
     private javax.swing.JButton btnCerrarSession;
+    private javax.swing.JComboBox<String> cbConsultasCiudadano;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tblComparendoCiudadano;
+    private javax.swing.JTable tblFiltrarCiudadano;
     private javax.swing.JTable tblLicenciaCiudadano;
     private javax.swing.JTable tblVehiculoCiudadano;
+    private javax.swing.JTextField tfFiltroCiudadano;
     private javax.swing.JTextField txtC;
     // End of variables declaration//GEN-END:variables
 
-    
+     private void listarCiudadanos() {
+        tblFiltrarCiudadano.setModel(ctlCiu.solicitudListarTodosCiu());
+ 
+    }
 }

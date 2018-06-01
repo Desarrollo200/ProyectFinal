@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import DAO.consultasDAO;
 import DAO.daoVehiculo;
 import DAO.genericDAO;
 import DAO.vehiculoDAO;
@@ -67,5 +68,35 @@ public class ctlVehiculo {
      public DefaultTableModel solicitudListarDeCiudadano(String cedula) {
        daoVehiculo vehiculoDAO = new daoVehiculo();
         return vehiculoDAO.listarVehiculoCiudadano(cedula);  
+    }
+     
+       public DefaultTableModel solicitudListarVehiPlaca(String placa) {
+       consultasDAO daoConsultas = new consultasDAO();
+       return daoConsultas.vehiculosPorPlaca(placa);  
+    }
+       
+       public DefaultTableModel solicitudListarVehiClase(String clase) {
+       consultasDAO daoConsultas = new consultasDAO();
+       return daoConsultas.vehiculosPorClase(clase);  
+    }
+       
+       public DefaultTableModel solicitudListarVehiColor(String color) {
+       consultasDAO daoConsultas = new consultasDAO();
+       return daoConsultas.vehiculosPorColor(color);  
+    }
+       
+       public DefaultTableModel solicitudListarVehiEstado(String estado) {
+       consultasDAO daoConsultas = new consultasDAO();
+       return daoConsultas.vehiculosPorEstado(estado);  
+    }
+       
+       public DefaultTableModel solicitudListarVehiModelo(String modelo) {
+       consultasDAO daoConsultas = new consultasDAO();
+       return daoConsultas.vehiculosPorModelo(modelo);  
+    }
+       
+       public DefaultTableModel solicitudListarVehitipoCombus(String tipoComb) {
+       consultasDAO daoConsultas = new consultasDAO();
+       return daoConsultas.vehiculosPorTipoCombustible(tipoComb);  
     }
 }

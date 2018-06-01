@@ -5,8 +5,12 @@
  */
 package DAO;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JComboBox;
+import javax.swing.table.DefaultTableModel;
 import modelo.Ciudadano;
 import modelo.Aseguradora;
 
@@ -300,6 +304,486 @@ public class consultasDAO extends Conexion{
         }
         return veh;
     }
-     
 
+     public DefaultTableModel vehiculosPorPlaca(String placa) {
+         DefaultTableModel modelTabla;
+        String nombreColumnas[] = {"Placa", "Licencia Transito", "Tipo Servicio", "Clase", "Estado", "Modelo", "Color", "Chasis", "Cilindrage", "Conbustible", "Fecha Matricula","Num Pasajeros", "Poliza", "Seguro", "Propietario"};
+        modelTabla = new DefaultTableModel(new Object[][]{}, nombreColumnas);
+
+        String consulta = "select v.placa,v.licencia_transito,ts.nombre,cv.nombre,ev.nombre,m.nombre,c.nombre,v.numero_chasis,v.cilindrage,tc.nombre,v.fecha_matricula,v.num_pasajeros,v.numero_poliza,tse.nombre,v.propietario_id from vehiculo v join tipo_servicio ts on ts.id=v.tipo_servicio join clase_vehiculo cv on v.clase_vehiculo=cv.id join estado_vehiculo ev on v.estado_vehiculo=ev.id join modelo m on v.modelo_id=m.id join color c on v.color_id=c.id join tipo_combustible tc on tc.id=v.tipo_combustible_id join seguro s on s.numero_poliza=v.numero_poliza join tipo_seguro tse on s.tipo_seguro=tse.id join propietario pro on pro.id=v.propietario_id join ciudadano ciu on ciu.numero_identidad=pro.ciudadano where v.placa='"+placa+"';";
+    
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+                modelTabla.addRow(new Object[]{
+                    resultadoDB.getString("v.placa"),
+                    resultadoDB.getString("v.licencia_transito"),
+                    resultadoDB.getString("ts.nombre"),
+                    resultadoDB.getString("cv.nombre"),
+                    resultadoDB.getString("ev.nombre"),
+                    resultadoDB.getString("m.nombre"),
+                    resultadoDB.getString("c.nombre"),
+                    resultadoDB.getString("v.numero_chasis"),
+                    resultadoDB.getString("v.cilindrage"),
+                    resultadoDB.getString("tc.nombre"),
+                    resultadoDB.getString("v.fecha_matricula"),
+                    resultadoDB.getString("v.num_pasajeros"),
+                    resultadoDB.getString("v.numero_poliza"),
+                    resultadoDB.getString("tse.nombre"),
+                    resultadoDB.getString("v.propietario_id")
+                    });
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto");
+            ex.printStackTrace();
+        }
+        return modelTabla;
+    }
+     
+     public DefaultTableModel vehiculosPorClase(String clase) {
+         DefaultTableModel modelTabla;
+        String nombreColumnas[] = {"Placa", "Licencia Transito", "Tipo Servicio", "Clase", "Estado", "Modelo", "Color", "Chasis", "Cilindrage", "Conbustible", "Fecha Matricula","Num Pasajeros", "Poliza", "Seguro", "Propietario"};
+        modelTabla = new DefaultTableModel(new Object[][]{}, nombreColumnas);
+
+        String consulta = "select v.placa,v.licencia_transito,ts.nombre,cv.nombre,ev.nombre,m.nombre,c.nombre,v.numero_chasis,v.cilindrage,tc.nombre,v.fecha_matricula,v.num_pasajeros,v.numero_poliza,tse.nombre,v.propietario_id from vehiculo v join tipo_servicio ts on ts.id=v.tipo_servicio join clase_vehiculo cv on v.clase_vehiculo=cv.id join estado_vehiculo ev on v.estado_vehiculo=ev.id join modelo m on v.modelo_id=m.id join color c on v.color_id=c.id join tipo_combustible tc on tc.id=v.tipo_combustible_id join seguro s on s.numero_poliza=v.numero_poliza join tipo_seguro tse on s.tipo_seguro=tse.id join propietario pro on pro.id=v.propietario_id join ciudadano ciu on ciu.numero_identidad=pro.ciudadano where cv.nombre='"+clase+"';";
+    
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+                modelTabla.addRow(new Object[]{
+                    resultadoDB.getString("v.placa"),
+                    resultadoDB.getString("v.licencia_transito"),
+                    resultadoDB.getString("ts.nombre"),
+                    resultadoDB.getString("cv.nombre"),
+                    resultadoDB.getString("ev.nombre"),
+                    resultadoDB.getString("m.nombre"),
+                    resultadoDB.getString("c.nombre"),
+                    resultadoDB.getString("v.numero_chasis"),
+                    resultadoDB.getString("v.cilindrage"),
+                    resultadoDB.getString("tc.nombre"),
+                    resultadoDB.getString("v.fecha_matricula"),
+                    resultadoDB.getString("v.num_pasajeros"),
+                    resultadoDB.getString("v.numero_poliza"),
+                    resultadoDB.getString("tse.nombre"),
+                    resultadoDB.getString("v.propietario_id")
+                    });
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto");
+            ex.printStackTrace();
+        }
+        return modelTabla;
+    }
+     
+      public DefaultTableModel vehiculosPorEstado(String estado) {
+         DefaultTableModel modelTabla;
+        String nombreColumnas[] = {"Placa", "Licencia Transito", "Tipo Servicio", "Clase", "Estado", "Modelo", "Color", "Chasis", "Cilindrage", "Conbustible", "Fecha Matricula","Num Pasajeros", "Poliza", "Seguro", "Propietario"};
+        modelTabla = new DefaultTableModel(new Object[][]{}, nombreColumnas);
+
+        String consulta = "select v.placa,v.licencia_transito,ts.nombre,cv.nombre,ev.nombre,m.nombre,c.nombre,v.numero_chasis,v.cilindrage,tc.nombre,v.fecha_matricula,v.num_pasajeros,v.numero_poliza,tse.nombre,v.propietario_id from vehiculo v join tipo_servicio ts on ts.id=v.tipo_servicio join clase_vehiculo cv on v.clase_vehiculo=cv.id join estado_vehiculo ev on v.estado_vehiculo=ev.id join modelo m on v.modelo_id=m.id join color c on v.color_id=c.id join tipo_combustible tc on tc.id=v.tipo_combustible_id join seguro s on s.numero_poliza=v.numero_poliza join tipo_seguro tse on s.tipo_seguro=tse.id join propietario pro on pro.id=v.propietario_id join ciudadano ciu on ciu.numero_identidad=pro.ciudadano where ev.nombre='"+estado+"';";
+    
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+                modelTabla.addRow(new Object[]{
+                    resultadoDB.getString("v.placa"),
+                    resultadoDB.getString("v.licencia_transito"),
+                    resultadoDB.getString("ts.nombre"),
+                    resultadoDB.getString("cv.nombre"),
+                    resultadoDB.getString("ev.nombre"),
+                    resultadoDB.getString("m.nombre"),
+                    resultadoDB.getString("c.nombre"),
+                    resultadoDB.getString("v.numero_chasis"),
+                    resultadoDB.getString("v.cilindrage"),
+                    resultadoDB.getString("tc.nombre"),
+                    resultadoDB.getString("v.fecha_matricula"),
+                    resultadoDB.getString("v.num_pasajeros"),
+                    resultadoDB.getString("v.numero_poliza"),
+                    resultadoDB.getString("tse.nombre"),
+                    resultadoDB.getString("v.propietario_id")
+                    });
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto");
+            ex.printStackTrace();
+        }
+        return modelTabla;
+    }
+      
+       public DefaultTableModel vehiculosPorColor(String color) {
+         DefaultTableModel modelTabla;
+        String nombreColumnas[] = {"Placa", "Licencia Transito", "Tipo Servicio", "Clase", "Estado", "Modelo", "Color", "Chasis", "Cilindrage", "Conbustible", "Fecha Matricula","Num Pasajeros", "Poliza", "Seguro", "Propietario"};
+        modelTabla = new DefaultTableModel(new Object[][]{}, nombreColumnas);
+
+        String consulta = "select v.placa,v.licencia_transito,ts.nombre,cv.nombre,ev.nombre,m.nombre,c.nombre,v.numero_chasis,v.cilindrage,tc.nombre,v.fecha_matricula,v.num_pasajeros,v.numero_poliza,tse.nombre,v.propietario_id from vehiculo v join tipo_servicio ts on ts.id=v.tipo_servicio join clase_vehiculo cv on v.clase_vehiculo=cv.id join estado_vehiculo ev on v.estado_vehiculo=ev.id join modelo m on v.modelo_id=m.id join color c on v.color_id=c.id join tipo_combustible tc on tc.id=v.tipo_combustible_id join seguro s on s.numero_poliza=v.numero_poliza join tipo_seguro tse on s.tipo_seguro=tse.id join propietario pro on pro.id=v.propietario_id join ciudadano ciu on ciu.numero_identidad=pro.ciudadano where c.nombre='"+color+"';";
+    
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+                modelTabla.addRow(new Object[]{
+                    resultadoDB.getString("v.placa"),
+                    resultadoDB.getString("v.licencia_transito"),
+                    resultadoDB.getString("ts.nombre"),
+                    resultadoDB.getString("cv.nombre"),
+                    resultadoDB.getString("ev.nombre"),
+                    resultadoDB.getString("m.nombre"),
+                    resultadoDB.getString("c.nombre"),
+                    resultadoDB.getString("v.numero_chasis"),
+                    resultadoDB.getString("v.cilindrage"),
+                    resultadoDB.getString("tc.nombre"),
+                    resultadoDB.getString("v.fecha_matricula"),
+                    resultadoDB.getString("v.num_pasajeros"),
+                    resultadoDB.getString("v.numero_poliza"),
+                    resultadoDB.getString("tse.nombre"),
+                    resultadoDB.getString("v.propietario_id")
+                    });
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto");
+            ex.printStackTrace();
+        }
+        return modelTabla;
+    }
+       
+        public DefaultTableModel vehiculosPorTipoCombustible (String tipoCombus) {
+         DefaultTableModel modelTabla;
+        String nombreColumnas[] = {"Placa", "Licencia Transito", "Tipo Servicio", "Clase", "Estado", "Modelo", "Color", "Chasis", "Cilindrage", "Conbustible", "Fecha Matricula","Num Pasajeros", "Poliza", "Seguro", "Propietario"};
+        modelTabla = new DefaultTableModel(new Object[][]{}, nombreColumnas);
+
+        String consulta = "select v.placa,v.licencia_transito,ts.nombre,cv.nombre,ev.nombre,m.nombre,c.nombre,v.numero_chasis,v.cilindrage,tc.nombre,v.fecha_matricula,v.num_pasajeros,v.numero_poliza,tse.nombre,v.propietario_id from vehiculo v join tipo_servicio ts on ts.id=v.tipo_servicio join clase_vehiculo cv on v.clase_vehiculo=cv.id join estado_vehiculo ev on v.estado_vehiculo=ev.id join modelo m on v.modelo_id=m.id join color c on v.color_id=c.id join tipo_combustible tc on tc.id=v.tipo_combustible_id join seguro s on s.numero_poliza=v.numero_poliza join tipo_seguro tse on s.tipo_seguro=tse.id join propietario pro on pro.id=v.propietario_id join ciudadano ciu on ciu.numero_identidad=pro.ciudadano where tc.nombre='"+tipoCombus+"';";
+    
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+                modelTabla.addRow(new Object[]{
+                    resultadoDB.getString("v.placa"),
+                    resultadoDB.getString("v.licencia_transito"),
+                    resultadoDB.getString("ts.nombre"),
+                    resultadoDB.getString("cv.nombre"),
+                    resultadoDB.getString("ev.nombre"),
+                    resultadoDB.getString("m.nombre"),
+                    resultadoDB.getString("c.nombre"),
+                    resultadoDB.getString("v.numero_chasis"),
+                    resultadoDB.getString("v.cilindrage"),
+                    resultadoDB.getString("tc.nombre"),
+                    resultadoDB.getString("v.fecha_matricula"),
+                    resultadoDB.getString("v.num_pasajeros"),
+                    resultadoDB.getString("v.numero_poliza"),
+                    resultadoDB.getString("tse.nombre"),
+                    resultadoDB.getString("v.propietario_id")
+                    });
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto");
+            ex.printStackTrace();
+        }
+        return modelTabla;
+    }
+        
+         public DefaultTableModel vehiculosPorModelo(String modelo) {
+         DefaultTableModel modelTabla;
+        String nombreColumnas[] = {"Placa", "Licencia Transito", "Tipo Servicio", "Clase", "Estado", "Modelo", "Color", "Chasis", "Cilindrage", "Conbustible", "Fecha Matricula","Num Pasajeros", "Poliza", "Seguro", "Propietario"};
+        modelTabla = new DefaultTableModel(new Object[][]{}, nombreColumnas);
+
+        String consulta = "select v.placa,v.licencia_transito,ts.nombre,cv.nombre,ev.nombre,m.nombre,c.nombre,v.numero_chasis,v.cilindrage,tc.nombre,v.fecha_matricula,v.num_pasajeros,v.numero_poliza,tse.nombre,v.propietario_id from vehiculo v join tipo_servicio ts on ts.id=v.tipo_servicio join clase_vehiculo cv on v.clase_vehiculo=cv.id join estado_vehiculo ev on v.estado_vehiculo=ev.id join modelo m on v.modelo_id=m.id join color c on v.color_id=c.id join tipo_combustible tc on tc.id=v.tipo_combustible_id join seguro s on s.numero_poliza=v.numero_poliza join tipo_seguro tse on s.tipo_seguro=tse.id join propietario pro on pro.id=v.propietario_id join ciudadano ciu on ciu.numero_identidad=pro.ciudadano where m.nombre='"+modelo+"';";
+    
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+                modelTabla.addRow(new Object[]{
+                    resultadoDB.getString("v.placa"),
+                    resultadoDB.getString("v.licencia_transito"),
+                    resultadoDB.getString("ts.nombre"),
+                    resultadoDB.getString("cv.nombre"),
+                    resultadoDB.getString("ev.nombre"),
+                    resultadoDB.getString("m.nombre"),
+                    resultadoDB.getString("c.nombre"),
+                    resultadoDB.getString("v.numero_chasis"),
+                    resultadoDB.getString("v.cilindrage"),
+                    resultadoDB.getString("tc.nombre"),
+                    resultadoDB.getString("v.fecha_matricula"),
+                    resultadoDB.getString("v.num_pasajeros"),
+                    resultadoDB.getString("v.numero_poliza"),
+                    resultadoDB.getString("tse.nombre"),
+                    resultadoDB.getString("v.propietario_id")
+                    });
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto");
+            ex.printStackTrace();
+        }
+        return modelTabla;
+    }
+         
+ public DefaultTableModel CiudadanoPorID(String cedula) {
+         DefaultTableModel modelTabla;
+        String nombreColumnas[] = {"Identificacion", "Nombre", "Apellido", "Ciudad", "Genero"};
+        modelTabla = new DefaultTableModel(new Object[][]{}, nombreColumnas);
+
+        String consulta = "select c.numero_identidad,c.nombre,c.apellido,m.nombre,g.nombre from ciudadano c join municipio m on c.municipio_nacimiento=m.id join genero g on g.id=c.genero_id where c.numero_identidad='"+cedula+"';";
+    
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+                modelTabla.addRow(new Object[]{
+                    resultadoDB.getString("c.numero_identidad"),
+                    resultadoDB.getString("c.nombre"),
+                    resultadoDB.getString("c.apellido"),
+                    resultadoDB.getString("m.nombre"),
+                    resultadoDB.getString("g.nombre")
+                    });
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto");
+            ex.printStackTrace();
+        }
+        return modelTabla;
+    }
+ 
+ public DefaultTableModel CiudadanoPorCiudad(String ciudad) {
+         DefaultTableModel modelTabla;
+        String nombreColumnas[] = {"Identificacion", "Nombre", "Apellido", "Ciudad", "Genero"};
+        modelTabla = new DefaultTableModel(new Object[][]{}, nombreColumnas);
+
+        String consulta = "select c.numero_identidad,c.nombre,c.apellido,m.nombre,g.nombre from ciudadano c join municipio m on c.municipio_nacimiento=m.id join genero g on g.id=c.genero_id where m.nombre='"+ciudad+"';";
+    
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+                modelTabla.addRow(new Object[]{
+                    resultadoDB.getString("c.numero_identidad"),
+                    resultadoDB.getString("c.nombre"),
+                    resultadoDB.getString("c.apellido"),
+                    resultadoDB.getString("m.nombre"),
+                    resultadoDB.getString("g.nombre")
+                    });
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto");
+            ex.printStackTrace();
+        }
+        return modelTabla;
+    }
+ 
+ public DefaultTableModel CiudadanoPorGenero(String genero) {
+         DefaultTableModel modelTabla;
+        String nombreColumnas[] = {"Identificacion", "Nombre", "Apellido", "Ciudad", "Genero"};
+        modelTabla = new DefaultTableModel(new Object[][]{}, nombreColumnas);
+
+        String consulta = "select c.numero_identidad,c.nombre,c.apellido,m.nombre,g.nombre from ciudadano c join municipio m on c.municipio_nacimiento=m.id join genero g on g.id=c.genero_id where g.nombre='"+genero+"';";
+    
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+                modelTabla.addRow(new Object[]{
+                    resultadoDB.getString("c.numero_identidad"),
+                    resultadoDB.getString("c.nombre"),
+                    resultadoDB.getString("c.apellido"),
+                    resultadoDB.getString("m.nombre"),
+                    resultadoDB.getString("g.nombre")
+                    });
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto");
+            ex.printStackTrace();
+        }
+        return modelTabla;
+    }
+
+ 
+ public DefaultTableModel CiudadanosTodos() {
+         DefaultTableModel modelTabla;
+        String nombreColumnas[] = {"Identificacion", "Nombre", "Apellido", "Ciudad", "Genero"};
+        modelTabla = new DefaultTableModel(new Object[][]{}, nombreColumnas);
+
+        String consulta = "select c.numero_identidad,c.nombre,c.apellido,m.nombre,g.nombre from ciudadano c join municipio m on c.municipio_nacimiento=m.id join genero g on g.id=c.genero_id;";
+    
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+                modelTabla.addRow(new Object[]{
+                    resultadoDB.getString("c.numero_identidad"),
+                    resultadoDB.getString("c.nombre"),
+                    resultadoDB.getString("c.apellido"),
+                    resultadoDB.getString("m.nombre"),
+                    resultadoDB.getString("g.nombre")
+                    });
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto");
+            ex.printStackTrace();
+        }
+        return modelTabla;
+    }
+ 
+ 
+ public DefaultTableModel listarLicenciNumLicencia(String numero) {
+      DefaultTableModel modelTabla;
+        String nombreColumnas[] = {"Numero Licencia", "Fecha Expedicion", "Restricion del Conductor", "Organismo Expedidor", "Cedula Ciudadano"};
+        modelTabla = new DefaultTableModel(new Object[][]{}, nombreColumnas);
+
+        String consulta = "select num_licencia_cond,fecha_expedicion,restriccion_conductor,organismo_expedidor,numero_identidad_ciudadano from licencia_conduccion where num_licencia_cond='"+numero+"';";
+    
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+                modelTabla.addRow(new Object[]{
+                    resultadoDB.getString("num_licencia_cond"),
+                    resultadoDB.getString("fecha_expedicion"),
+                    resultadoDB.getString("restriccion_conductor"),
+                    resultadoDB.getString("organismo_expedidor"),
+                    resultadoDB.getString("numero_identidad_ciudadano")
+                    });
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto");
+            ex.printStackTrace();
+        }
+        return modelTabla;
+    }
+ 
+ public DefaultTableModel listarLicenciasFechaExp(String fecha) {
+      DefaultTableModel modelTabla;
+        String nombreColumnas[] = {"Numero Licencia", "Fecha Expedicion", "Restricion del Conductor", "Organismo Expedidor", "Cedula Ciudadano"};
+        modelTabla = new DefaultTableModel(new Object[][]{}, nombreColumnas);
+
+        String consulta = "select num_licencia_cond,fecha_expedicion,restriccion_conductor,organismo_expedidor,numero_identidad_ciudadano from licencia_conduccion where fecha_expedicion='"+fecha+"';";
+    
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+                modelTabla.addRow(new Object[]{
+                    resultadoDB.getString("num_licencia_cond"),
+                    resultadoDB.getString("fecha_expedicion"),
+                    resultadoDB.getString("restriccion_conductor"),
+                    resultadoDB.getString("organismo_expedidor"),
+                    resultadoDB.getString("numero_identidad_ciudadano")
+                    });
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto");
+            ex.printStackTrace();
+        }
+        return modelTabla;
+    }
+ 
+  public DefaultTableModel listarComparendos() {
+         DefaultTableModel modelTabla;
+        String nombreColumnas[] = {"Id Comparendo", "Tipo Comparendo", "Municipio", "Departamento", "Fecha y Hora", "Licencia de Conduccion"};
+        modelTabla = new DefaultTableModel(new Object[][]{}, nombreColumnas);
+
+        String consulta = "select c.id,ti.nombre, m.nombre,d.nombre,c.fecha_hora,c.licencia_cond_num_lic_cond from comparendo c join tipo_infraccion ti on ti.id=c.id join municipio m on m.id=c.municipio join departamento d on d.id=m.id;";
+    
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+                modelTabla.addRow(new Object[]{
+                    resultadoDB.getString("c.id"),
+                    resultadoDB.getString("ti.nombre"),
+                    resultadoDB.getString("m.nombre"),
+                    resultadoDB.getString("d.nombre"),
+                    resultadoDB.getString("c.fecha_hora"),
+                    resultadoDB.getString("c.licencia_cond_num_lic_cond")
+                    });
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto");
+            ex.printStackTrace();
+        }
+        return modelTabla;
+    }
+  
+   public DefaultTableModel listarComparendosMunicipio(String municipio) {
+         DefaultTableModel modelTabla;
+        String nombreColumnas[] = {"Id Comparendo", "Tipo Comparendo", "Municipio", "Departamento", "Fecha y Hora", "Licencia de Conduccion"};
+        modelTabla = new DefaultTableModel(new Object[][]{}, nombreColumnas);
+
+        String consulta = "select c.id,ti.nombre, m.nombre,d.nombre,c.fecha_hora,c.licencia_cond_num_lic_cond from comparendo c join tipo_infraccion ti on ti.id=c.id join municipio m on m.id=c.municipio join departamento d on d.id=m.id where m.nombre='"+municipio+"';";
+    
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+                modelTabla.addRow(new Object[]{
+                    resultadoDB.getString("c.id"),
+                    resultadoDB.getString("ti.nombre"),
+                    resultadoDB.getString("m.nombre"),
+                    resultadoDB.getString("d.nombre"),
+                    resultadoDB.getString("c.fecha_hora"),
+                    resultadoDB.getString("c.licencia_cond_num_lic_cond")
+                    });
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto");
+            ex.printStackTrace();
+        }
+        return modelTabla;
+    }
+   
+    public DefaultTableModel listarComparendosFecha(String fecha) {
+         DefaultTableModel modelTabla;
+        String nombreColumnas[] = {"Id Comparendo", "Tipo Comparendo", "Municipio", "Departamento", "Fecha y Hora", "Licencia de Conduccion"};
+        modelTabla = new DefaultTableModel(new Object[][]{}, nombreColumnas);
+
+        String consulta = "select c.id,ti.nombre, m.nombre,d.nombre,c.fecha_hora,c.licencia_cond_num_lic_cond from comparendo c join tipo_infraccion ti on ti.id=c.id join municipio m on m.id=c.municipio join departamento d on d.id=m.id where c.fecha_hora='"+fecha+"';";
+    
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+                modelTabla.addRow(new Object[]{
+                    resultadoDB.getString("c.id"),
+                    resultadoDB.getString("ti.nombre"),
+                    resultadoDB.getString("m.nombre"),
+                    resultadoDB.getString("d.nombre"),
+                    resultadoDB.getString("c.fecha_hora"),
+                    resultadoDB.getString("c.licencia_cond_num_lic_cond")
+                    });
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto");
+            ex.printStackTrace();
+        }
+        return modelTabla;
+    }
+    
+     public DefaultTableModel listarComparendosNumLic(String num) {
+         DefaultTableModel modelTabla;
+        String nombreColumnas[] = {"Id Comparendo", "Tipo Comparendo", "Municipio", "Departamento", "Fecha y Hora", "Licencia de Conduccion"};
+        modelTabla = new DefaultTableModel(new Object[][]{}, nombreColumnas);
+
+        String consulta = "select c.id,ti.nombre, m.nombre,d.nombre,c.fecha_hora,c.licencia_cond_num_lic_cond from comparendo c join tipo_infraccion ti on ti.id=c.id join municipio m on m.id=c.municipio join departamento d on d.id=m.id where c.licencia_cond_num_lic_cond='"+num+"';";
+    
+        super.ejecutarRetorno(consulta);
+
+        try {
+            while (resultadoDB.next()) {
+                modelTabla.addRow(new Object[]{
+                    resultadoDB.getString("c.id"),
+                    resultadoDB.getString("ti.nombre"),
+                    resultadoDB.getString("m.nombre"),
+                    resultadoDB.getString("d.nombre"),
+                    resultadoDB.getString("c.fecha_hora"),
+                    resultadoDB.getString("c.licencia_cond_num_lic_cond")
+                    });
+            }
+        } catch (SQLException ex) {
+            System.out.println("Esto se tosto");
+            ex.printStackTrace();
+        }
+        return modelTabla;
+    }
 }
