@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
@@ -25,3 +26,52 @@
         </group>
     </open-files>
 </project-private>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group name="las mas hp">
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/LicenciaConduccion.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/Propietario2.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/daoComparendo.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/TipoCombustible.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlLicenciaConduccion.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/TipoSangre.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/ComparendoUsuario.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/ClaseVehiculo.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/Propieatario.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlLicenciaCategoria.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/vista/FrmAdmin.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlComparendo.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/vista/FrmVehiculos.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/daoVehiculo.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/Conexion.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/CDA.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/vista/FrmCiudadano.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlAseguradora.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/Login.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/consultasDAO.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlLogin.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlPropietario.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlCiudadano.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlComparendoUsuario.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/vista/FrmInicio.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/Aseguradora.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/Comparendo.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/TipoInfraccion.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/modelo/LicenciaCategorias.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/vista/FrmConsecionario.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/vista/FrmRegistroCiudadanos.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/daoCDA.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlCDA.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/vehiculoDAO.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/controlador/ctlVehiculo.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/genericDAO.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/daoAseguradora.java</file>
+            <file>file:/C:/Users/XgioserX/Documents/GitHub/ProyectFina/src/DAO/daoCiudadano.java</file>
+        </group>
+        <group/>
+    </open-files>
+</project-private>
+>>>>>>> 51226ec3157511f8a4afe8277e65eadfc66da0c6

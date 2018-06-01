@@ -33,6 +33,7 @@ public class FrmCDA extends javax.swing.JFrame {
 
     public FrmCDA() {
         initComponents();
+        setLocationRelativeTo(null);
         ctlRe = new ctlRevision();
 
         txtCDA.setText(FrmInicio.tfUsuario.getText());

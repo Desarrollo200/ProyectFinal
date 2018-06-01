@@ -35,6 +35,7 @@ public class FrmAseguradora extends javax.swing.JFrame {
 
     public FrmAseguradora() {
         initComponents();
+        setLocationRelativeTo(null);
         genDAO = new genericDAO();
         conDAO = new consultasDAO();
         

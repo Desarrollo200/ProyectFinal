@@ -17,6 +17,7 @@ import controlador.ctlLicenciaCategoria;
 import controlador.ctlLicenciaConduccion;
 import controlador.ctlPropietario;
 import controlador.ctlVehiculo;
+import controladorReportes.CtlReporte;
 import java.text.DateFormat;
 import javax.swing.JOptionPane;
 import modelo.ClaseVehiculo;
@@ -46,7 +47,8 @@ public class FrmConsecionario extends javax.swing.JFrame {
     consultasDAO conDAO;
     daoCDA cdaDAO;
     daoAseguradora daoAse;
-
+     
+    CtlReporte ctlReporte;
     ctlVehiculo ctlVehiculo;
     ctlLicenciaConduccion ctlLicencia;
     ctlLicenciaCategoria ctlCategoria;
@@ -61,6 +63,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
 
     public FrmConsecionario(Login conceLog) {
         initComponents();
+        setLocationRelativeTo(null);
         genDAO = new genericDAO();
         conDAO = new consultasDAO();
         cdaDAO = new daoCDA();
@@ -73,6 +76,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
         ctlComp = new ctlComparendo();
         ctlCompUs = new ctlComparendoUsuario();
         ctlAse = new ctlAseguradora();
+        ctlReporte = new CtlReporte();
 
         //Cargas en combobox
         genDAO.cargarcb(cbTipoInfraccion, "tipo_infraccion", "nombre");
@@ -164,6 +168,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblVehiculoConse = new javax.swing.JTable();
         ChooserDocMatricula = new com.toedter.calendar.JDateChooser();
+        jButton4 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         cbPaisComparendo = new javax.swing.JComboBox<>();
         cbDeparComparendo = new javax.swing.JComboBox<>();
@@ -477,6 +482,13 @@ public class FrmConsecionario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblVehiculoConse);
 
+        jButton4.setText("Generar Reporte");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -538,7 +550,9 @@ public class FrmConsecionario extends javax.swing.JFrame {
                         .addComponent(jLabel17))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(218, 218, 218)
-                        .addComponent(jButton1))
+                        .addComponent(jButton1)
+                        .addGap(92, 92, 92)
+                        .addComponent(jButton4))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -614,7 +628,9 @@ public class FrmConsecionario extends javax.swing.JFrame {
                     .addComponent(jLabel14)
                     .addComponent(txtPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
@@ -1436,6 +1452,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbMunicipioComparendoActionPerformed
 
+<<<<<<< HEAD
     private void bFiltrarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFiltrarVehiculoActionPerformed
        String filtro = tfFiltroVehiculo.getText();
         int combo= cbConsultasVehiculo.getSelectedIndex();
@@ -1528,6 +1545,11 @@ if(cbConsultasLicencia.getSelectedIndex() == 1){
     private void cbConsultasComparendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbConsultasComparendoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbConsultasComparendoActionPerformed
+=======
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+ctlReporte.generarReporte();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+>>>>>>> 51226ec3157511f8a4afe8277e65eadfc66da0c6
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1564,6 +1586,7 @@ if(cbConsultasLicencia.getSelectedIndex() == 1){
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

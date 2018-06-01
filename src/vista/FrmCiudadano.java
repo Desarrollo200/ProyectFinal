@@ -32,6 +32,7 @@ public class FrmCiudadano extends javax.swing.JFrame {
     
     public FrmCiudadano(String user) {
         initComponents();
+        setLocationRelativeTo(null);
         txtC.setText(FrmInicio.tfUsuario.getText());
         txtC.setEnabled(false);
         
