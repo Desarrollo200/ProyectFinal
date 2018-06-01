@@ -1,194 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteUsuarios" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bdea1f76-398d-4445-a4bd-695c30f2bc55">
-	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
-	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" isBold="false" pdfFontName="Times-Bold">
-		<paragraph lineSpacing="Single"/>
-	</style>
-	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" isBold="false" pdfFontName="Times-Roman">
-		<paragraph lineSpacing="Single"/>
-	</style>
-	<style name="Column header" forecolor="#666666" fontName="Times New Roman" isBold="true">
-		<paragraph lineSpacing="Single"/>
-	</style>
-	<style name="Detail" mode="Transparent" fontName="Times New Roman">
-		<paragraph lineSpacing="Single"/>
-	</style>
-	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
-		<paragraph lineSpacing="Single"/>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
-			<style mode="Opaque" backcolor="#EEEFF0">
-				<paragraph lineSpacing="Single"/>
-			</style>
-		</conditionalStyle>
-	</style>
-	<style name="Table">
-		<box>
-			<pen lineWidth="1.0" lineColor="#000000"/>
-			<topPen lineWidth="1.0" lineColor="#000000"/>
-			<leftPen lineWidth="1.0" lineColor="#000000"/>
-			<bottomPen lineWidth="1.0" lineColor="#000000"/>
-			<rightPen lineWidth="1.0" lineColor="#000000"/>
-		</box>
-		<paragraph lineSpacing="Single"/>
-	</style>
-	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
-		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-		<paragraph lineSpacing="Single"/>
-	</style>
-	<style name="Table_CH" mode="Opaque" backcolor="#CACED0">
-		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-		<paragraph lineSpacing="Single"/>
-	</style>
-	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
-		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-		<paragraph lineSpacing="Single"/>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
-			<style backcolor="#D8D8D8">
-				<paragraph lineSpacing="Single"/>
-			</style>
-		</conditionalStyle>
-	</style>
-	<subDataset name="tableDataset" uuid="e4019bb7-e3d9-4e1c-8480-ced31850e821">
-		<queryString>
-			<![CDATA[]]>
-		</queryString>
-	</subDataset>
-	<queryString language="SQL">
-		<![CDATA[SELECT cedula, nombre, apellido, edad FROM usuarios]]>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ef2d0732-8469-44f6-b7f2-584cb9ff232e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[Select placa, clase_vehiculo, estado_vehiculo, color_id, tipo_combustible_id, modelo_id from poryectofinaldesarrollo.vehiculo]]>
 	</queryString>
-	<field name="cedula" class="java.lang.Integer"/>
-	<field name="nombre" class="java.lang.String"/>
-	<field name="apellido" class="java.lang.String"/>
-	<field name="edad" class="java.lang.Integer"/>
+	<field name="placa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="clase_vehiculo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado_vehiculo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="color_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo_combustible_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="modelo_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
 	<title>
-		<band height="196">
+		<band height="109" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="90" width="180" height="25" uuid="d486ad1d-522c-4d05-9010-730fc5708435">
-					<property name="local_mesure_unitheight" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement>
-					<font isBold="true"/>
-					<paragraph lineSpacing="Single"/>
+				<reportElement x="0" y="0" width="369" height="35" uuid="014269b7-4856-4176-8f13-b3efc1bd6f25"/>
+				<textElement textAlignment="Justified">
+					<font size="24" isBold="true" isItalic="true"/>
 				</textElement>
-				<text><![CDATA[Reporte Usuarios:]]></text>
+				<text><![CDATA[REPORTE CONSECIONARIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="115" width="180" height="15" uuid="e1e0a1d6-bc32-48aa-a119-df5d0fc98fa6"/>
-				<textElement>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[Institución Universitaria EAM]]></text>
-			</staticText>
-			<line>
-				<reportElement x="0" y="80" width="556" height="1" uuid="9b15e604-9340-40d0-a441-c7e569cbfada">
-					<property name="local_mesure_unitheight" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-			</line>
-			<staticText>
-				<reportElement x="0" y="130" width="120" height="15" uuid="322c9eb5-691e-4885-a293-a830607050c4"/>
-				<textElement>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[Company Address]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="145" width="120" height="15" uuid="05daa386-7abc-4a12-a255-5578098f8c37"/>
-				<textElement>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[Company state1]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="160" width="120" height="15" uuid="c920d343-3705-42ba-ae6d-ba7045fa8f9e"/>
-				<textElement>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[Company state 2]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="415" y="10" width="50" height="20" uuid="d2901a14-f078-4001-8568-f8f701e8c671"/>
-				<box rightPadding="4"/>
-				<textElement>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[Date:]]></text>
-			</staticText>
-			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="465" y="10" width="84" height="20" uuid="89244f54-b937-4075-ae90-9aaa804a37af"/>
-				<textElement>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
-			<image>
-				<reportElement x="0" y="0" width="65" height="60" uuid="385b3124-412f-4df0-93b1-2dce60e75732"/>
-				<imageExpression><![CDATA["invoice_logo.png"]]></imageExpression>
-			</image>
-			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="465" y="30" width="84" height="20" uuid="6c080349-94db-44b7-85ac-4b8460cd7a7e"/>
-				<textElement>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA["INV0001"]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="415" y="30" width="50" height="20" uuid="d5633e34-48b9-4d8b-bc2b-9c31804a7705"/>
-				<box rightPadding="4"/>
-				<textElement>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[Invoice #]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="95" y="0" width="210" height="25" uuid="3e956615-fa21-4ac5-82b5-85a3babaf577">
-					<property name="local_mesure_unitheight" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement>
-					<font isBold="true"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[Empresa XYZ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="95" y="55" width="205" height="15" uuid="7e7c8b91-4ab1-476d-9e41-f6e4c3eb9085"/>
-				<textElement>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[7451101]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="95" y="25" width="205" height="15" uuid="0053c75f-5d54-42a9-98db-95551ff9ea0e"/>
+				<reportElement x="0" y="35" width="205" height="15" uuid="6a80b283-4c64-4767-8e9d-b97b8eeadf65"/>
 				<textElement>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<text><![CDATA[Av. Bolivar # 3-11]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="95" y="40" width="205" height="15" uuid="307a52d6-ec69-4fc1-8aaa-c03311bcc700"/>
+				<reportElement x="0" y="65" width="205" height="15" uuid="414c3746-cb39-49dd-8189-926a224b033b"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[7451101]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="50" width="205" height="15" uuid="75a4e725-cf63-4378-979a-1f403b06a300"/>
 				<textElement>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
@@ -196,95 +59,87 @@
 			</staticText>
 		</band>
 	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
 	<columnHeader>
-		<band height="20">
+		<band height="54" splitType="Stretch">
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="0" y="0" width="138" height="20" forecolor="#000000" uuid="0305caca-a6ce-475e-b1be-a5b379e5a6ac"/>
+				<reportElement x="100" y="34" width="100" height="20" uuid="268f3e05-b22b-4fec-a54f-12b7b1c33794"/>
 				<textElement>
-					<font fontName="Arial" isBold="true"/>
-					<paragraph lineSpacing="Single"/>
+					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Cedula]]></text>
+				<text><![CDATA[Clase]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="138" y="0" width="138" height="20" forecolor="#000000" uuid="a5a1ae11-2def-449a-8335-80ed2ee9d53d"/>
+				<reportElement x="300" y="34" width="100" height="20" uuid="9d2ebf8f-0228-47af-a313-00b4da040764"/>
 				<textElement>
-					<font fontName="Arial" isBold="true"/>
-					<paragraph lineSpacing="Single"/>
+					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nombre]]></text>
+				<text><![CDATA[Color]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="276" y="0" width="138" height="20" forecolor="#000000" uuid="430f5f53-6418-4973-b206-b2442289aeff"/>
+				<reportElement x="200" y="34" width="100" height="20" uuid="c0ac9d14-edb1-494c-9112-28f59d7be15b"/>
 				<textElement>
-					<font fontName="Arial" isBold="true"/>
-					<paragraph lineSpacing="Single"/>
+					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Apellido]]></text>
+				<text><![CDATA[Estado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="414" y="0" width="138" height="20" forecolor="#000000" uuid="11dbb349-1cd2-4297-bd4f-99d28f7be1a7"/>
+				<reportElement x="0" y="34" width="100" height="20" uuid="3f5a4b68-e5b7-42b6-b2e6-970593cfe2f3"/>
 				<textElement>
-					<font fontName="Arial" isBold="true"/>
-					<paragraph lineSpacing="Single"/>
+					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Edad]]></text>
+				<text><![CDATA[Placa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="34" width="100" height="20" uuid="a9fa0681-c9e9-4063-ac4b-a7e8777c7af2"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Modelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="34" width="55" height="20" uuid="c0e2f49c-8a85-4c86-88e0-7c1885089110"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo Combustible]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="20">
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="0" y="0" width="138" height="20" uuid="b5925333-5640-42bd-8669-08dddde95501"/>
-				<textElement>
-					<font fontName="Arial" isBold="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="400" y="1" width="100" height="20" uuid="f8872d35-6dd6-4be6-8b55-4869a6b5ba4c"/>
+				<textFieldExpression><![CDATA[$F{modelo_id}+""]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="138" y="0" width="138" height="20" uuid="f67bc7f1-e312-48d5-8705-791cf005059f"/>
-				<textElement>
-					<font fontName="Arial" isBold="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			<textField>
+				<reportElement x="200" y="1" width="100" height="20" uuid="ca9dd20d-3fd6-4c78-8d57-2da7dfc6ff39"/>
+				<textFieldExpression><![CDATA[$F{estado_vehiculo}+""]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="276" y="0" width="138" height="20" uuid="bc14d6cf-4494-4839-a3a1-40964a2093dc"/>
-				<textElement>
-					<font fontName="Arial" isBold="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
+			<textField>
+				<reportElement x="300" y="1" width="100" height="20" uuid="b224b365-8d4d-4ec2-bb3b-45659f7dc234"/>
+				<textFieldExpression><![CDATA[$F{color_id}+""]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="414" y="0" width="138" height="20" uuid="3630d713-ffbd-486f-bd7a-652f94b6a876"/>
-				<textElement>
-					<font fontName="Arial" isBold="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{edad}]]></textFieldExpression>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="1e9b9cb7-446c-477b-95a4-8f64e5a7e9a4"/>
+				<textFieldExpression><![CDATA[$F{clase_vehiculo}+""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="1" width="100" height="20" uuid="d41888b7-eca5-4f52-87cb-8fab4cef5e5d"/>
+				<textFieldExpression><![CDATA[$F{placa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="0" width="55" height="20" uuid="d02620ec-de6f-4548-bfc5-e3cffe183713"/>
+				<textFieldExpression><![CDATA[$F{tipo_combustible_id}+""]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
-	<lastPageFooter>
-		<band height="177">
+	<columnFooter>
+		<band height="45" splitType="Stretch">
 			<staticText>
-				<reportElement positionType="Float" x="-1" y="30" width="261" height="101" uuid="312063fe-acb2-4685-9692-1d6952550667"/>
-				<box>
-					<topPen lineWidth="1.1" lineStyle="Dashed"/>
-					<leftPen lineWidth="1.1" lineStyle="Dashed"/>
-					<bottomPen lineWidth="1.1" lineStyle="Dashed"/>
-					<rightPen lineWidth="1.1" lineStyle="Dashed"/>
-				</box>
-				<textElement>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[Your notes here]]></text>
-			</staticText>
-			<staticText>
-				<reportElement positionType="Float" mode="Opaque" x="0" y="147" width="556" height="30" backcolor="#E6E8E9" uuid="69848721-f79c-45d4-acce-de85978f4bc9"/>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="0" width="556" height="30" backcolor="#E6E8E9" uuid="939ab536-ec1f-4988-b8f0-bb48feb79efb"/>
 				<textElement>
 					<font fontName="Serif" isItalic="true"/>
 					<paragraph lineSpacing="Single"/>
@@ -292,5 +147,11 @@
 				<text><![CDATA[THANKYOU FOR YOUR BUSINESS]]></text>
 			</staticText>
 		</band>
-	</lastPageFooter>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
 </jasperReport>

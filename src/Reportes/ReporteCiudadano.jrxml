@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cbc91546-c8d4-4d88-a391-45658a66d1cc">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[Select numero_identidad, municipio_nacimiento, municipio_residencia, genero_id from ciudadano;]]>
+	</queryString>
+	<field name="numero_identidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="municipio_nacimiento" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="municipio_residencia" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="genero_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="91" splitType="Stretch">
+			<staticText>
+				<reportElement x="15" y="0" width="369" height="35" uuid="0ebba093-a4df-4176-9f2a-41837189c7c5"/>
+				<textElement textAlignment="Justified">
+					<font size="24" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE CIUDADANO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="35" width="205" height="15" uuid="b42ae4ce-ddc5-42b7-8c2a-247e1a45d495"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Av. Bolivar # 3-11]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="65" width="205" height="15" uuid="a814d9b7-724f-48a3-9b75-735d09d344f0"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[7451101]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="50" width="205" height="15" uuid="e88c6e11-3ac1-4467-a3f5-70e2f49991eb"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Armenia - Quindío]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="33" width="100" height="20" uuid="34b0adde-9a74-4fc5-9d93-14ee940f0899"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="33" width="100" height="20" uuid="a1f8da3e-5f52-45d4-bb50-3078c9165a8a"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Genero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="113" y="33" width="100" height="20" uuid="1c7859ba-454d-4f8c-95c0-b1d192afcabf"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ciudad natal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="242" y="33" width="142" height="20" uuid="f0390b8d-5f78-4c6a-8f34-f9cdefe6d676"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ciudad residencia]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="396" y="1" width="100" height="20" uuid="3f604b0e-54a3-469e-adb0-9d65850ea909"/>
+				<textFieldExpression><![CDATA[$F{genero_id}+""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="1" width="142" height="20" uuid="2afc4d0b-ca14-4a09-90c2-74ede68c7af5"/>
+				<textFieldExpression><![CDATA[$F{municipio_residencia}+""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="0" width="100" height="20" uuid="77cc97ba-913c-484b-9f5f-ccd724e854b4"/>
+				<textFieldExpression><![CDATA[$F{municipio_nacimiento}+""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="1" width="100" height="20" uuid="0e0434d4-b8b2-441a-a74d-0191ccaa7ce6"/>
+				<textFieldExpression><![CDATA[$F{numero_identidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

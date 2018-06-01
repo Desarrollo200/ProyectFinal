@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7e8e9106-c188-4f6a-931f-e625ac93ebf9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[Select num_licencia_cond, fecha_expedicion from poryectofinaldesarrollo.licencia_conduccion]]>
+	</queryString>
+	<field name="num_licencia_cond" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_expedicion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="88" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="35" width="205" height="15" uuid="014b6932-733a-48bc-9f41-c43b999371c9"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Av. Bolivar # 3-11]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="65" width="205" height="15" uuid="b7bab3f5-d309-4bb9-8bf4-9d0cabc54be5"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[7451101]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="50" width="205" height="15" uuid="ad2e3252-1f64-45ea-9204-d8826a269f91"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Armenia - Quindío]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="369" height="35" uuid="e324a43f-3cf0-4156-bbca-5529f5d4abd4"/>
+				<textElement textAlignment="Justified">
+					<font size="24" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE LICENCIAS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="41" width="136" height="20" uuid="67e49e9f-3ee9-4f5d-9ec4-6e014387835c"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Numero licencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="168" y="41" width="142" height="20" uuid="c4795f7f-ed07-47f1-84d9-0fec30e1407f"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha expedicion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="11" y="0" width="110" height="20" uuid="252159ef-dc06-48ae-b29e-bd1ace675552"/>
+				<textFieldExpression><![CDATA[$F{num_licencia_cond}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="168" y="1" width="142" height="20" uuid="1c2b905c-6ab6-453d-8002-0c69eab7edc3"/>
+				<textFieldExpression><![CDATA[$F{fecha_expedicion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

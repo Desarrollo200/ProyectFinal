@@ -127,6 +127,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblLicenciaConse = new javax.swing.JTable();
         ChooserDocExpLic = new com.toedter.calendar.JDateChooser();
+        jButton5 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         txtVehiculoTraspaso = new javax.swing.JTextField();
@@ -194,6 +195,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
         txtCedulaCiuComp = new javax.swing.JTextField();
         btnAsignarCuiComparendo = new javax.swing.JButton();
         ChooserDocFechaComparendo = new com.toedter.calendar.JDateChooser();
+        jButton6 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel8 = new javax.swing.JPanel();
@@ -274,6 +276,13 @@ public class FrmConsecionario extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblLicenciaConse);
 
+        jButton5.setText("Genererar Reporte");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -304,12 +313,14 @@ public class FrmConsecionario extends javax.swing.JFrame {
                             .addComponent(txtNumeroCiudadano)
                             .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(271, 271, 271)
+                        .addContainerGap()
+                        .addComponent(jButton5)
+                        .addGap(168, 168, 168)
                         .addComponent(jButton2))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 811, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addContainerGap(464, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,7 +356,9 @@ public class FrmConsecionario extends javax.swing.JFrame {
                             .addComponent(jLabel25)
                             .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(12, 12, 12)
-                .addComponent(jButton2)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -715,6 +728,13 @@ public class FrmConsecionario extends javax.swing.JFrame {
             }
         });
 
+        jButton6.setText("Generar Reporte");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -751,7 +771,7 @@ public class FrmConsecionario extends javax.swing.JFrame {
                             .addComponent(cbTipoInfraccion, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 450, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 530, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel34)
@@ -778,7 +798,10 @@ public class FrmConsecionario extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtCedulaCiuComp, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(43, 43, 43)
-                                .addComponent(btnAsignarCuiComparendo)))
+                                .addComponent(btnAsignarCuiComparendo))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(jButton6)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(333, 333, 333)
@@ -844,7 +867,9 @@ public class FrmConsecionario extends javax.swing.JFrame {
                     .addComponent(cbMunicipioComparendo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28))
                 .addGap(18, 18, 18)
-                .addComponent(btnRegistrarComparendo)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegistrarComparendo)
+                    .addComponent(jButton6))
                 .addContainerGap(480, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
@@ -1547,8 +1572,20 @@ if(cbConsultasLicencia.getSelectedIndex() == 1){
     }//GEN-LAST:event_cbConsultasComparendoActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-ctlReporte.generarReporte();        // TODO add your handling code here:
+ctlReporte.generarReporteVehiculo();// TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+<<<<<<< HEAD
+=======
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+ctlReporte.generarReporteLicencias();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+      ctlReporte.generarReporteComparendo();// TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+>>>>>>> 6b37f1f2d35590f3a87c3e1763596c6c2c52de71
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1586,6 +1623,8 @@ ctlReporte.generarReporte();        // TODO add your handling code here:
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
